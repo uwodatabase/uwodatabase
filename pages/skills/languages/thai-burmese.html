@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thai/Burmese - My Database</title>
+<link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="loading" data-root="../../../" data-page="skills/languages.html">
+
+<!-- TOP BAR -->
+<div class="topbar"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR (built by ../../../menu.js) -->
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <div class="skill-row">
+    <div class="info-box skill-page">
+      <div class="skill-head">
+        <img class="skill-icon" src="../../../images/languages/thai-burmese.png" alt="">
+        <div>
+          <h1>Thai/Burmese</h1>
+          <div class="skill-cat">Languages</div>
+        </div>
+      </div>
+      <!-- Top-right corner button (natural size 40 x 24). Change the # to the page it should open -->
+      <a class="skill-corner-icon" href="#"><img src="../../../images/rqmts/refine-icon.png" alt="Refine"></a>
+      <p class="skill-desc">Ability to converse and read books. Used mainly in the Malay peninsula.</p>
+      <p class="skill-desc skill-extra">(text here)</p>
+
+      <!-- ============================================================
+           REQUIREMENTS PANEL
+           Each "slot" is an empty box. To fill it, paste an image line
+           inside it, for example:
+               <img src="../../../images/rqmts/tab.png" alt="">
+           (put your .png files in the folder images/rqmts/)
+           The numbers are plain text - just change them.
+           ============================================================ -->
+      <div class="rqmts">
+
+        <!-- Slot 1: "RQMTs" title image -->
+        <div class="slot rq-tab">
+          <img src="../../../images/rqmts/rqmts.png" alt="RQMTs">
+        </div>
+
+        <!-- Slots 2-4: the three Lv boxes (Adventure, Trade, Battle) + their numbers (use - when none).
+             Their image is already set in style.css (images/rqmts/rqmts-ui.png) - only change the numbers. -->
+        <div class="slot rq-lv rq-lv-1">
+          <span class="rq-num">-</span>
+        </div>
+        <div class="slot rq-lv rq-lv-2">
+          <span class="rq-num">-</span>
+        </div>
+        <div class="slot rq-lv rq-lv-3">
+          <span class="rq-num">-</span>
+        </div>
+
+        <!-- Slot 5: first item. In the img line below, replace ICON-NAME.png with your icon file name
+             (file in images/rqmts/, or change the folder in the path). While it says ICON-NAME nothing is shown. -->
+        <div class="slot rq-item">
+          <!-- <img src="../../../images/rqmts/item-bg.png" alt=""> -->
+          <img class="rq-item-icon" src="../../../images/rqmts/ICON-NAME.png" alt="">
+          <span class="rq-num">-</span>
+        </div>
+
+        <!-- Slot 5b: second item (same as slot 5: optional box image, item icon, number) -->
+        <div class="slot rq-item rq-item-2">
+          <img class="rq-item-icon" src="../../../images/rqmts/vigour-icon.png" alt="">
+          <span class="rq-num">-</span>
+        </div>
+
+        <!-- Slot 6: Location button (a link - change the # to the page it should open) -->
+        <a class="slot rq-location" href="#">
+          <img src="../../../images/rqmts/location.png" alt="Location">
+        </a>
+
+      </div>
+    </div>
+
+    <!-- LOCATION PANEL: hidden until the Location button is pressed (press again to hide).
+         Background image: images/rqmts/location-panel.png (441 x 273).
+         Each row = [icon] [Where to learn] [Name of NPC].
+           - Icon: in the row, delete the two comment marks around the img line and write your .png name
+             (put the file in images/rqmts/).
+           - Text: just change the words (the title at the top too: icon + skill name).
+           - Add or delete a whole loc-row block (a div) to add or remove a row. 7 rows fit; more will scroll.
+         IMPORTANT: never type the comment marks inside this note, it would end the note early. -->
+    <div class="loc-panel" id="loc-panel">
+      <img src="../../../images/rqmts/location-panel.png" alt="">
+      <!-- Top title of the panel: skill icon + skill name (change the image name and the text) -->
+      <div class="loc-title">
+        <img src="../../../images/languages/thai-burmese.png" alt="">
+        <span>Thai/Burmese</span>
+      </div>
+      <div class="loc-rows">
+        <div class="loc-row">
+          <span class="loc-icon"><!-- <img src="../../../images/rqmts/ICON-NAME.png" alt=""> --></span>
+          <span class="loc-city">(city 1)</span>
+          <span class="loc-npc">(NPC name)</span>
+        </div>
+        <div class="loc-row">
+          <span class="loc-icon"><!-- <img src="../../../images/rqmts/ICON-NAME.png" alt=""> --></span>
+          <span class="loc-city">(city 2)</span>
+          <span class="loc-npc">(NPC name)</span>
+        </div>
+        <div class="loc-row">
+          <span class="loc-icon"><!-- <img src="../../../images/rqmts/ICON-NAME.png" alt=""> --></span>
+          <span class="loc-city">(city 3)</span>
+          <span class="loc-npc">(NPC name)</span>
+        </div>
+        <div class="loc-row">
+          <span class="loc-icon"><!-- <img src="../../../images/rqmts/ICON-NAME.png" alt=""> --></span>
+          <span class="loc-city">(city 4)</span>
+          <span class="loc-npc">(NPC name)</span>
+        </div>
+        <div class="loc-row">
+          <span class="loc-icon"><!-- <img src="../../../images/rqmts/ICON-NAME.png" alt=""> --></span>
+          <span class="loc-city">(city 5)</span>
+          <span class="loc-npc">(NPC name)</span>
+        </div>
+        <div class="loc-row">
+          <span class="loc-icon"><!-- <img src="../../../images/rqmts/ICON-NAME.png" alt=""> --></span>
+          <span class="loc-city">(city 6)</span>
+          <span class="loc-npc">(NPC name)</span>
+        </div>
+        <div class="loc-row">
+          <span class="loc-icon"><!-- <img src="../../../images/rqmts/ICON-NAME.png" alt=""> --></span>
+          <span class="loc-city">(city 7)</span>
+          <span class="loc-npc">(NPC name)</span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+
+</div>
+
+<script src="../../../menu.js"></script>
+</body>
+</html>

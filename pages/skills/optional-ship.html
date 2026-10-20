@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Optional Ship - My Database</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+/* ===== POSITION SETTINGS: change the px values =====
+   --num-x  : moves ALL the skill numbers left or right
+              negative = left (e.g. -5px),  positive = right (e.g. 5px)
+   --desc-x : moves the whole DESCRIPTION text column left or right
+              negative = left (e.g. -30px), positive = right (e.g. 10px)
+   --row-h  : height of the two-skill rows                              */
+.item-table {
+  --num-x: -8px;
+  --desc-x: -110px;
+  --row-h: 70px;
+}
+
+/* Description column: the number column (4th) gets narrower/wider,
+   so the description text (5th) starts further left/right */
+.item-table td:nth-child(4) { width: calc(206px + var(--desc-x)); }
+
+.item-table tr.dual td { height: var(--row-h); }
+.item-table .skill-stack { display: flex; flex-direction: column; gap: 4px; }
+.item-table .skill-num {
+  position: relative;
+  left: var(--num-x);
+}
+.item-table .skill-stack .skill-num {
+  display: block;
+  height: 28px;
+  line-height: 28px;
+}
+</style>
+</head>
+<body class="loading" data-root="../../">
+
+<!-- TOP BAR -->
+<div class="topbar"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR (built by ../../menu.js) -->
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <!-- PAGE TITLE BANNER -->
+    <div class="page-title-wrapper" style="position: relative; top: -26px; left: -14px;">
+      <img class="page-title-img" src="../../images/tittle-optional-ship.png" alt="Optional Ship">
+    </div>
+
+    <!-- COLUMN HEADERS -->
+    <div class="col-headers">
+      <img class="col-header" src="../../images/name.png" alt="Name" style="position: relative; left: 0px;">
+      <img class="col-header" src="../../images/required-skill.png" alt="Required Skill" style="position: relative; left: -115px;">
+      <img class="col-header col-header-desc" src="../../images/description.png" alt="Description" style="position: relative; left: -80px;">
+    </div>
+
+    <div class="info-box">
+      <table class="item-table">
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/adjutants-cabin.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/adjutant-s-cabin.html">Adjutant's cabin</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">7</span></td>
+          <td class="description-text">Speed the adjutant's growth by sailing.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/armour-piercing-bullet.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/armour-piercing-bullet.html">Armour piercing bullet</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span></td>
+          <td class="description-text"><span class="skill-num">8</span></td>
+          <td class="description-text">Cause flooding of the enemy ship when critical. Only effective for double-shot.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/armouring-deterioration-bullet.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/armouring-deterioration-bullet.html">Armouring deterioration bullet</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span></td>
+          <td class="description-text"><span class="skill-num">4</span></td>
+          <td class="description-text">Weaken the enemy's armour. Only effective for flame shot.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/assault-deck-battle.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/assault-deck-battle.html">Assault Deck Battle</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">9</span>
+              <span class="skill-num">10</span>
+            </div>
+          </td>
+          <td class="description-text">Makes it easier to engage in Deck Battle.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/attack-prevention-net.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/attack-prevention-net.html">Attack prevention net</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">8</span>
+              <span class="skill-num">8</span>
+            </div>
+          </td>
+          <td class="description-text">Raise Defence Power in Melee Battle. Increase success rate of retreat command.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/bullet-proof-armouring.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/bullet-proof-armouring.html">Bullet-proof armouring</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">5</span>
+              <span class="skill-num">5</span>
+            </div>
+          </td>
+          <td class="description-text">Reduce damage from cannon fire.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/camouflaged-hold.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/camouflaged-hold.html">Camouflaged Hold</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">4</span></td>
+          <td class="description-text">Have the enemy plunder a fake warehouse.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/casting-net.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/casting-net.html">Casting net</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">2</span></td>
+          <td class="description-text">Strengthen the fish catch whilst at sea. Also increases the discovery of flotsam.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/command-post.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/command-post.html">Command post</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">9</span>
+              <span class="skill-num">6</span>
+            </div>
+          </td>
+          <td class="description-text">All allies fire without disorder.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/cooperation-enhancement.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/cooperation-enhancement.html">Cooperation enhancement</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">6</span>
+              <span class="skill-num">6</span>
+            </div>
+          </td>
+          <td class="description-text">Increase the frequency and strength of combined firing attacks with allies.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/deck-barrier.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/deck-barrier.html">Deck Barrier</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">5</span>
+              <span class="skill-num">8</span>
+            </div>
+          </td>
+          <td class="description-text">Success rate for evading Deck Battle with enemy is greatly increased.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/demolition-work.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/demolition-work.html">Demolition work</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">1</span>
+              <span class="skill-num">2</span>
+            </div>
+          </td>
+          <td class="description-text">Cause damage to the enemy ship after Melee Battle, depending on the number of crew in the raid.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/direct-hit-prevention.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/direct-hit-prevention.html">Direct hit prevention</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span></td>
+          <td class="description-text"><span class="skill-num">3</span></td>
+          <td class="description-text">Relief from critical bombardment from the bow.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/domestic-livestock-room.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/domestic-livestock-room.html">Domestic livestock room</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">1</span></td>
+          <td class="description-text">Encourage the breeding of livestock.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/drainage-pump.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/drainage-pump.html">Drainage pump</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">3</span>
+              <span class="skill-num">3</span>
+            </div>
+          </td>
+          <td class="description-text">Stop leaks, regular and large, on your own ship.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/earthquake-proof-hold.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/earthquake-proof-hold.html">Earthquake-proof Hold</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">6</span>
+              <span class="skill-num">9</span>
+            </div>
+          </td>
+          <td class="description-text">Extremely lessen the damage from cargo toppling.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/emergency-acceleration.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/emergency-acceleration.html">Emergency acceleration</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span></td>
+          <td class="description-text"><span class="skill-num">8</span></td>
+          <td class="description-text">Increase ship speed for a fixed time. However, extreme turns are difficult.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/enhance-ship-handling.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/enhance-ship-handling.html">Enhance ship handling</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span></td>
+          <td class="description-text"><span class="skill-num">2</span></td>
+          <td class="description-text">Markedly increase the ship's turning speed for a fixed time.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/evade-melee-battle.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/evade-melee-battle.html">Evade Melee Battle</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">2</span>
+              <span class="skill-num">3</span>
+            </div>
+          </td>
+          <td class="description-text">Avoid melee battle with a certain success rate.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/explosive-shell.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/explosive-shell.html">Explosive shell</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span></td>
+          <td class="description-text"><span class="skill-num">6</span></td>
+          <td class="description-text">Create chaos aboard the enemy ship. Only effective for grape shot.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/fireproof-wall.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/fireproof-wall.html">Fireproof wall</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">6</span>
+              <span class="skill-num">9</span>
+            </div>
+          </td>
+          <td class="description-text">Largely reduce fire damage.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/flotsam-search.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/flotsam-search.html">Flotsam search</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">6</span>
+              <span class="skill-num">6</span>
+            </div>
+          </td>
+          <td class="description-text">Automate flotsam search whilst on sea.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/galley.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/galley.html">Galley</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">5</span></td>
+          <td class="description-text">Raise the success of cooking and storage at sea. Ease food consumption and Fatigue.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/hauling-assistance.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/hauling-assistance.html">Hauling assistance</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">8</span>
+              <span class="skill-num">4</span>
+            </div>
+          </td>
+          <td class="description-text">Steady hauling of a shipwreck. Sailing Speed increases when used together with hauling skill.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/heavy-bombing.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/heavy-bombing.html">Heavy bombing</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span></td>
+          <td class="description-text"><span class="skill-num">2</span></td>
+          <td class="description-text">Reduce the speed of the enemy ship. Only effective for normal shot.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/high-lookout.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/high-lookout.html">High lookout</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">4</span>
+              <span class="skill-num">4</span>
+            </div>
+          </td>
+          <td class="description-text">Defend against Ambush.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/improved-gun-port.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/improved-gun-port.html">Improved gun port</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">5</span>
+              <span class="skill-num">9</span>
+            </div>
+          </td>
+          <td class="description-text">Increase cannon firing range and load speed.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/improved-hold.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/improved-hold.html">Improved Hold</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">8</span></td>
+          <td class="description-text">Protect cargo against enemy plunder.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/improved-ram.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/improved-ram.html">Improved ram</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">4</span>
+              <span class="skill-num">3</span>
+            </div>
+          </td>
+          <td class="description-text">Increase the accuracy and Attack Power of a ram attack.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/improved-rudder.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/improved-rudder.html">Improved rudder</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">7</span>
+              <span class="skill-num">7</span>
+            </div>
+          </td>
+          <td class="description-text">Increase the ship's turning speed.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/improved-sea-mine.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/improved-sea-mine.html">Improved sea mine</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">9</span>
+              <span class="skill-num">9</span>
+            </div>
+          </td>
+          <td class="description-text">Increase strength of sea mines, but consume more munitions.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/intensive-charge.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/intensive-charge.html">Intensive charge</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span></td>
+          <td class="description-text"><span class="skill-num">5</span></td>
+          <td class="description-text">Increases load speed by 50% when sails are being folded.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/intensive-repair.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/intensive-repair.html">Intensive repair</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">6</span>
+              <span class="skill-num">5</span>
+            </div>
+          </td>
+          <td class="description-text">Double the repair rate when sails are being folded.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/lifeboat.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/lifeboat.html">Lifeboat</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">6</span></td>
+          <td class="description-text">Rescue sailors that have fallen overboard in a disaster.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/medical-support.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/medical-support.html">Medical support</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">7</span>
+              <span class="skill-num">7</span>
+            </div>
+          </td>
+          <td class="description-text">Increase the restoration rate from surgery during sea battle.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/moored-mine.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/moored-mine.html">Moored mine</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">5</span></td>
+          <td class="description-text">Stop enemy ship through deployment of sea mines.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/nanban-trade-preference.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/nanban-trade-preference.html">Nanban Trade Preference</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">3</span>
+              <span class="skill-num">10</span>
+            </div>
+          </td>
+          <td class="description-text">Gain an edge in dealing in the Nanban Trade.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/pre-emptive-attack.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/pre-emptive-attack.html">Pre-emptive attack</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">6</span>
+              <span class="skill-num">8</span>
+            </div>
+          </td>
+          <td class="description-text">In the absence of chaos, commence a superior first strike in Melee Battle.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/ramming-tactics.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/ramming-tactics.html">Ramming tactics</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">5</span>
+              <span class="skill-num">4</span>
+            </div>
+          </td>
+          <td class="description-text">Totally destroy the enemy ship's rudder by ramming the stern.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/recreation-room.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/recreation-room.html">Recreation room</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">3</span></td>
+          <td class="description-text">Heighten the effect of musical performances and banquets at sea.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/repair-support.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/repair-support.html">Repair support</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">3</span>
+              <span class="skill-num">2</span>
+            </div>
+          </td>
+          <td class="description-text">Increase restoration value of repairs for all allies during sea battle.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/roaring-sea-mine.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/roaring-sea-mine.html">Roaring sea mine</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">2</span>
+              <span class="skill-num">3</span>
+            </div>
+          </td>
+          <td class="description-text">Create major havoc on an enemy ship with a sea mine.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/rowing-assistance.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/rowing-assistance.html">Rowing Assistance</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span></td>
+          <td class="description-text"><span class="skill-num">5</span></td>
+          <td class="description-text">"Ease the difficulty of extreme turns when "rowing" skill is used."</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/sail-sewing-skill.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/sail-sewing-skill.html">Sail sewing skill</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">10</span></td>
+          <td class="description-text">Automate sail repair. Lessen damage to sails during battle.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/sea-mine-removal.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/sea-mine-removal.html">Sea mine removal</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">9</span>
+              <span class="skill-num">7</span>
+            </div>
+          </td>
+          <td class="description-text">Eliminate a nearby enemy sea mine during battle.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/sea-mine-search.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/sea-mine-search.html">Sea mine search</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">6</span>
+              <span class="skill-num">6</span>
+            </div>
+          </td>
+          <td class="description-text">Automate detection of enemy sea mines during battle.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/set-fire.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/set-fire.html">Set fire</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">2</span>
+              <span class="skill-num">1</span>
+            </div>
+          </td>
+          <td class="description-text">Cause a major fire on the enemy ship by striking it when your own ship is on fire.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/shipwrights-quarters.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/shipwright-s-quarters.html">Shipwright's quarters</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">10</span></td>
+          <td class="description-text">Lessen the consumption of Durability of ship parts due to use and disaster.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/special-ram.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/special-ram.html">Special ram</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">7</span>
+              <span class="skill-num">7</span>
+            </div>
+          </td>
+          <td class="description-text">Increase the penetration of a ram attack and flood the enemy's ship.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/special-sea-mine.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/special-sea-mine.html">Special sea mine</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">1</span>
+              <span class="skill-num">3</span>
+            </div>
+          </td>
+          <td class="description-text">Cause major flooding to an enemy ship with a sea mine.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/special-smoke-bomb.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/special-smoke-bomb.html">Special smoke bomb</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span></td>
+          <td class="description-text"><span class="skill-num">10</span></td>
+          <td class="description-text">Stop adv skills in use by the enemy. Only effective for smoke bombs.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/special-sterncastle.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/special-sterncastle.html">Special sterncastle</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">9</span>
+              <span class="skill-num">7</span>
+            </div>
+          </td>
+          <td class="description-text">Halve the effectiveness of the enemy's stern turret during hand to hand combat.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/training-bomb.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/training-bomb.html">Training bomb</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">3</span>
+              <span class="skill-num">4</span>
+            </div>
+          </td>
+          <td class="description-text">Blow up the enemy ship's ammunition store during hand to hand combat. More efficient than normal.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/watertight-bulkhead.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/watertight-bulkhead.html">Watertight Bulkhead</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">7</span>
+              <span class="skill-num">7</span>
+            </div>
+          </td>
+          <td class="description-text">Greatly reduce trouble from leaking.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/wave-resistant-armouring.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/wave-resistant-armouring.html">Wave-resistant armouring</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">6</span>
+              <span class="skill-num">9</span>
+            </div>
+          </td>
+          <td class="description-text">Take highly effective precautions against broadside waves and high waves.</td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/welcome-melee-battle.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/welcome-melee-battle.html">Welcome Melee Battle</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/battle skills/arms.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">8</span>
+              <span class="skill-num">9</span>
+            </div>
+          </td>
+          <td class="description-text" style="vertical-align: middle;">
+            Increase Defence Power in Melee Battle. Prevent Plunder from Enemy Ship.
+          </td>
+        </tr>
+
+        <tr class="dual">
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/wind-resistant-mast.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/wind-resistant-mast.html">Wind-resistant mast</a></td>
+          <td class="icon-small">
+            <div class="skill-stack">
+              <span class="item-icon-small" style="background-image:url('../../images/adv skills/navigation.png')"></span>
+              <span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span>
+            </div>
+          </td>
+          <td class="description-text">
+            <div class="skill-stack">
+              <span class="skill-num">6</span>
+              <span class="skill-num">9</span>
+            </div>
+          </td>
+          <td class="description-text">Take highly effective precautions against squalls.</td>
+        </tr>
+
+        <tr>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/optional ship/workshop.png')"></span></td>
+          <td class="name-text-wide"><a href="optional-ship/workshop.html">Workshop</a></td>
+          <td class="icon-small"><span class="item-icon-small" style="background-image:url('../../images/trade skills/management-skill.png')"></span></td>
+          <td class="description-text"><span class="skill-num">7</span></td>
+          <td class="description-text">Raise the success of sewing, casting, and production of industrial arts, whilst at sea.</td>
+        </tr>
+      </table>
+    </div>
+  </main>
+
+</div>
+
+<script src="../../menu.js"></script>
+</body>
+</html>

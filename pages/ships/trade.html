@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trade - My Database</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="loading" data-root="../../">
+
+<!-- TOP BAR -->
+<div class="topbar"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR (built by ../../menu.js) -->
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <div class="skill-row">
+    <div class="info-box sh-ui">
+      <!-- LEFT: ship list. Copy a "sh-item" block to add ships. -->
+      <div class="sh-list">
+        <img src="../../images/ships/inv-title.png" alt="Ship Inventory" width="285">
+        <div class="sh-items">
+      <div class="sh-item sel"><img src="../../images/ships/thumb-3.png" alt=""><span class="sh-iname">Ship name</span></div>
+      <div class="sh-item"><img src="../../images/ships/thumb-3.png" alt=""><span class="sh-iname">Ship name</span></div>
+      <div class="sh-item"><img src="../../images/ships/thumb-3.png" alt=""><span class="sh-iname">Ship name</span></div>
+      <div class="sh-item"><img src="../../images/ships/thumb-3.png" alt=""><span class="sh-iname">Ship name</span></div>
+      <div class="sh-item"><img src="../../images/ships/thumb-3.png" alt=""><span class="sh-iname">Ship name</span></div>
+      <div class="sh-item"><img src="../../images/ships/thumb-3.png" alt=""><span class="sh-iname">Ship name</span></div>
+      <div class="sh-item"><img src="../../images/ships/thumb-3.png" alt=""><span class="sh-iname">Ship name</span></div>
+      <div class="sh-item"><img src="../../images/ships/thumb-3.png" alt=""><span class="sh-iname">Ship name</span></div>
+      <div class="sh-item"><img src="../../images/ships/thumb-3.png" alt=""><span class="sh-iname">Ship name</span></div>
+      <div class="sh-item"><img src="../../images/ships/thumb-3.png" alt=""><span class="sh-iname">Ship name</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: ship details -->
+      <div class="sh-detail">
+        <div class="sh-name"><img src="../../images/ships/name-icon.png" alt=""><span>Ship name</span></div>
+        <div class="sh-cols">
+          <div class="sh-col">
+            <img src="../../images/ships/perf-title.png" alt="Ship Performance">
+            <div class="sh-stats">
+              <span class="sh-stat"><img src="../../images/ships/ico-sail.png" alt=""><span>-</span></span><span class="sh-stat"><img src="../../images/ships/ico-mast.png" alt=""><span>-</span></span><span class="sh-stat"><img src="../../images/ships/ico-oar.png" alt=""><span>-</span></span>
+              <span class="sh-stat"><img src="../../images/ships/ico-turn.png" alt=""><span>-</span></span><span class="sh-stat"><img src="../../images/ships/ico-wave.png" alt=""><span>-</span></span><span class="sh-stat"><img src="../../images/ships/ico-cargo.png" alt=""><span>-</span></span>
+            </div>
+            <div class="sh-ups">
+              <span class="sh-stat"><img src="../../images/ships/ico-medal.png" alt=""><span>-/-</span></span>
+            </div>
+          </div>
+          <div class="sh-col sh-btncol"><a class="sh-ship-btn" href="#"><img src="../../images/ships/ship-btn.png" alt=""></a></div>
+          <div class="sh-col sh-durcol">
+            <img src="../../images/ships/durability-title.png" alt="Durability">
+            <div class="sh-dur"><span class="sh-stat"><img src="../../images/ships/ico-dur.png" alt=""><span>-/-</span></span></div>
+          </div>
+        </div>
+
+        <div class="sh-block">
+          <img src="../../images/ships/hold-title.png" alt="Ship Hold">
+          <div class="sh-hold">
+            <div><span class="sh-stat"><img src="../../images/ships/ico-crew.png" alt=""><span>-/-</span></span></div>
+            <div><span class="sh-stat"><img src="../../images/ships/ico-cannon.png" alt=""><span>-/-</span></span></div>
+            <div><span class="sh-stat"><img src="../../images/ships/ico-load.png" alt=""><span>-/-</span></span></div>
+          </div>
+        </div>
+
+        <div class="sh-block">
+          <img src="../../images/ships/req-title.png" alt="Sailing Requirements">
+          <div class="sh-req">
+            <span><img src="../../images/ships/lv-adv.png" alt=""><i class="sh-v">-</i></span>
+            <span><img src="../../images/ships/lv-trade.png" alt=""><i class="sh-v">-</i></span>
+            <span><img src="../../images/ships/lv-battle.png" alt=""><i class="sh-v">-</i></span>
+          </div>
+        </div>
+
+        <a class="sh-parts-btn" href="#"><img src="../../images/ships/parts-btn.png" alt="Ship Parts"></a>
+      </div>
+    </div>
+
+    <div class="sh-panels">
+    <!-- SHIP PARTS PANEL (Ship Parts button). Ship picture on the left, part slots on the right (every image is placed with left/top pixels). -->
+    <div class="loc-panel pnl-b" id="loc-panel">
+      <div class="info-box pn-box">
+        <div class="pn pn-b">
+          <img class="pn-abs" style="left:0;top:4px" src="../../images/ships/ship-picture.png" alt="">
+          <i class="pn-abs pn-divider" style="left:347px;top:4px;height:272px"></i>
+          <!-- Each line below is one part option. data-boxes = how many boxes it has (1 to 5). The boxes are added to the right
+               of the small icon; nothing else moves. left / top = where the option sits (change them to move an option). -->
+          <div class="pn-abs pn-cat" style="left:365px;top:3px" data-boxes="3"><img src="../../images/ships/cat-1.png" alt=""></div>
+          <div class="pn-abs pn-cat" style="left:365px;top:59px" data-boxes="1"><img src="../../images/ships/cat-2.png" alt=""></div>
+          <div class="pn-abs pn-cat" style="left:477px;top:59px" data-boxes="1"><img src="../../images/ships/cat-6.png" alt=""></div>
+          <div class="pn-abs pn-cat" style="left:589px;top:59px" data-boxes="2"><img src="../../images/ships/cat-8.png" alt=""></div>
+          <div class="pn-abs pn-cat" style="left:365px;top:115px" data-boxes="1"><img src="../../images/ships/cat-3.png" alt=""></div>
+          <div class="pn-abs pn-cat" style="left:477px;top:115px" data-boxes="3"><img src="../../images/ships/cat-7.png" alt=""></div>
+          <div class="pn-abs pn-cat" style="left:365px;top:172px" data-boxes="3"><img src="../../images/ships/cat-4.png" alt=""></div>
+          <div class="pn-abs pn-cat" style="left:365px;top:228px" data-boxes="1"><img src="../../images/ships/cat-5.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMPROVEMENTS PANEL (round ship button). Everything is placed with left/top pixels inside .pn-a. Change the "-" to real numbers. -->
+    <div class="loc-panel pnl-a" id="ship-panel">
+      <div class="info-box pn-box">
+        <div class="pn pn-a">
+          <img class="pn-abs" style="left:0;top:0" src="../../images/ships/pn-title-perf.png" alt="Ship Performance">
+          <img class="pn-abs" style="left:268px;top:0" src="../../images/ships/pn-title-hold.png" alt="Ship Hold">
+          <div class="pn-inset" style="left:-1px;top:24px;width:251px;height:233px"></div>
+          <div class="pn-inset" style="left:267px;top:24px;width:251px;height:103px"></div>
+          <div class="pn-row" style="left:6px;top:29px"><img src="../../images/ships/ico-dur.png" alt=""><span class="pn-l">Durability</span><span class="pn-v">-</span><i class="pn-bar"><b></b></i></div>
+          <div class="pn-row" style="left:6px;top:61px"><img src="../../images/ships/ico-sail.png" alt=""><span class="pn-l">Vertical Sail</span><span class="pn-v">-</span><i class="pn-bar"><b></b></i></div>
+          <div class="pn-row" style="left:6px;top:93px"><img src="../../images/ships/ico-mast.png" alt=""><span class="pn-l">Horizontal Sail</span><span class="pn-v">-</span><i class="pn-bar"><b></b></i></div>
+          <div class="pn-row" style="left:6px;top:125px"><img src="../../images/ships/ico-oar.png" alt=""><span class="pn-l">Row Power</span><span class="pn-v">-</span><i class="pn-bar"><b></b></i></div>
+          <div class="pn-row" style="left:6px;top:157px"><img src="../../images/ships/ico-turn.png" alt=""><span class="pn-l">Turn Speed</span><span class="pn-v">-</span><i class="pn-bar"><b></b></i></div>
+          <div class="pn-row" style="left:6px;top:189px"><img src="../../images/ships/ico-wave.png" alt=""><span class="pn-l">Wave Resistance</span><span class="pn-v">-</span><i class="pn-bar"><b></b></i></div>
+          <div class="pn-row" style="left:6px;top:221px"><img src="../../images/ships/ico-cargo.png" alt=""><span class="pn-l">Armour</span><span class="pn-v">-</span><i class="pn-bar"><b></b></i></div>
+          <div class="pn-row" style="left:275px;top:29px"><img src="../../images/ships/ico-crew.png" alt=""><span class="pn-l">Cabin</span><span class="pn-v">-</span><i class="pn-bar"><b></b></i></div>
+          <div class="pn-row" style="left:275px;top:61px"><img src="../../images/ships/ico-cannon.png" alt=""><span class="pn-l">Cannon Chambers</span><span class="pn-v">-</span><i class="pn-bar"><b></b></i></div>
+          <div class="pn-row" style="left:275px;top:93px"><img src="../../images/ships/ico-load.png" alt=""><span class="pn-l">Hold</span><span class="pn-v">-</span><i class="pn-bar"><b></b></i></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <script>
+    document.querySelectorAll('.sh-item').forEach(function (it) {
+      it.addEventListener('click', function () {
+        document.querySelectorAll('.sh-item').forEach(function (o) { o.classList.remove('sel'); });
+        it.classList.add('sel');
+      });
+    });
+    </script>
+  </main>
+
+</div>
+
+<!-- SHIP DATA: one line per ship. menu.js builds the list and fills the page from this. Add a line to add a ship (keep them in alphabetical order). -->
+<script>
+var SHIPS = [
+  {name: "2-mast Cog", thumb: "thumbs/british-cog.png", size: "Lgt", adv: 2, trd: 4, btl: 0, dura: 90, vsail: 130, hsail: 25, row: 0, turn: 10, wave: 4, arm: 4, cabin: "8/20", cc: 6, hold: 124, mast: 2, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Admiral Atlantica", thumb: "thumbs/advanced-atlantica.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 950, vsail: 305, hsail: 400, row: 0, turn: 15, wave: 15, arm: 50, cabin: "80/170", cc: 85, hold: 945, mast: 3, material: "Portuguese Admiral Metal", type: "Trd", cash: "O"},
+  {name: "Admiral de Amsterdam", thumb: "thumbs/advanced-de-amsterdam.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 1000, vsail: 290, hsail: 320, row: 0, turn: 13, wave: 14, arm: 54, cabin: "60/165", cc: 100, hold: 910, mast: 3, material: "Dutch Admiral Metal", type: "Trd", cash: "O"},
+  {name: "Admiral Gran Fluyt", thumb: "thumbs/pirate-gran-fluyt.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 1040, vsail: 200, hsail: 400, row: 0, turn: 10, wave: 13, arm: 48, cabin: "70/140", cc: 60, hold: 1000, mast: 3, material: "Moon White Admiral Metal", type: "Trd", cash: "O"},
+  {name: "Admiral Great Republic", thumb: "thumbs/great-republic.png", size: "Hvy", adv: 20, trd: 42, btl: 10, dura: 927, vsail: 298, hsail: 388, row: 0, turn: 13, wave: 15, arm: 55, cabin: "40/95", cc: 70, hold: 1035, mast: 4, material: "Moon White Admiral Metal", type: "Trd", cash: "O"},
+  {name: "Admiral Windjammer", thumb: "thumbs/cruise-windjammer.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 972, vsail: 298, hsail: 366, row: 0, turn: 12, wave: 15, arm: 42, cabin: "60/122", cc: 82, hold: 975, mast: 5, material: "Moon White Admiral Metal", type: "Trd", cash: "O"},
+  {name: "Advanced Atlantica", thumb: "thumbs/advanced-atlantica.png", size: "Hvy", adv: 12, trd: 37, btl: 15, dura: 750, vsail: 250, hsail: 360, row: 0, turn: 11, wave: 12, arm: 35, cabin: "32/80", cc: 40, hold: 680, mast: 3, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Advanced Bounty", size: "Hvy", adv: 25, trd: 35, btl: 25, dura: 750, vsail: 265, hsail: 360, row: 0, turn: 15, wave: 14, arm: 45, cabin: "35/70", cc: 80, hold: 760, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Advanced C.W. Morgan", thumb: "thumbs/c-w-morgan.png", size: "Hvy", adv: 23, trd: 38, btl: 10, dura: 780, vsail: 230, hsail: 360, row: 0, turn: 8, wave: 10, arm: 38, cabin: "42/70", cc: 40, hold: 815, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Advanced Cacafuego", size: "Hvy", adv: 25, trd: 41, btl: 25, dura: 800, vsail: 240, hsail: 280, row: 0, turn: 10, wave: 12, arm: 45, cabin: "45/100", cc: 80, hold: 942, mast: 3, material: "Rosewood", type: "Trd", cash: "O"},
+  {name: "Advanced City of Adelaide", size: "Hvy", adv: 19, trd: 47, btl: 18, dura: 760, vsail: 300, hsail: 370, row: 0, turn: 13, wave: 15, arm: 46, cabin: "22/50", cc: 30, hold: 1090, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Advanced De Amsterdam", thumb: "thumbs/advanced-de-amsterdam.png", size: "Hvy", adv: 17, trd: 45, btl: 25, dura: 850, vsail: 260, hsail: 280, row: 0, turn: 11, wave: 13, arm: 52, cabin: "25/100", cc: 80, hold: 970, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Advanced Don de Dieu", size: "Hvy", adv: 18, trd: 45, btl: 14, dura: 830, vsail: 270, hsail: 290, row: 0, turn: 12, wave: 14, arm: 50, cabin: "30/100", cc: 80, hold: 920, mast: 3, material: "Nocturnal Wood", type: "Trd", cash: "O"},
+  {name: "Advanced Peter von Danzig", size: "Hvy", adv: 19, trd: 45, btl: 15, dura: 780, vsail: 290, hsail: 280, row: 0, turn: 13, wave: 15, arm: 48, cabin: "27/90", cc: 90, hold: 970, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Advanced Potosi", size: "Hvy", adv: 20, trd: 40, btl: 20, dura: 850, vsail: 260, hsail: 250, row: 0, turn: 10, wave: 13, arm: 45, cabin: "38/85", cc: 48, hold: 967, mast: 5, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Advanced Prins Willem", size: "Hvy", adv: 14, trd: 35, btl: 26, dura: 800, vsail: 220, hsail: 275, row: 0, turn: 10, wave: 12, arm: 40, cabin: "30/65", cc: 64, hold: 871, mast: 3, material: "Beech", type: "Trd", cash: "O"},
+  {name: "Advanced San Jose", size: "Hvy", adv: 20, trd: 35, btl: 20, dura: 850, vsail: 250, hsail: 270, row: 0, turn: 10, wave: 12, arm: 41, cabin: "40/100", cc: 54, hold: 786, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Advanced Savanna", thumb: "thumbs/advanced-savanna.png", size: "Hvy", adv: 18, trd: 12, btl: 12, dura: 850, vsail: 230, hsail: 360, row: 0, turn: 10, wave: 14, arm: 35, cabin: "54/90", cc: 58, hold: 1052, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Advanced Susan Constant", thumb: "thumbs/advanced-susan-constant.png", size: "Hvy", adv: 21, trd: 35, btl: 15, dura: 800, vsail: 260, hsail: 365, row: 0, turn: 11, wave: 12, arm: 40, cabin: "40/80", cc: 58, hold: 812, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Advanced Transport Longship", size: "Hvy", adv: 20, trd: 47, btl: 20, dura: 870, vsail: 130, hsail: 210, row: 100, turn: 14, wave: 9, arm: 45, cabin: "25/180", cc: 20, hold: 950, mast: 1, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Armed Indiaman", thumb: "thumbs/armed-indiaman.png", size: "Hvy", adv: 50, trd: 73, btl: 46, dura: 720, vsail: 150, hsail: 285, row: 0, turn: 10, wave: 8, arm: 34, cabin: "36/92", cc: 66, hold: 622, mast: 3, material: "Iron-plated", type: "Trd", cash: "-"},
+  {name: "Armed Trade Carrack", thumb: "thumbs/armed-trade-carrack.png", size: "Hvy", adv: 0, trd: 32, btl: 26, dura: 450, vsail: 190, hsail: 95, row: 0, turn: 9, wave: 6, arm: 22, cabin: "48/96", cc: 40, hold: 454, mast: 3, material: "Teak", type: "Trd", cash: "-"},
+  {name: "Armed Trading Xebec", thumb: "thumbs/armed-trading-xebec.png", size: "Hvy", adv: 25, trd: 39, btl: 29, dura: 630, vsail: 280, hsail: 65, row: 0, turn: 10, wave: 8, arm: 16, cabin: "26/44", cc: 42, hold: 504, mast: 3, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Atlantica", thumb: "thumbs/advanced-atlantica.png", size: "Hvy", adv: 25, trd: 75, btl: 30, dura: 700, vsail: 250, hsail: 360, row: 0, turn: 11, wave: 12, arm: 35, cabin: "32/67", cc: 40, hold: 843, mast: 3, material: "Oak", type: "Trd", cash: "-"},
+  {name: "Atlantica II", thumb: "thumbs/advanced-atlantica.png", size: "Hvy", adv: 35, trd: 45, btl: 55, dura: 844, vsail: 295, hsail: 385, row: 0, turn: 12, wave: 14, arm: 46, cabin: "50/110", cc: 60, hold: 1030, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Augmented Cargo Clipper", thumb: "thumbs/augmented-cargo-clipper.png", size: "Hvy", adv: 33, trd: 36, btl: 13, dura: 640, vsail: 250, hsail: 350, row: 0, turn: 8, wave: 8, arm: 12, cabin: "27/55", cc: 20, hold: 805, mast: 3, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Augmented Indiaman", size: "Hvy", adv: 25, trd: 37, btl: 23, dura: 720, vsail: 150, hsail: 285, row: 0, turn: 10, wave: 8, arm: 34, cabin: "36/92", cc: 70, hold: 658, mast: 3, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Augmented Trading Clipper", size: "Hvy", adv: 16, trd: 40, btl: 8, dura: 620, vsail: 185, hsail: 290, row: 0, turn: 10, wave: 9, arm: 14, cabin: "18/40", cc: 16, hold: 624, mast: 4, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Big Trading Carrack", thumb: "thumbs/big-trading-carrack.png", size: "Hvy", adv: 8, trd: 28, btl: 0, dura: 440, vsail: 180, hsail: 95, row: 0, turn: 9, wave: 6, arm: 18, cabin: "40/90", cc: 32, hold: 458, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Big Trading Clipper", thumb: "thumbs/big-trading-clipper.png", size: "Hvy", adv: 24, trd: 64, btl: 12, dura: 750, vsail: 215, hsail: 300, row: 0, turn: 9, wave: 9, arm: 16, cabin: "28/60", cc: 20, hold: 720, mast: 5, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Big Trading Schooner", thumb: "thumbs/transport-swift-schooner.png", size: "Hvy", adv: 24, trd: 45, btl: 16, dura: 540, vsail: 260, hsail: 105, row: 0, turn: 10, wave: 9, arm: 14, cabin: "20/36", cc: 16, hold: 588, mast: 4, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Big Transport Schooner", thumb: "thumbs/transport-swift-schooner.png", size: "Hvy", adv: 30, trd: 44, btl: 10, dura: 535, vsail: 265, hsail: 110, row: 0, turn: 10, wave: 9, arm: 14, cabin: "20/40", cc: 16, hold: 564, mast: 4, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "C.W. Morgan", thumb: "thumbs/c-w-morgan.png", size: "Hvy", adv: 45, trd: 76, btl: 20, dura: 765, vsail: 230, hsail: 360, row: 0, turn: 8, wave: 10, arm: 36, cabin: "42/70", cc: 40, hold: 815, mast: 3, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Cacafuego", thumb: "thumbs/cacafuego.png", size: "Hvy", adv: 50, trd: 85, btl: 40, dura: 770, vsail: 240, hsail: 280, row: 0, turn: 10, wave: 12, arm: 40, cabin: "45/85", cc: 40, hold: 975, mast: 3, material: "Rosewood", type: "Trd", cash: "-"},
+  {name: "Cargo Clipper", thumb: "thumbs/augmented-cargo-clipper.png", size: "Hvy", adv: 58, trd: 72, btl: 26, dura: 640, vsail: 250, hsail: 350, row: 0, turn: 8, wave: 8, arm: 12, cabin: "27/55", cc: 20, hold: 770, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Celebratory Dutch Indiaman", thumb: "thumbs/armed-indiaman.png", size: "Hvy", adv: 20, trd: 26, btl: 14, dura: 680, vsail: 145, hsail: 275, row: 0, turn: 10, wave: 10, arm: 26, cabin: "29/56", cc: 42, hold: 782, mast: 3, material: "Celebratory Metal", type: "Trd", cash: "O"},
+  {name: "City of Adelaide", size: "Hvy", adv: 39, trd: 95, btl: 25, dura: 750, vsail: 300, hsail: 370, row: 0, turn: 13, wave: 15, arm: 35, cabin: "22/50", cc: 20, hold: 1100, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Cruise Prins Willem", size: "Hvy", adv: 14, trd: 35, btl: 26, dura: 780, vsail: 210, hsail: 280, row: 0, turn: 10, wave: 12, arm: 36, cabin: "30/65", cc: 64, hold: 721, mast: 3, material: "Beech", type: "Trd", cash: "O"},
+  {name: "Cruise Windjammer", thumb: "thumbs/cruise-windjammer.png", size: "Hvy", adv: 32, trd: 37, btl: 15, dura: 760, vsail: 270, hsail: 355, row: 0, turn: 12, wave: 10, arm: 22, cabin: "32/75", cc: 22, hold: 818, mast: 5, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Custom Cargo Clipper", thumb: "thumbs/augmented-cargo-clipper.png", size: "Hvy", adv: 27, trd: 48, btl: 15, dura: 640, vsail: 260, hsail: 360, row: 0, turn: 10, wave: 10, arm: 12, cabin: "25/55", cc: 20, hold: 810, mast: 3, material: "Teak", type: "Trd", cash: "O"},
+  {name: "Custom Dutch Indiaman", thumb: "thumbs/custom-dutch-indiaman.png", size: "Hvy", adv: 17, trd: 23, btl: 11, dura: 680, vsail: 145, hsail: 275, row: 0, turn: 9, wave: 10, arm: 26, cabin: "29/60", cc: 42, hold: 753, mast: 3, material: "Teak", type: "Trd", cash: "O"},
+  {name: "Custom Flemish Galleon", size: "Hvy", adv: 8, trd: 18, btl: 8, dura: 540, vsail: 120, hsail: 240, row: 0, turn: 9, wave: 8, arm: 16, cabin: "34/58", cc: 32, hold: 735, mast: 4, material: "Teak", type: "Trd", cash: "O"},
+  {name: "Custom Flying Cloud", thumb: "thumbs/moonlight-flying-cloud.png", size: "Hvy", adv: 34, trd: 40, btl: 20, dura: 700, vsail: 240, hsail: 370, row: 0, turn: 8, wave: 10, arm: 23, cabin: "32/65", cc: 24, hold: 836, mast: 3, material: "Cedar", type: "Trd", cash: "O"},
+  {name: "Custom Gran Fluyt", thumb: "thumbs/custom-gran-fluyt.png", size: "Hvy", adv: 13, trd: 39, btl: 31, dura: 780, vsail: 105, hsail: 245, row: 0, turn: 6, wave: 6, arm: 36, cabin: "50/110", cc: 72, hold: 938, mast: 3, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Custom Long Merchant Schooner", thumb: "thumbs/long-schooner.png", size: "Hvy", adv: 37, trd: 67, btl: 14, dura: 600, vsail: 380, hsail: 100, row: 0, turn: 6, wave: 9, arm: 14, cabin: "25/43", cc: 20, hold: 707, mast: 6, material: "Teak", type: "Trd", cash: "O"},
+  {name: "Custom Merchant Carrack", size: "Hvy", adv: 2, trd: 7, btl: 0, dura: 440, vsail: 70, hsail: 225, row: 0, turn: 11, wave: 6, arm: 18, cabin: "30/60", cc: 32, hold: 508, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Custom Siam", thumb: "thumbs/custom-siam.png", size: "Hvy", adv: 5, trd: 10, btl: 8, dura: 620, vsail: 240, hsail: 110, row: 0, turn: 11, wave: 7, arm: 28, cabin: "48/80", cc: 52, hold: 588, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Custom Trading Clipper", thumb: "thumbs/custom-trading-clipper.png", size: "Hvy", adv: 6, trd: 16, btl: 1, dura: 620, vsail: 185, hsail: 280, row: 0, turn: 11, wave: 9, arm: 14, cabin: "18/40", cc: 16, hold: 604, mast: 4, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Custom Trading Large Clipper", thumb: "thumbs/big-trading-clipper.png", size: "Hvy", adv: 36, trd: 70, btl: 28, dura: 680, vsail: 215, hsail: 300, row: 0, turn: 9, wave: 11, arm: 16, cabin: "28/60", cc: 20, hold: 820, mast: 5, material: "Cedar", type: "Trd", cash: "O"},
+  {name: "Custom Transport Taiwanese Ship", size: "Hvy", adv: 15, trd: 15, btl: 5, dura: 570, vsail: 250, hsail: 200, row: 0, turn: 10, wave: 9, arm: 26, cabin: "20/75", cc: 48, hold: 627, mast: 3, material: "Teak", type: "Trd", cash: "O"},
+  {name: "Cutty Sark", thumb: "thumbs/cruising-tea-clipper.png", size: "Hvy", adv: 26, trd: 33, btl: 9, dura: 685, vsail: 240, hsail: 360, row: 0, turn: 10, wave: 12, arm: 18, cabin: "30/65", cc: 25, hold: 610, mast: 3, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "De Amsterdam", thumb: "thumbs/advanced-de-amsterdam.png", size: "Hvy", adv: 35, trd: 90, btl: 40, dura: 750, vsail: 260, hsail: 280, row: 0, turn: 11, wave: 13, arm: 45, cabin: "30/80", cc: 72, hold: 998, mast: 3, material: "Oak", type: "Trd", cash: "-"},
+  {name: "Don de Dieu", thumb: "thumbs/don-de-dieu.png", size: "Hvy", adv: 37, trd: 90, btl: 28, dura: 740, vsail: 270, hsail: 290, row: 0, turn: 12, wave: 14, arm: 45, cabin: "30/80", cc: 70, hold: 950, mast: 3, material: "Oak", type: "Trd", cash: "-"},
+  {name: "Dragon Ship C2", size: "Hvy", adv: 33, trd: 60, btl: 26, dura: 740, vsail: 350, hsail: 190, row: 0, turn: 10, wave: 8, arm: 27, cabin: "32/72", cc: 40, hold: 750, mast: 4, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Elite Flying Cloud", thumb: "thumbs/flying-cloud.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 950, vsail: 280, hsail: 390, row: 0, turn: 12, wave: 14, arm: 28, cabin: "27/45", cc: 20, hold: 1135, mast: 3, material: "Moon White Wood", type: "Trd", cash: "O"},
+  {name: "Elite Gran Fluyt", thumb: "thumbs/pirate-gran-fluyt.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 1020, vsail: 170, hsail: 380, row: 0, turn: 9, wave: 12, arm: 42, cabin: "32/65", cc: 35, hold: 1100, mast: 3, material: "Noble Wood", type: "Trd", cash: "O"},
+  {name: "Elite Large Fu Ship", thumb: "thumbs/elite-large-fu-ship.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 995, vsail: 290, hsail: 210, row: 0, turn: 9, wave: 13, arm: 28, cabin: "50/100", cc: 25, hold: 1075, mast: 6, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Emigrant Barque", thumb: "thumbs/emigrant-barque.png", size: "Std", adv: 28, trd: 41, btl: 0, dura: 310, vsail: 80, hsail: 205, row: 0, turn: 10, wave: 7, arm: 10, cabin: "20/71", cc: 16, hold: 523, mast: 3, material: "Beech", type: "Trd", cash: "-"},
+  {name: "Expedition Tea Clipper", thumb: "thumbs/augmented-cargo-clipper.png", size: "Hvy", adv: 26, trd: 33, btl: 9, dura: 680, vsail: 225, hsail: 360, row: 0, turn: 10, wave: 11, arm: 16, cabin: "32/65", cc: 25, hold: 800, mast: 3, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Expedition Trading Clipper", thumb: "thumbs/expedition-trading-clipper.png", size: "Hvy", adv: 4, trd: 10, btl: 2, dura: 650, vsail: 185, hsail: 280, row: 0, turn: 11, wave: 10, arm: 15, cabin: "15/40", cc: 16, hold: 714, mast: 4, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Felipe", thumb: "thumbs/felipe.png", size: "Hvy", adv: 60, trd: 75, btl: 32, dura: 800, vsail: 205, hsail: 310, row: 0, turn: 9, wave: 11, arm: 32, cabin: "36/65", cc: 60, hold: 800, mast: 4, material: "Beech", type: "Trd", cash: "-"},
+  {name: "Felucca", thumb: "thumbs/felucca.png", size: "Lgt", adv: 0, trd: 17, btl: 10, dura: 225, vsail: 245, hsail: 25, row: 0, turn: 13, wave: 5, arm: 12, cabin: "14/26", cc: 10, hold: 204, mast: 2, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Festive Big Trading Clipper", size: "Hvy", adv: 12, trd: 32, btl: 6, dura: 750, vsail: 215, hsail: 300, row: 0, turn: 10, wave: 9, arm: 16, cabin: "28/60", cc: 20, hold: 900, mast: 5, material: "Festival Wood", type: "Trd", cash: "O"},
+  {name: "Festive Higaki-Kaisen", thumb: "thumbs/cruising-higaki-kaisen.png", size: "Hvy", adv: 11, trd: 24, btl: 7, dura: 580, vsail: 60, hsail: 170, row: 0, turn: 11, wave: 5, arm: 22, cabin: "24/48", cc: 24, hold: 798, mast: 1, material: "Festival Wood", type: "Trd", cash: "O"},
+  {name: "Festive Indiaman", thumb: "thumbs/armed-indiaman.png", size: "Hvy", adv: 15, trd: 17, btl: 15, dura: 750, vsail: 150, hsail: 290, row: 0, turn: 10, wave: 9, arm: 32, cabin: "33/60", cc: 56, hold: 752, mast: 3, material: "Festival Metal", type: "Trd", cash: "O"},
+  {name: "Festive Large Fu Ship", size: "Hvy", adv: 20, trd: 40, btl: 18, dura: 710, vsail: 220, hsail: 150, row: 0, turn: 7, wave: 10, arm: 18, cabin: "48/100", cc: 54, hold: 966, mast: 6, material: "Festival Wood", type: "Trd", cash: "O"},
+  {name: "Festive Tarukaisen", thumb: "thumbs/festive-tarukaisen.png", size: "Hvy", adv: 11, trd: 27, btl: 4, dura: 620, vsail: 60, hsail: 180, row: 0, turn: 11, wave: 6, arm: 23, cabin: "32/65", cc: 38, hold: 837, mast: 1, material: "Festival Wood", type: "Trd", cash: "O"},
+  {name: "Flemish Galleon", thumb: "thumbs/flemish-galleon.png", size: "Hvy", adv: 16, trd: 37, btl: 16, dura: 540, vsail: 115, hsail: 230, row: 0, turn: 9, wave: 6, arm: 16, cabin: "34/58", cc: 32, hold: 605, mast: 4, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Flying Cloud", thumb: "thumbs/flying-cloud.png", size: "Hvy", adv: 68, trd: 77, btl: 35, dura: 685, vsail: 230, hsail: 365, row: 0, turn: 8, wave: 10, arm: 21, cabin: "32/65", cc: 24, hold: 836, mast: 3, material: "Cedar", type: "Trd", cash: "-"},
+  {name: "Ghanjah Dhow", thumb: "thumbs/ghanjah-dhow.png", size: "Hvy", adv: 25, trd: 49, btl: 15, dura: 640, vsail: 300, hsail: 75, row: 0, turn: 10, wave: 10, arm: 13, cabin: "30/65", cc: 24, hold: 711, mast: 2, material: "Cedar", type: "Trd", cash: "-"},
+  {name: "Graduation Polacca", thumb: "thumbs/graduation-polacca.png", size: "Std", adv: 0, trd: 21, btl: 0, dura: 325, vsail: 100, hsail: 215, row: 0, turn: 12, wave: 6, arm: 16, cabin: "22/42", cc: 20, hold: 368, mast: 3, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Gran Fluyt", thumb: "thumbs/custom-gran-fluyt.png", size: "Hvy", adv: 27, trd: 78, btl: 62, dura: 780, vsail: 105, hsail: 245, row: 0, turn: 6, wave: 6, arm: 36, cabin: "58/116", cc: 74, hold: 900, mast: 3, material: "Teak", type: "Trd", cash: "-"},
+  {name: "Gran Padre Eterno", thumb: "thumbs/padre-eterno.png", size: "Hvy", adv: 10, trd: 25, btl: 20, dura: 1083, vsail: 373, hsail: 386, row: 0, turn: 19, wave: 15, arm: 56, cabin: "17/40", cc: 25, hold: 1135, mast: 3, material: "Marshal's Emerald Wood", type: "Trd", cash: "O"},
+  {name: "Gran Republic", thumb: "thumbs/gran-republic.png", size: "Hvy", adv: 20, trd: 42, btl: 10, dura: 992, vsail: 319, hsail: 400, row: 0, turn: 15, wave: 15, arm: 56, cabin: "25/50", cc: 25, hold: 1125, mast: 4, material: "Marshal's Ruby Wood", type: "Trd", cash: "O"},
+  {name: "Gran Windjammer", thumb: "thumbs/cruise-windjammer.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 986, vsail: 319, hsail: 392, row: 0, turn: 16, wave: 15, arm: 44, cabin: "35/75", cc: 30, hold: 1095, mast: 5, material: "Marshal's Obsidian Wood", type: "Trd", cash: "O"},
+  {name: "Great Republic", thumb: "thumbs/great-republic.png", size: "Hvy", adv: 20, trd: 42, btl: 10, dura: 870, vsail: 280, hsail: 370, row: 0, turn: 13, wave: 15, arm: 53, cabin: "23/60", cc: 30, hold: 1110, mast: 4, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Hansa Cog", thumb: "thumbs/hansa-cog.png", size: "Lgt", adv: 1, trd: 1, btl: 0, dura: 50, vsail: 110, hsail: 20, row: 0, turn: 12, wave: 4, arm: 4, cabin: "4/8", cc: 4, hold: 68, mast: 1, material: "Cedar", type: "Trd", cash: "-"},
+  {name: "Heavy Trading Caravel", thumb: "thumbs/large-caravel.png", size: "Std", adv: 10, trd: 21, btl: 0, dura: 340, vsail: 185, hsail: 70, row: 0, turn: 10, wave: 5, arm: 16, cabin: "38/68", cc: 24, hold: 378, mast: 3, material: "Elm", type: "Trd", cash: "-"},
+  {name: "Heavy Windjammer", thumb: "thumbs/cruise-windjammer.png", size: "Hvy", adv: 65, trd: 86, btl: 30, dura: 780, vsail: 235, hsail: 355, row: 0, turn: 7, wave: 10, arm: 22, cabin: "45/75", cc: 24, hold: 903, mast: 5, material: "Iron-plated", type: "Trd", cash: "-"},
+  {name: "Higaki-Kaisen", thumb: "thumbs/cruising-higaki-kaisen.png", size: "Hvy", adv: 22, trd: 48, btl: 15, dura: 580, vsail: 60, hsail: 170, row: 0, turn: 11, wave: 5, arm: 22, cabin: "24/48", cc: 24, hold: 668, mast: 1, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "High Clipper", thumb: "thumbs/cruise-high-clipper.png", size: "Hvy", adv: 66, trd: 75, btl: 27, dura: 760, vsail: 230, hsail: 345, row: 0, turn: 8, wave: 9, arm: 17, cabin: "30/74", cc: 22, hold: 804, mast: 4, material: "Iron-plated", type: "Trd", cash: "-"},
+  {name: "Improved Large Fu Ship", thumb: "thumbs/improved-large-fu-ship.png", size: "Hvy", adv: 23, trd: 45, btl: 21, dura: 790, vsail: 220, hsail: 140, row: 0, turn: 7, wave: 10, arm: 16, cabin: "48/116", cc: 54, hold: 915, mast: 6, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Indiaman", thumb: "thumbs/armed-indiaman.png", size: "Hvy", adv: 44, trd: 49, btl: 32, dura: 700, vsail: 150, hsail: 290, row: 0, turn: 9, wave: 9, arm: 29, cabin: "33/60", cc: 56, hold: 614, mast: 3, material: "Iron-plated", type: "Trd", cash: "-"},
+  {name: "Keying", size: "Hvy", adv: 60, trd: 95, btl: 10, dura: 760, vsail: 290, hsail: 370, row: 0, turn: 13, wave: 15, arm: 48, cabin: "25/50", cc: 20, hold: 1110, mast: 3, material: "Beech", type: "Trd", cash: "-"},
+  {name: "Large Transport Clipper", thumb: "thumbs/large-transport-clipper.png", size: "Hvy", adv: 22, trd: 58, btl: 12, dura: 650, vsail: 215, hsail: 295, row: 0, turn: 9, wave: 9, arm: 15, cabin: "23/50", cc: 18, hold: 652, mast: 4, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Long Merchant Schooner", thumb: "thumbs/long-schooner.png", size: "Hvy", adv: 35, trd: 65, btl: 12, dura: 600, vsail: 380, hsail: 100, row: 0, turn: 6, wave: 8, arm: 13, cabin: "25/43", cc: 20, hold: 627, mast: 6, material: "Teak", type: "Trd", cash: "-"},
+  {name: "Manila Galleon", thumb: "thumbs/manila-galleon.png", size: "Hvy", adv: 39, trd: 56, btl: 16, dura: 630, vsail: 100, hsail: 235, row: 0, turn: 8, wave: 8, arm: 26, cabin: "42/76", cc: 52, hold: 732, mast: 4, material: "Teak", type: "Trd", cash: "-"},
+  {name: "Memorial Trade Caravel", thumb: "thumbs/memorial-trade-caravel.png", size: "Lgt", adv: 0, trd: 6, btl: 0, dura: 135, vsail: 175, hsail: 35, row: 0, turn: 10, wave: 4, arm: 4, cabin: "16/30", cc: 8, hold: 232, mast: 3, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Memorial Trade Sloop", thumb: "thumbs/ketch.png", size: "Lgt", adv: 0, trd: 11, btl: 0, dura: 210, vsail: 280, hsail: 40, row: 0, turn: 14, wave: 8, arm: 8, cabin: "12/26", cc: 8, hold: 246, mast: 2, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Merchant Sagyeonseon", thumb: "thumbs/reconnaissance-sagyeonseon.png", size: "Hvy", adv: 29, trd: 45, btl: 8, dura: 510, vsail: 240, hsail: 130, row: 0, turn: 8, wave: 6, arm: 17, cabin: "32/54", cc: 22, hold: 534, mast: 2, material: "Cedar", type: "Trd", cash: "-"},
+  {name: "Modified Atlantica", thumb: "thumbs/advanced-atlantica.png", size: "Hvy", adv: 12, trd: 37, btl: 15, dura: 700, vsail: 250, hsail: 360, row: 0, turn: 11, wave: 12, arm: 35, cabin: "32/67", cc: 40, hold: 913, mast: 3, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Modified Big Trading Clipper", thumb: "thumbs/pirate-big-trading-clipper.png", size: "Hvy", adv: 9, trd: 18, btl: 7, dura: 750, vsail: 215, hsail: 305, row: 0, turn: 10, wave: 11, arm: 16, cabin: "21/60", cc: 20, hold: 850, mast: 5, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Modified Bounty", thumb: "thumbs/modified-bounty.png", size: "Hvy", adv: 25, trd: 40, btl: 20, dura: 730, vsail: 270, hsail: 360, row: 0, turn: 16, wave: 15, arm: 41, cabin: "35/70", cc: 80, hold: 850, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Modified C.W. Morgan", thumb: "thumbs/c-w-morgan.png", size: "Hvy", adv: 23, trd: 38, btl: 10, dura: 765, vsail: 230, hsail: 360, row: 0, turn: 8, wave: 10, arm: 36, cabin: "42/70", cc: 40, hold: 870, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified Cacafuego", size: "Hvy", adv: 30, trd: 41, btl: 20, dura: 790, vsail: 250, hsail: 290, row: 0, turn: 12, wave: 14, arm: 40, cabin: "45/85", cc: 40, hold: 975, mast: 3, material: "Rosewood", type: "Trd", cash: "O"},
+  {name: "Modified Cargo Clipper", thumb: "thumbs/augmented-cargo-clipper.png", size: "Hvy", adv: 25, trd: 45, btl: 13, dura: 640, vsail: 260, hsail: 360, row: 0, turn: 9, wave: 10, arm: 12, cabin: "25/55", cc: 20, hold: 790, mast: 3, material: "Teak", type: "Trd", cash: "O"},
+  {name: "Modified City of Adelaide", thumb: "thumbs/modified-city-of-adelaide.png", size: "Hvy", adv: 19, trd: 47, btl: 18, dura: 750, vsail: 300, hsail: 370, row: 0, turn: 13, wave: 15, arm: 45, cabin: "22/50", cc: 20, hold: 1110, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified De Amsterdam", thumb: "thumbs/advanced-de-amsterdam.png", size: "Hvy", adv: 17, trd: 45, btl: 20, dura: 750, vsail: 260, hsail: 280, row: 0, turn: 11, wave: 13, arm: 45, cabin: "30/80", cc: 72, hold: 1048, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Modified Don de Dieu", size: "Hvy", adv: 18, trd: 45, btl: 14, dura: 740, vsail: 270, hsail: 290, row: 0, turn: 12, wave: 15, arm: 45, cabin: "30/80", cc: 70, hold: 1050, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Modified Dragon Ship C2", size: "Hvy", adv: 17, trd: 30, btl: 13, dura: 720, vsail: 350, hsail: 190, row: 0, turn: 6, wave: 9, arm: 33, cabin: "38/72", cc: 40, hold: 793, mast: 4, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Modified Felipe", thumb: "thumbs/modified-felipe.png", size: "Hvy", adv: 30, trd: 37, btl: 16, dura: 850, vsail: 210, hsail: 310, row: 0, turn: 9, wave: 14, arm: 40, cabin: "36/70", cc: 65, hold: 865, mast: 4, material: "Beech", type: "Trd", cash: "O"},
+  {name: "Modified Flying Cloud", thumb: "thumbs/flying-cloud.png", size: "Hvy", adv: 34, trd: 40, btl: 20, dura: 685, vsail: 230, hsail: 365, row: 0, turn: 8, wave: 10, arm: 21, cabin: "32/65", cc: 24, hold: 911, mast: 3, material: "Cedar", type: "Trd", cash: "O"},
+  {name: "Modified Ghanjah Dhow", thumb: "thumbs/ghanjah-dhow.png", size: "Hvy", adv: 12, trd: 24, btl: 8, dura: 640, vsail: 300, hsail: 75, row: 0, turn: 10, wave: 10, arm: 15, cabin: "30/65", cc: 16, hold: 759, mast: 2, material: "Cedar", type: "Trd", cash: "O"},
+  {name: "Modified Gran Fluyt", thumb: "thumbs/pirate-gran-fluyt.png", size: "Hvy", adv: 24, trd: 44, btl: 36, dura: 780, vsail: 105, hsail: 245, row: 0, turn: 6, wave: 6, arm: 36, cabin: "48/110", cc: 70, hold: 990, mast: 3, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Modified Higaki-Kaisen", thumb: "thumbs/modified-higaki-kaisen.png", size: "Hvy", adv: 6, trd: 12, btl: 4, dura: 580, vsail: 60, hsail: 170, row: 0, turn: 11, wave: 5, arm: 22, cabin: "24/48", cc: 24, hold: 805, mast: 1, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified High Clipper", thumb: "thumbs/cruise-high-clipper.png", size: "Hvy", adv: 33, trd: 37, btl: 13, dura: 760, vsail: 240, hsail: 355, row: 0, turn: 9, wave: 10, arm: 17, cabin: "25/74", cc: 22, hold: 904, mast: 4, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Modified Indiaman", thumb: "thumbs/armed-indiaman.png", size: "Hvy", adv: 21, trd: 25, btl: 22, dura: 700, vsail: 150, hsail: 290, row: 0, turn: 10, wave: 9, arm: 29, cabin: "28/60", cc: 56, hold: 714, mast: 3, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Modified Long Merchant Schooner", size: "Hvy", adv: 18, trd: 33, btl: 6, dura: 600, vsail: 380, hsail: 100, row: 0, turn: 6, wave: 8, arm: 13, cabin: "22/43", cc: 20, hold: 667, mast: 6, material: "Teak", type: "Trd", cash: "O"},
+  {name: "Modified Manila Galleon", thumb: "thumbs/manila-galleon.png", size: "Hvy", adv: 20, trd: 28, btl: 8, dura: 630, vsail: 100, hsail: 235, row: 0, turn: 8, wave: 8, arm: 26, cabin: "40/76", cc: 52, hold: 777, mast: 4, material: "Teak", type: "Trd", cash: "O"},
+  {name: "Modified Nippon-Mae", size: "Hvy", adv: 6, trd: 15, btl: 8, dura: 650, vsail: 255, hsail: 180, row: 0, turn: 8, wave: 7, arm: 33, cabin: "55/98", cc: 62, hold: 816, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified Peter von Danzig", size: "Hvy", adv: 19, trd: 45, btl: 15, dura: 770, vsail: 290, hsail: 280, row: 0, turn: 13, wave: 15, arm: 47, cabin: "27/90", cc: 80, hold: 1030, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Modified Potosi", size: "Hvy", adv: 20, trd: 45, btl: 15, dura: 750, vsail: 260, hsail: 250, row: 0, turn: 10, wave: 13, arm: 40, cabin: "38/75", cc: 30, hold: 1045, mast: 5, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified San Jose", thumb: "thumbs/modified-san-jose.png", size: "Hvy", adv: 20, trd: 38, btl: 15, dura: 800, vsail: 250, hsail: 270, row: 0, turn: 9, wave: 12, arm: 40, cabin: "40/100", cc: 50, hold: 830, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified Savanna", thumb: "thumbs/advanced-savanna.png", size: "Hvy", adv: 18, trd: 12, btl: 12, dura: 800, vsail: 250, hsail: 360, row: 0, turn: 10, wave: 15, arm: 30, cabin: "40/75", cc: 40, hold: 1085, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified Surprise", thumb: "thumbs/modified-surprise.png", size: "Hvy", adv: 30, trd: 36, btl: 15, dura: 855, vsail: 170, hsail: 210, row: 0, turn: 7, wave: 12, arm: 39, cabin: "50/100", cc: 40, hold: 660, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified Susan Constant", thumb: "thumbs/advanced-susan-constant.png", size: "Hvy", adv: 21, trd: 35, btl: 15, dura: 730, vsail: 260, hsail: 365, row: 0, turn: 11, wave: 13, arm: 32, cabin: "40/67", cc: 48, hold: 885, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified Tarukaisen", thumb: "thumbs/festive-tarukaisen.png", size: "Hvy", adv: 6, trd: 14, btl: 2, dura: 620, vsail: 60, hsail: 180, row: 0, turn: 11, wave: 6, arm: 23, cabin: "32/65", cc: 38, hold: 842, mast: 1, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified Tea Clipper", thumb: "thumbs/augmented-cargo-clipper.png", size: "Hvy", adv: 13, trd: 17, btl: 15, dura: 887, vsail: 210, hsail: 330, row: 0, turn: 10, wave: 11, arm: 15, cabin: "32/65", cc: 25, hold: 660, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified Thermopylae", thumb: "thumbs/thermopylae.png", size: "Hvy", adv: 30, trd: 36, btl: 15, dura: 720, vsail: 230, hsail: 360, row: 0, turn: 10, wave: 12, arm: 25, cabin: "35/75", cc: 25, hold: 800, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Modified Trading Clipper", thumb: "thumbs/custom-trading-clipper.png", size: "Hvy", adv: 8, trd: 26, btl: 4, dura: 620, vsail: 195, hsail: 290, row: 0, turn: 11, wave: 9, arm: 14, cabin: "18/40", cc: 16, hold: 664, mast: 4, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Modified Trading Large Galleon", thumb: "thumbs/modified-trading-large-galleon.png", size: "Hvy", adv: 10, trd: 22, btl: 10, dura: 660, vsail: 110, hsail: 245, row: 0, turn: 9, wave: 10, arm: 28, cabin: "44/95", cc: 60, hold: 750, mast: 4, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Modified Transport Large Clipper", thumb: "thumbs/large-survey-clipper.png", size: "Hvy", adv: 11, trd: 29, btl: 6, dura: 650, vsail: 225, hsail: 295, row: 0, turn: 9, wave: 9, arm: 15, cabin: "23/50", cc: 18, hold: 752, mast: 4, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Modified Transport Longship", thumb: "thumbs/modified-transport-longship.png", size: "Hvy", adv: 20, trd: 47, btl: 20, dura: 820, vsail: 140, hsail: 210, row: 100, turn: 14, wave: 9, arm: 42, cabin: "25/180", cc: 20, hold: 1000, mast: 1, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Modified Transport Sha-chuan", size: "Std", adv: 6, trd: 7, btl: 1, dura: 600, vsail: 80, hsail: 180, row: 0, turn: 10, wave: 5, arm: 16, cabin: "25/52", cc: 34, hold: 624, mast: 5, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Moonlight Flying Cloud", thumb: "thumbs/moonlight-flying-cloud.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 850, vsail: 270, hsail: 390, row: 0, turn: 11, wave: 13, arm: 24, cabin: "30/60", cc: 24, hold: 1055, mast: 3, material: "Moon White Wood", type: "Trd", cash: "O"},
+  {name: "Moonlight Tea Clipper", thumb: "thumbs/augmented-cargo-clipper.png", size: "Hvy", adv: 20, trd: 20, btl: 10, dura: 600, vsail: 250, hsail: 365, row: 0, turn: 13, wave: 15, arm: 17, cabin: "20/50", cc: 20, hold: 1030, mast: 3, material: "Moon White Wood", type: "Trd", cash: "O"},
+  {name: "Moonlight Trading Large Clipper", thumb: "thumbs/moonlight-trading-large-clipper.png", size: "Hvy", adv: 15, trd: 20, btl: 10, dura: 880, vsail: 270, hsail: 370, row: 0, turn: 13, wave: 15, arm: 34, cabin: "22/50", cc: 20, hold: 1130, mast: 5, material: "Moon White Wood", type: "Trd", cash: "O"},
+  {name: "Moonlight Windjammer", thumb: "thumbs/cruise-windjammer.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 815, vsail: 310, hsail: 390, row: 0, turn: 16, wave: 14, arm: 30, cabin: "35/80", cc: 22, hold: 1040, mast: 5, material: "Moon White Wood", type: "Trd", cash: "O"},
+  {name: "Nao", thumb: "thumbs/reconnaissance-nao.png", size: "Std", adv: 0, trd: 20, btl: 6, dura: 350, vsail: 185, hsail: 75, row: 0, turn: 9, wave: 5, arm: 16, cabin: "36/80", cc: 20, hold: 350, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Ningbo Ship", thumb: "thumbs/ningbo-ship.png", size: "Hvy", adv: 21, trd: 43, btl: 33, dura: 650, vsail: 245, hsail: 60, row: 0, turn: 9, wave: 10, arm: 27, cabin: "47/80", cc: 52, hold: 628, mast: 3, material: "Oak", type: "Trd", cash: "-"},
+  {name: "Nippon-Mae", thumb: "thumbs/cruising-nippon-mae.png", size: "Hvy", adv: 25, trd: 60, btl: 30, dura: 650, vsail: 255, hsail: 180, row: 0, turn: 8, wave: 7, arm: 33, cabin: "55/98", cc: 62, hold: 680, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Padre Eterno", thumb: "thumbs/padre-eterno.png", size: "Hvy", adv: 10, trd: 25, btl: 20, dura: 950, vsail: 350, hsail: 360, row: 0, turn: 17, wave: 15, arm: 55, cabin: "30/50", cc: 30, hold: 1120, mast: 3, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Peter von Danzig", size: "Hvy", adv: 38, trd: 90, btl: 29, dura: 770, vsail: 290, hsail: 280, row: 0, turn: 13, wave: 15, arm: 47, cabin: "27/90", cc: 80, hold: 980, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Pirate Big Trading Clipper", thumb: "thumbs/pirate-big-trading-clipper.png", size: "Hvy", adv: 5, trd: 10, btl: 5, dura: 900, vsail: 240, hsail: 320, row: 0, turn: 12, wave: 11, arm: 25, cabin: "28/60", cc: 30, hold: 950, mast: 5, material: "Noble Wood", type: "Trd", cash: "O"},
+  {name: "Pirate Flying Cloud", thumb: "thumbs/flying-cloud.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 900, vsail: 260, hsail: 380, row: 0, turn: 12, wave: 14, arm: 24, cabin: "32/65", cc: 24, hold: 1001, mast: 3, material: "Cedar", type: "Trd", cash: "O"},
+  {name: "Pirate Gran Fluyt", thumb: "thumbs/pirate-gran-fluyt.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 1000, vsail: 150, hsail: 350, row: 0, turn: 8, wave: 11, arm: 40, cabin: "50/100", cc: 68, hold: 1032, mast: 3, material: "Festival Wood", type: "Trd", cash: "O"},
+  {name: "Pirate Large Fu Ship", thumb: "thumbs/elite-large-fu-ship.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 950, vsail: 250, hsail: 180, row: 0, turn: 8, wave: 12, arm: 24, cabin: "50/130", cc: 35, hold: 1025, mast: 6, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Pirate Nippon-Mae", thumb: "thumbs/pirate-nippon-mae.png", size: "Hvy", adv: 1, trd: 5, btl: 1, dura: 900, vsail: 330, hsail: 250, row: 0, turn: 12, wave: 12, arm: 40, cabin: "50/100", cc: 90, hold: 950, mast: 3, material: "Noble Wood", type: "Trd", cash: "O"},
+  {name: "Pirate Tarukaisen", thumb: "thumbs/pirate-tarukaisen.png", size: "Hvy", adv: 1, trd: 5, btl: 1, dura: 850, vsail: 100, hsail: 200, row: 0, turn: 14, wave: 10, arm: 30, cabin: "30/60", cc: 60, hold: 900, mast: 1, material: "Celebratory Wood", type: "Trd", cash: "O"},
+  {name: "Pirate Windjammer", thumb: "thumbs/cruise-windjammer.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 850, vsail: 300, hsail: 380, row: 0, turn: 16, wave: 13, arm: 35, cabin: "30/75", cc: 22, hold: 1003, mast: 5, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Polacca", thumb: "thumbs/polacca.png", size: "Std", adv: 10, trd: 25, btl: 15, dura: 325, vsail: 90, hsail: 205, row: 0, turn: 12, wave: 6, arm: 16, cabin: "22/42", cc: 20, hold: 318, mast: 3, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Polacca-Xebec", thumb: "thumbs/agile-xebec.png", size: "Hvy", adv: 28, trd: 36, btl: 20, dura: 610, vsail: 195, hsail: 190, row: 0, turn: 10, wave: 7, arm: 18, cabin: "26/52", cc: 24, hold: 462, mast: 3, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Potosi", thumb: "thumbs/potosi.png", size: "Hvy", adv: 40, trd: 85, btl: 30, dura: 750, vsail: 260, hsail: 250, row: 0, turn: 10, wave: 13, arm: 40, cabin: "38/75", cc: 30, hold: 995, mast: 5, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Premium Large Clipper", thumb: "thumbs/pirate-big-trading-clipper.png", size: "Hvy", adv: 24, trd: 90, btl: 12, dura: 750, vsail: 225, hsail: 320, row: 0, turn: 10, wave: 11, arm: 16, cabin: "26/58", cc: 20, hold: 972, mast: 5, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Prins Willem", thumb: "thumbs/prins-willem.png", size: "Hvy", adv: 28, trd: 70, btl: 51, dura: 780, vsail: 195, hsail: 265, row: 0, turn: 9, wave: 10, arm: 36, cabin: "39/65", cc: 64, hold: 711, mast: 3, material: "Beech", type: "Trd", cash: "-"},
+  {name: "Prins Willem II", size: "Hvy", adv: 35, trd: 55, btl: 45, dura: 913, vsail: 275, hsail: 310, row: 0, turn: 10, wave: 13, arm: 47, cabin: "60/100", cc: 80, hold: 980, mast: 3, material: "Beech", type: "Trd", cash: "O"},
+  {name: "Prototype Great Republic", thumb: "thumbs/gran-republic.png", size: "Hvy", adv: 10, trd: 20, btl: 10, dura: 739, vsail: 252, hsail: 333, row: 0, turn: 12, wave: 13, arm: 47, cabin: "22/52", cc: 30, hold: 931, mast: 4, material: "Moon White Wood", type: "Trd", cash: "O"},
+  {name: "Prototype Padre Eterno", thumb: "thumbs/padre-eterno.png", size: "Hvy", adv: 10, trd: 25, btl: 20, dura: 807, vsail: 315, hsail: 324, row: 0, turn: 16, wave: 13, arm: 50, cabin: "30/43", cc: 30, hold: 939, mast: 3, material: "Portuguese Military Wood", type: "Trd", cash: "O"},
+  {name: "Prototype True Briton", thumb: "thumbs/true-briton.png", size: "Hvy", adv: 10, trd: 20, btl: 10, dura: 790, vsail: 306, hsail: 333, row: 0, turn: 14, wave: 13, arm: 45, cabin: "25/50", cc: 22, hold: 956, mast: 3, material: "English Military Wood", type: "Trd", cash: "O"},
+  {name: "Redesigned Atlantica", thumb: "thumbs/advanced-atlantica.png", size: "Hvy", adv: 10, trd: 30, btl: 12, dura: 700, vsail: 265, hsail: 360, row: 0, turn: 10, wave: 12, arm: 35, cabin: "32/67", cc: 40, hold: 673, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Redesigned Ghanjah Dhow", thumb: "thumbs/redesigned-ghanjah-dhow.png", size: "Hvy", adv: 12, trd: 24, btl: 8, dura: 700, vsail: 340, hsail: 100, row: 0, turn: 12, wave: 14, arm: 13, cabin: "20/34", cc: 20, hold: 796, mast: 2, material: "Cedar", type: "Trd", cash: "O"},
+  {name: "Redesigned Savanna", size: "Hvy", adv: 18, trd: 12, btl: 12, dura: 820, vsail: 250, hsail: 360, row: 0, turn: 10, wave: 15, arm: 32, cabin: "48/80", cc: 50, hold: 1070, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Redesigned Transport Taiwanese Ship", size: "Hvy", adv: 10, trd: 12, btl: 5, dura: 570, vsail: 250, hsail: 200, row: 0, turn: 10, wave: 10, arm: 26, cabin: "20/75", cc: 48, hold: 727, mast: 3, material: "Teak", type: "Trd", cash: "O"},
+  {name: "Refitted Atlantica", thumb: "thumbs/advanced-atlantica.png", size: "Hvy", adv: 12, trd: 37, btl: 15, dura: 700, vsail: 265, hsail: 360, row: 0, turn: 12, wave: 15, arm: 35, cabin: "32/67", cc: 40, hold: 593, mast: 3, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Refitted Big Trading Clipper", thumb: "thumbs/big-trading-clipper.png", size: "Hvy", adv: 16, trd: 37, btl: 10, dura: 750, vsail: 215, hsail: 300, row: 0, turn: 10, wave: 10, arm: 16, cabin: "25/60", cc: 20, hold: 920, mast: 5, material: "Teak", type: "Trd", cash: "O"},
+  {name: "Refitted Bounty", thumb: "thumbs/modified-bounty.png", size: "Hvy", adv: 30, trd: 35, btl: 20, dura: 730, vsail: 275, hsail: 365, row: 0, turn: 16, wave: 15, arm: 41, cabin: "35/70", cc: 80, hold: 800, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Refitted C.W. Morgan", thumb: "thumbs/c-w-morgan.png", size: "Hvy", adv: 23, trd: 38, btl: 10, dura: 765, vsail: 250, hsail: 360, row: 0, turn: 9, wave: 12, arm: 36, cabin: "42/70", cc: 40, hold: 815, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Refitted Cacafuego", thumb: "thumbs/refitted-cacafuego.png", size: "Hvy", adv: 25, trd: 45, btl: 20, dura: 790, vsail: 240, hsail: 280, row: 0, turn: 10, wave: 12, arm: 40, cabin: "45/85", cc: 40, hold: 1025, mast: 3, material: "Rosewood", type: "Trd", cash: "O"},
+  {name: "Refitted City of Adelaide", size: "Hvy", adv: 19, trd: 47, btl: 18, dura: 750, vsail: 310, hsail: 370, row: 0, turn: 13, wave: 15, arm: 45, cabin: "22/50", cc: 20, hold: 1100, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Refitted De Amsterdam", thumb: "thumbs/advanced-de-amsterdam.png", size: "Hvy", adv: 20, trd: 45, btl: 20, dura: 750, vsail: 270, hsail: 290, row: 0, turn: 11, wave: 13, arm: 45, cabin: "25/80", cc: 72, hold: 998, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Refitted Don de Dieu", size: "Hvy", adv: 18, trd: 45, btl: 14, dura: 740, vsail: 280, hsail: 290, row: 0, turn: 14, wave: 15, arm: 45, cabin: "30/80", cc: 70, hold: 950, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Refitted Dragon Ship C2", size: "Hvy", adv: 20, trd: 32, btl: 15, dura: 720, vsail: 280, hsail: 190, row: 0, turn: 6, wave: 9, arm: 33, cabin: "38/72", cc: 40, hold: 836, mast: 4, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Refitted Felipe", thumb: "thumbs/modified-felipe.png", size: "Hvy", adv: 30, trd: 37, btl: 16, dura: 800, vsail: 225, hsail: 325, row: 0, turn: 10, wave: 13, arm: 35, cabin: "33/70", cc: 65, hold: 795, mast: 4, material: "Beech", type: "Trd", cash: "O"},
+  {name: "Refitted Ghanjah Dhow", thumb: "thumbs/refitted-ghanjah-dhow.png", size: "Hvy", adv: 12, trd: 24, btl: 8, dura: 640, vsail: 340, hsail: 100, row: 0, turn: 11, wave: 12, arm: 13, cabin: "30/65", cc: 24, hold: 711, mast: 2, material: "Cedar", type: "Trd", cash: "O"},
+  {name: "Refitted Peter von Danzig", size: "Hvy", adv: 19, trd: 45, btl: 15, dura: 770, vsail: 300, hsail: 280, row: 0, turn: 13, wave: 15, arm: 47, cabin: "27/90", cc: 80, hold: 980, mast: 3, material: "Oak", type: "Trd", cash: "O"},
+  {name: "Refitted Potosi", size: "Hvy", adv: 25, trd: 40, btl: 15, dura: 750, vsail: 270, hsail: 270, row: 0, turn: 12, wave: 15, arm: 40, cabin: "30/75", cc: 30, hold: 995, mast: 5, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Refitted Prins Willem", size: "Hvy", adv: 14, trd: 35, btl: 26, dura: 780, vsail: 195, hsail: 265, row: 0, turn: 9, wave: 10, arm: 38, cabin: "40/72", cc: 64, hold: 734, mast: 3, material: "Beech", type: "Trd", cash: "O"},
+  {name: "Refitted San Jose", thumb: "thumbs/modified-san-jose.png", size: "Hvy", adv: 22, trd: 35, btl: 15, dura: 800, vsail: 265, hsail: 270, row: 0, turn: 11, wave: 15, arm: 40, cabin: "40/100", cc: 50, hold: 790, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Refitted Savanna", thumb: "thumbs/refitted-savanna.png", size: "Hvy", adv: 18, trd: 12, btl: 12, dura: 800, vsail: 260, hsail: 360, row: 0, turn: 11, wave: 15, arm: 30, cabin: "40/75", cc: 40, hold: 1085, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Refitted Susan Constant", thumb: "thumbs/advanced-susan-constant.png", size: "Hvy", adv: 21, trd: 35, btl: 15, dura: 730, vsail: 270, hsail: 370, row: 0, turn: 12, wave: 15, arm: 32, cabin: "40/67", cc: 48, hold: 935, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Refitted Transport Longship", size: "Hvy", adv: 20, trd: 47, btl: 20, dura: 820, vsail: 150, hsail: 210, row: 100, turn: 14, wave: 9, arm: 42, cabin: "25/180", cc: 20, hold: 950, mast: 1, material: "Red Pine", type: "Trd", cash: "O"},
+  {name: "Refitted Windjammer", thumb: "thumbs/cruise-windjammer.png", size: "Hvy", adv: 32, trd: 37, btl: 15, dura: 780, vsail: 235, hsail: 355, row: 0, turn: 7, wave: 10, arm: 24, cabin: "35/90", cc: 22, hold: 803, mast: 5, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Research Galley", thumb: "thumbs/research-galley.png", size: "Std", adv: 0, trd: 23, btl: 5, dura: 365, vsail: 155, hsail: 40, row: 95, turn: 10, wave: 2, arm: 12, cabin: "54/90", cc: 28, hold: 432, mast: 3, material: "Beech", type: "Trd", cash: "-"},
+  {name: "San Jose", thumb: "thumbs/modified-san-jose.png", size: "Hvy", adv: 40, trd: 75, btl: 30, dura: 740, vsail: 250, hsail: 270, row: 0, turn: 15, wave: 9, arm: 38, cabin: "40/80", cc: 50, hold: 810, mast: 3, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Shadow Flying Cloud", thumb: "thumbs/flying-cloud.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 915, vsail: 290, hsail: 400, row: 0, turn: 12, wave: 14, arm: 24, cabin: "30/60", cc: 24, hold: 1085, mast: 3, material: "Nocturnal Wood", type: "Trd", cash: "O"},
+  {name: "Shadow Windjammer", thumb: "thumbs/cruise-windjammer.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 880, vsail: 310, hsail: 390, row: 0, turn: 16, wave: 14, arm: 30, cabin: "35/80", cc: 22, hold: 1070, mast: 5, material: "Nocturnal Wood", type: "Trd", cash: "O"},
+  {name: "Siam", thumb: "thumbs/survey-siam.png", size: "Hvy", adv: 19, trd: 38, btl: 31, dura: 620, vsail: 240, hsail: 110, row: 0, turn: 9, wave: 7, arm: 28, cabin: "48/80", cc: 52, hold: 588, mast: 3, material: "Teak", type: "Trd", cash: "-"},
+  {name: "SO Trading Galley", size: "Std", adv: 3, trd: 16, btl: 0, dura: 310, vsail: 145, hsail: 35, row: 90, turn: 9, wave: 2, arm: 10, cabin: "40/70", cc: 16, hold: 344, mast: 2, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Special Transport Xebec", thumb: "thumbs/agile-xebec.png", size: "Hvy", adv: 16, trd: 36, btl: 32, dura: 600, vsail: 195, hsail: 185, row: 0, turn: 10, wave: 7, arm: 17, cabin: "24/50", cc: 28, hold: 442, mast: 3, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Superior Atlantica", thumb: "thumbs/advanced-atlantica.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 770, vsail: 275, hsail: 380, row: 0, turn: 15, wave: 15, arm: 42, cabin: "42/105", cc: 55, hold: 980, mast: 3, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Superior Dutch Indiaman", thumb: "thumbs/custom-dutch-indiaman.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 750, vsail: 250, hsail: 345, row: 0, turn: 15, wave: 15, arm: 32, cabin: "34/70", cc: 50, hold: 1045, mast: 3, material: "Noble Metal", type: "Trd", cash: "O"},
+  {name: "Superior Tea Clipper", thumb: "thumbs/augmented-cargo-clipper.png", size: "Hvy", adv: 15, trd: 30, btl: 15, dura: 900, vsail: 290, hsail: 380, row: 0, turn: 7, wave: 9, arm: 35, cabin: "45/96", cc: 64, hold: 1040, mast: 3, material: "Mahogany", type: "Trd", cash: "O"},
+  {name: "Superior Windjammer", thumb: "thumbs/cruise-windjammer.png", size: "Hvy", adv: 15, trd: 30, btl: 10, dura: 800, vsail: 290, hsail: 370, row: 0, turn: 14, wave: 12, arm: 25, cabin: "30/75", cc: 22, hold: 777, mast: 5, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Survey Boot Ship", thumb: "thumbs/boot-ship.png", size: "Std", adv: 15, trd: 25, btl: 10, dura: 300, vsail: 200, hsail: 75, row: 0, turn: 14, wave: 8, arm: 11, cabin: "20/45", cc: 10, hold: 295, mast: 3, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Survey Large Galley", thumb: "thumbs/survey-large-galley.png", size: "Hvy", adv: 0, trd: 29, btl: 10, dura: 430, vsail: 178, hsail: 70, row: 95, turn: 10, wave: 2, arm: 14, cabin: "66/110", cc: 42, hold: 518, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Survey Large Schooner", thumb: "thumbs/transport-swift-schooner.png", size: "Hvy", adv: 24, trd: 45, btl: 16, dura: 530, vsail: 260, hsail: 105, row: 0, turn: 12, wave: 9, arm: 14, cabin: "20/36", cc: 16, hold: 588, mast: 4, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Survey Trading Sambuk", thumb: "thumbs/survey-trading-sambuk.png", size: "Std", adv: 16, trd: 22, btl: 16, dura: 345, vsail: 260, hsail: 45, row: 0, turn: 13, wave: 7, arm: 8, cabin: "24/40", cc: 10, hold: 390, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Susan Constant", thumb: "thumbs/advanced-susan-constant.png", size: "Hvy", adv: 42, trd: 73, btl: 30, dura: 730, vsail: 260, hsail: 365, row: 0, turn: 11, wave: 12, arm: 32, cabin: "55/67", cc: 88, hold: 835, mast: 3, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Susquehanna", thumb: "thumbs/ambush-susquehanna.png", size: "Hvy", adv: 20, trd: 32, btl: 10, dura: 900, vsail: 310, hsail: 360, row: 0, turn: 17, wave: 15, arm: 45, cabin: "18/40", cc: 30, hold: 1130, mast: 3, material: "Nocturnal Wood", type: "Trd", cash: "O"},
+  {name: "Tarukaisen", thumb: "thumbs/festive-tarukaisen.png", size: "Hvy", adv: 22, trd: 54, btl: 9, dura: 620, vsail: 60, hsail: 180, row: 0, turn: 11, wave: 6, arm: 23, cabin: "32/65", cc: 38, hold: 707, mast: 1, material: "Cedar", type: "Trd", cash: "-"},
+  {name: "Tea Clipper", thumb: "thumbs/augmented-cargo-clipper.png", size: "Hvy", adv: 53, trd: 67, btl: 18, dura: 680, vsail: 225, hsail: 360, row: 0, turn: 10, wave: 11, arm: 14, cabin: "32/65", cc: 25, hold: 660, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "The Dutch Indiaman", thumb: "thumbs/custom-dutch-indiaman.png", size: "Hvy", adv: 35, trd: 47, btl: 22, dura: 680, vsail: 145, hsail: 275, row: 0, turn: 8, wave: 8, arm: 26, cabin: "29/64", cc: 42, hold: 684, mast: 3, material: "Beech", type: "Trd", cash: "-"},
+  {name: "Trading Barca", thumb: "thumbs/trading-barca.png", size: "Lgt", adv: 0, trd: 1, btl: 0, dura: 35, vsail: 102, hsail: 10, row: 0, turn: 13, wave: 2, arm: 2, cabin: "3/6", cc: 2, hold: 57, mast: 1, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Trading Caravel", thumb: "thumbs/trading-caravel.png", size: "Lgt", adv: 3, trd: 9, btl: 0, dura: 135, vsail: 165, hsail: 25, row: 0, turn: 10, wave: 4, arm: 4, cabin: "16/30", cc: 8, hold: 192, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Trading Carrack", thumb: "thumbs/trading-carrack.png", size: "Std", adv: 5, trd: 17, btl: 5, dura: 230, vsail: 180, hsail: 60, row: 0, turn: 10, wave: 5, arm: 8, cabin: "25/50", cc: 28, hold: 322, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Trading Clipper", thumb: "thumbs/expedition-trading-clipper.png", size: "Hvy", adv: 16, trd: 52, btl: 8, dura: 620, vsail: 185, hsail: 280, row: 0, turn: 10, wave: 9, arm: 14, cabin: "18/40", cc: 16, hold: 584, mast: 4, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Trading Dhow", thumb: "thumbs/trading-dhow.png", size: "Lgt", adv: 7, trd: 10, btl: 7, dura: 175, vsail: 233, hsail: 25, row: 0, turn: 12, wave: 6, arm: 6, cabin: "15/26", cc: 6, hold: 178, mast: 2, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Trading Flute", thumb: "thumbs/trading-flute.png", size: "Lgt", adv: 6, trd: 10, btl: 3, dura: 230, vsail: 190, hsail: 50, row: 0, turn: 10, wave: 5, arm: 10, cabin: "16/28", cc: 16, hold: 226, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Trading Galleon", thumb: "thumbs/trading-galleon.png", size: "Hvy", adv: 0, trd: 35, btl: 15, dura: 570, vsail: 115, hsail: 220, row: 0, turn: 9, wave: 6, arm: 22, cabin: "42/70", cc: 30, hold: 580, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Trading Galley", thumb: "thumbs/trading-galley.png", size: "Std", adv: 3, trd: 16, btl: 0, dura: 310, vsail: 145, hsail: 35, row: 90, turn: 9, wave: 2, arm: 10, cabin: "40/70", cc: 16, hold: 344, mast: 2, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Trading Large Galleon", thumb: "thumbs/modified-trading-large-galleon.png", size: "Hvy", adv: 20, trd: 44, btl: 20, dura: 660, vsail: 110, hsail: 245, row: 0, turn: 9, wave: 8, arm: 32, cabin: "54/95", cc: 60, hold: 675, mast: 4, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Trading Pinnace", thumb: "thumbs/trading-pinnace.png", size: "Std", adv: 5, trd: 20, btl: 0, dura: 315, vsail: 90, hsail: 205, row: 0, turn: 10, wave: 7, arm: 16, cabin: "30/50", cc: 28, hold: 342, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Trading Sambuk", thumb: "thumbs/survey-trading-sambuk.png", size: "Std", adv: 16, trd: 22, btl: 16, dura: 355, vsail: 260, hsail: 45, row: 0, turn: 11, wave: 7, arm: 8, cabin: "24/40", cc: 10, hold: 390, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Trading Schooner", thumb: "thumbs/trading-schooner.png", size: "Std", adv: 12, trd: 24, btl: 0, dura: 305, vsail: 250, hsail: 55, row: 0, turn: 8, wave: 13, arm: 18, cabin: "18/30", cc: 12, hold: 283, mast: 3, material: "Oak", type: "Trd", cash: "-"},
+  {name: "Trading Xebec", thumb: "thumbs/armed-trading-xebec.png", size: "Hvy", adv: 25, trd: 32, btl: 25, dura: 610, vsail: 275, hsail: 60, row: 0, turn: 10, wave: 8, arm: 14, cabin: "25/42", cc: 32, hold: 506, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Transport Carrack", thumb: "thumbs/transport-carrack.png", size: "Lgt", adv: 6, trd: 12, btl: 0, dura: 180, vsail: 185, hsail: 35, row: 0, turn: 10, wave: 5, arm: 8, cabin: "15/26", cc: 10, hold: 284, mast: 2, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Transport Felucca", thumb: "thumbs/felucca.png", size: "Lgt", adv: 10, trd: 17, btl: 0, dura: 230, vsail: 245, hsail: 25, row: 0, turn: 13, wave: 7, arm: 11, cabin: "16/30", cc: 12, hold: 183, mast: 2, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Transport Flying Cloud", thumb: "thumbs/flying-cloud.png", size: "Hvy", adv: 26, trd: 40, btl: 20, dura: 730, vsail: 230, hsail: 365, row: 0, turn: 8, wave: 10, arm: 24, cabin: "29/65", cc: 24, hold: 961, mast: 3, material: "Cedar", type: "Trd", cash: "O"},
+  {name: "Transport Galleon", thumb: "thumbs/transport-galleon.png", size: "Std", adv: 0, trd: 18, btl: 9, dura: 290, vsail: 95, hsail: 200, row: 0, turn: 11, wave: 8, arm: 22, cabin: "16/28", cc: 16, hold: 326, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Transport Galley", thumb: "thumbs/transport-galley.png", size: "Lgt", adv: 0, trd: 5, btl: 0, dura: 125, vsail: 110, hsail: 23, row: 80, turn: 12, wave: 2, arm: 8, cabin: "21/36", cc: 4, hold: 210, mast: 1, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Transport Ghanjah Dhow", thumb: "thumbs/ghanjah-dhow.png", size: "Hvy", adv: 12, trd: 24, btl: 8, dura: 700, vsail: 300, hsail: 75, row: 0, turn: 10, wave: 10, arm: 15, cabin: "25/65", cc: 16, hold: 819, mast: 2, material: "Cedar", type: "Trd", cash: "O"},
+  {name: "Transport Gran Fluyt", thumb: "thumbs/custom-gran-fluyt.png", size: "Hvy", adv: 26, trd: 49, btl: 41, dura: 780, vsail: 105, hsail: 245, row: 0, turn: 6, wave: 6, arm: 36, cabin: "46/110", cc: 68, hold: 1002, mast: 3, material: "Iron-plated", type: "Trd", cash: "O"},
+  {name: "Transport Large Galley", thumb: "thumbs/transport-large-galley.png", size: "Hvy", adv: 0, trd: 29, btl: 10, dura: 440, vsail: 178, hsail: 70, row: 95, turn: 8, wave: 2, arm: 14, cabin: "66/110", cc: 42, hold: 518, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Transport Longship", size: "Hvy", adv: 20, trd: 95, btl: 40, dura: 820, vsail: 130, hsail: 210, row: 100, turn: 14, wave: 9, arm: 42, cabin: "25/180", cc: 20, hold: 950, mast: 1, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Transport Quebec", thumb: "thumbs/cruise-quebec.png", size: "Hvy", adv: 16, trd: 36, btl: 32, dura: 590, vsail: 200, hsail: 180, row: 0, turn: 10, wave: 8, arm: 17, cabin: "26/62", cc: 34, hold: 494, mast: 3, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Transport Sha-chuan", thumb: "thumbs/transport-sha-chuan.png", size: "Std", adv: 25, trd: 33, btl: 3, dura: 575, vsail: 290, hsail: 120, row: 0, turn: 10, wave: 5, arm: 16, cabin: "31/52", cc: 34, hold: 494, mast: 5, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Transport Sloop", thumb: "thumbs/cruise-sloop.png", size: "Lgt", adv: 10, trd: 17, btl: 0, dura: 210, vsail: 270, hsail: 30, row: 0, turn: 14, wave: 8, arm: 8, cabin: "12/26", cc: 8, hold: 201, mast: 2, material: "Mahogany", type: "Trd", cash: "-"},
+  {name: "Transport Small Caravel", thumb: "thumbs/transport-small-caravel.png", size: "Lgt", adv: 2, trd: 4, btl: 0, dura: 90, vsail: 135, hsail: 15, row: 0, turn: 12, wave: 5, arm: 4, cabin: "9/18", cc: 6, hold: 126, mast: 2, material: "Cedar", type: "Trd", cash: "-"},
+  {name: "Transport Surprise", thumb: "thumbs/modified-surprise.png", size: "Hvy", adv: 30, trd: 36, btl: 15, dura: 775, vsail: 210, hsail: 220, row: 0, turn: 6, wave: 12, arm: 36, cabin: "40/100", cc: 40, hold: 870, mast: 3, material: "Festival Wood", type: "Trd", cash: "O"},
+  {name: "Transport Thermopylae", thumb: "thumbs/transport-thermopylae.png", size: "Hvy", adv: 30, trd: 36, btl: 15, dura: 800, vsail: 180, hsail: 300, row: 0, turn: 11, wave: 15, arm: 35, cabin: "35/75", cc: 25, hold: 890, mast: 3, material: "Noble Wood", type: "Trd", cash: "O"},
+  {name: "Transport Wide Ship", thumb: "thumbs/transport-wide-ship.png", size: "Hvy", adv: 34, trd: 45, btl: 19, dura: 600, vsail: 250, hsail: 60, row: 0, turn: 9, wave: 11, arm: 25, cabin: "48/80", cc: 40, hold: 690, mast: 3, material: "Oak", type: "Trd", cash: "-"},
+  {name: "True Briton", thumb: "thumbs/true-briton.png", size: "Hvy", adv: 10, trd: 20, btl: 10, dura: 930, vsail: 340, hsail: 370, row: 0, turn: 16, wave: 15, arm: 53, cabin: "25/50", cc: 25, hold: 1125, mast: 3, material: "English Admiral Metal", type: "Trd", cash: "O"},
+  {name: "Warwick Cog", thumb: "thumbs/warwick-cog.png", size: "Lgt", adv: 3, trd: 7, btl: 0, dura: 120, vsail: 157, hsail: 30, row: 0, turn: 9, wave: 4, arm: 4, cabin: "20/45", cc: 8, hold: 217, mast: 3, material: "Red Pine", type: "Trd", cash: "-"},
+  {name: "Wide Ship", thumb: "thumbs/wide-ship.png", size: "Hvy", adv: 35, trd: 42, btl: 20, dura: 640, vsail: 260, hsail: 60, row: 0, turn: 10, wave: 11, arm: 25, cabin: "45/75", cc: 42, hold: 653, mast: 3, material: "Cedar", type: "Trd", cash: "-"},
+  {name: "Windjammer", thumb: "thumbs/cruise-windjammer.png", size: "Hvy", adv: 65, trd: 75, btl: 30, dura: 760, vsail: 235, hsail: 355, row: 0, turn: 7, wave: 10, arm: 22, cabin: "35/75", cc: 22, hold: 818, mast: 5, material: "Iron-plated", type: "Trd", cash: "-"}
+];
+</script>
+<script src="../../menu.js"></script>
+</body>
+</html>

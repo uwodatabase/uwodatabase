@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ship Parts - My Database</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="loading" data-root="../../">
+
+<!-- TOP BAR -->
+<div class="topbar"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR (built by ../../menu.js) -->
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <div class="skill-row">
+    <div class="info-box sp-box">
+    <div class="sp-links">
+      <div class="sp-col sp-icons">
+        <a href="#" data-sp="studding-sails"><img src="../../images/ship-parts/sails.png" alt="">Studding Sails</a>
+        <a href="#" data-sp="figureheads"><img src="../../images/ship-parts/figurehead.png" alt="">Figureheads</a>
+        <a href="#" data-sp="crests"><img src="../../images/ship-parts/crest.png" alt="">Crests</a>
+        <a href="#" data-sp="special-equipments"><img src="../../images/ship-parts/special-equipments.png" alt="">Special Equipments</a>
+        <a href="#" data-sp="extra-armourings"><img src="../../images/ship-parts/plates.png" alt="">Extra Armourings</a>
+      </div>
+      <div class="sp-col">
+      </div>
+      <div class="sp-col sp-tight">
+        <a href="#" data-sp="normal-shot"><img src="../../images/ship-parts/normal-shot.png" alt="">Normal Shot</a>
+        <a href="#" data-sp="double-shot"><img src="../../images/ship-parts/double-shot.png" alt="">Double Shot</a>
+        <a href="#" data-sp="grapeshot"><img src="../../images/ship-parts/grape-shot.png" alt="">Grapeshot</a>
+        <a href="#" data-sp="chain-shot"><img src="../../images/ship-parts/chain-shot.png" alt="">Chain-Shot</a>
+        <a href="#" data-sp="incendiary-shot"><img src="../../images/ship-parts/incendiary-shot.png" alt="">Incendiary Shot</a>
+        <a href="#" data-sp="smoke-shells"><img src="../../images/ship-parts/smoke-shells.png" alt="">Smoke Shells</a>
+      </div>
+    </div>
+    </div>
+    <div class="sh-panels">
+      <div class="loc-panel pnl-sp" id="sp-studding-sails">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-sails-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-figureheads">
+        <div class="sp-tabs sp-tabs-fig"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"><img class="sp-effect" src="../../images/ship-parts/effect-tab.png" alt="Effect"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-figs-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-crests">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-crests-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-special-equipments">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-special-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-extra-armourings">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-arms-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-normal-shot">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-normal-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-double-shot">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-double-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-grapeshot">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-grape-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-chain-shot">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-chain-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-incendiary-shot">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-incend-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-smoke-shells">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-smoke-list"></div>
+        </div></div>
+      </div>
+    </div>
+    </div>
+  </main>
+
+</div>
+
+<script src="../../menu.js"></script>
+<script>
+// Studding Sails: one row per sail. n = name, i = icon file (images/ship-parts/sails/<i>.png), a = speed, b = sail (hsail) bonus, t = turn. One per line.
+var SAILS = [
+  {n:'Advanced Full Rigged Sail', i:'phantom-full-rigged-sail', a:32, b:32, t:'-1'},
+  {n:'Advanced Royal Staysail', i:'elite-royal-staysail', a:30, b:34, t:'-1'},
+  {n:'Advanced Top Royal Sail', i:'phantom-top-royal-sail', a:34, b:30, t:'-1'},
+  {n:'Aero Full Rigged Sail', i:'aero-full-rigged-sail', a:36, b:36, t:'0'},
+  {n:'Aero Royal Staysail', i:'aero-royal-staysail', a:34, b:38, t:'0'},
+  {n:'Aero Top Royal Sail', i:'aero-top-royal-sail', a:38, b:34, t:'0'},
+  {n:'Augmented Royal Staysail', i:'elite-royal-staysail', a:29, b:14, t:'0'},
+  {n:'Auxillary Japanese Sail', i:'auxillary-japanese-sail', a:0, b:12, t:'-1'},
+  {n:'Auxillary Junk Sail', i:'auxillary-junk-sail', a:11, b:0, t:'-1'},
+  {n:'Bonnet', i:'bonnet', a:0, b:15, t:'-1'},
+  {n:'Craftsman\'s Full Rigged Sail', i:'craftsman-s-full-rigged-sail', a:24, b:27, t:'-0'},
+  {n:'Craftsman\'s Full Rigged Sail 2', i:'craftsman-s-full-rigged-sail-2', a:24, b:27, t:'-0'},
+  {n:'Custom Full Rigged Sail', i:'phantom-full-rigged-sail', a:28, b:30, t:'0'},
+  {n:'Custom Top Royal Sail', i:'phantom-top-royal-sail', a:24, b:30, t:'0'},
+  {n:'Deluxe Full Rigged Sail', i:'phantom-full-rigged-sail', a:35, b:35, t:'-1'},
+  {n:'Deluxe Royal Staysail', i:'deluxe-royal-staysail', a:34, b:37, t:'-1'},
+  {n:'Deluxe Top Royal Sail', i:'deluxe-top-royal-sail', a:37, b:34, t:'-1'},
+  {n:'Elite Full Rigged Sail', i:'elite-full-rigged-sail', a:37, b:37, t:'-1'},
+  {n:'Elite Royal Staysail', i:'elite-royal-staysail', a:36, b:39, t:'-1'},
+  {n:'Elite Top Royal Sail', i:'phantom-top-royal-sail', a:39, b:36, t:'-1'},
+  {n:'Flying Inner Jib', i:'flying-inner-jib', a:18, b:0, t:'-1'},
+  {n:'Flying Outer Jib', i:'flying-outer-jib', a:17, b:0, t:'-1'},
+  {n:'Flying Staysail', i:'flying-staysail', a:21, b:3, t:'-1'},
+  {n:'Fore Full Rigged Sail', i:'fore-full-rigged-sail', a:17, b:24, t:'-2'},
+  {n:'Fore Gallant Bonnet', i:'fore-gallant-bonnet', a:0, b:24, t:'-1'},
+  {n:'Fore Gallant Staysail', i:'fore-gallant-staysail', a:9, b:11, t:'-1'},
+  {n:'Fore Royal Gallant Sail', i:'fore-royal-gallant-sail', a:1, b:15, t:'-1'},
+  {n:'Fore Royal Staysail', i:'fore-royal-staysail', a:19, b:2, t:'-1'},
+  {n:'Fore Staysail', i:'fore-staysail', a:9, b:3, t:'-0'},
+  {n:'Fore Top Royal Sail', i:'fore-top-royal-sail', a:9, b:16, t:'-1'},
+  {n:'Fore Top Staysail', i:'fore-top-staysail', a:14, b:2, t:'-1'},
+  {n:'Fore Topgallant Sail', i:'fore-topgallant-sail', a:0, b:8, t:'-0'},
+  {n:'Improved Full Rigged Sail', i:'phantom-full-rigged-sail', a:26, b:30, t:'-1'},
+  {n:'Improved Gallant Staysail', i:'improved-gallant-staysail', a:15, b:15, t:'-0'},
+  {n:'Improved Main Staysail', i:'improved-main-staysail', a:15, b:6, t:'-0'},
+  {n:'Inner Jib', i:'inner-jib', a:6, b:0, t:'-0'},
+  {n:'Inner Jib Staysail', i:'inner-jib-staysail', a:10, b:2, t:'-0'},
+  {n:'Maestro\'s Full Rigged Sail 3', i:'maestro-s-full-rigged-sail-3', a:25, b:26, t:'-0'},
+  {n:'Main Full Rigged Sail', i:'main-full-rigged-sail', a:21, b:24, t:'-1'},
+  {n:'Main Gallant Bonnet', i:'main-gallant-bonnet', a:4, b:27, t:'-1'},
+  {n:'Main Gallant Staysail', i:'main-gallant-staysail', a:12, b:14, t:'-1'},
+  {n:'Main Royal Gallant Sail', i:'main-royal-gallant-sail', a:4, b:18, t:'-1'},
+  {n:'Main Royal Staysail 1', i:'main-royal-staysail-1', a:23, b:5, t:'-1'},
+  {n:'Main Staysail', i:'main-staysail', a:13, b:4, t:'-0'},
+  {n:'Main Top Royal Sail', i:'main-top-royal-sail', a:14, b:19, t:'-1'},
+  {n:'Main Top Staysail', i:'main-top-staysail', a:18, b:4, t:'-1'},
+  {n:'Main Topgallant Sail', i:'main-topgallant-sail', a:3, b:12, t:'-0'},
+  {n:'Master Royal Staysail', i:'elite-royal-staysail', a:28, b:15, t:'0'},
+  {n:'Mizzen Full Rigged Sail', i:'mizzen-full-rigged-sail', a:18, b:23, t:'-2'},
+  {n:'Mizzen Gallant Bonnet', i:'mizzen-gallant-bonnet', a:1, b:25, t:'-1'},
+  {n:'Mizzen Gallant Staysail', i:'mizzen-gallant-staysail', a:10, b:10, t:'-1'},
+  {n:'Mizzen Royal Gallant Sail', i:'mizzen-royal-gallant-sail', a:2, b:14, t:'-1'},
+  {n:'Mizzen Royal Staysail', i:'mizzen-royal-staysail', a:20, b:1, t:'-1'},
+  {n:'Mizzen Staysail', i:'mizzen-staysail', a:10, b:1, t:'-0'},
+  {n:'Mizzen Top Royal Sail', i:'mizzen-top-royal-sail', a:10, b:15, t:'-1'},
+  {n:'Mizzen Top Staysail', i:'mizzen-top-staysail', a:15, b:1, t:'-1'},
+  {n:'Mizzen Topgallant Sail', i:'mizzen-topgallant-sail', a:0, b:9, t:'-0'},
+  {n:'Modified Full Rigged Sail', i:'modified-full-rigged-sail', a:26, b:30, t:'-1'},
+  {n:'Modified Full Rigged Sail', i:'modified-full-rigged-sail-2', a:26, b:30, t:'-1'},
+  {n:'Modified Full Rigged Sail 9', i:'modified-full-rigged-sail-9', a:22, b:25, t:'-1'},
+  {n:'Modified Gallant Bonnet', i:'modified-gallant-bonnet', a:7, b:27, t:'-0'},
+  {n:'Modified Top Royal Sail', i:'modified-top-royal-sail', a:22, b:22, t:'-0'},
+  {n:'Outer & Inner Jib', i:'outer-inner-jib', a:13, b:0, t:'-1'},
+  {n:'Outer Jib', i:'outer-jib', a:12, b:0, t:'-1'},
+  {n:'Outer Jib Staysail', i:'outer-jib-staysail', a:14, b:1, t:'-0'},
+  {n:'Phantom Full Rigged Sail', i:'phantom-full-rigged-sail', a:41, b:41, t:'-1'},
+  {n:'Phantom Royal Staysail', i:'phantom-royal-staysail', a:40, b:43, t:'-1'},
+  {n:'Phantom Top Royal Sail', i:'phantom-top-royal-sail', a:43, b:40, t:'-1'},
+  {n:'Pirate Full Rigged Sail', i:'phantom-full-rigged-sail', a:39, b:39, t:'-1'},
+  {n:'Pirate Royal Staysail', i:'elite-royal-staysail', a:38, b:41, t:'-1'},
+  {n:'Pirate Top Royal Sail', i:'phantom-top-royal-sail', a:41, b:38, t:'-1'},
+  {n:'Plain Weave Bonnet', i:'plain-weave-bonnet', a:2, b:17, t:'-0'},
+  {n:'Small Inner Jib', i:'small-inner-jib', a:5, b:0, t:'-0'},
+  {n:'Superior Full Rigged Sail', i:'phantom-full-rigged-sail', a:34, b:34, t:'-1'},
+  {n:'Superior Royal Staysail', i:'elite-royal-staysail', a:32, b:36, t:'-1'},
+  {n:'Superior Top Royal Sail', i:'phantom-top-royal-sail', a:36, b:32, t:'-1'},
+  {n:'Wide Bonnet', i:'wide-bonnet', a:0, b:17, t:'-1'},
+  {n:'x', i:'x', a:28, b:15, t:'-0'}
+];
+
+// Figureheads (in-game order): n = name, i = icon file (images/ship-parts/figureheads/<i>.png), s = the 4 Base Performance numbers, e = effect text, f = effect icon (purple / fire / eradication, or '' for none). One per line.
+var FIGS = [
+  {n:'King Midas', i:'king-midas', s:[3, 2, 3, 2], e:'Sorcery', f:'purple'},
+  {n:'Ra', i:'ra', s:[4, 3, 3, 3], e:'', f:''},
+  {n:'Anubis 7', i:'anubis-7', s:[4, 4, 2, 3], e:'', f:''},
+  {n:'Bennu', i:'bennu', s:[1, 7, 0, 1], e:'Rescue', f:'rescue'},
+  {n:'Phoenix', i:'phoenix', s:[0, 7, 0, 0], e:'', f:''},
+  {n:'Gargoyle Figure', i:'gargoyle-figure', s:[7, 0, 2, 5], e:'', f:''},
+  {n:'Fafnir', i:'fafnir', s:[4, 1, 0, 8], e:'', f:''},
+  {n:'Bahamut 4', i:'bahamut-4', s:[6, 5, 5, 7], e:'Evasion', f:'evasion'},
+  {n:'Wyvern', i:'wyvern', s:[1, 1, 0, 7], e:'', f:''},
+  {n:'Vritra', i:'vritra', s:[1, 4, 0, 8], e:'', f:''},
+  {n:'Illuyanka 2', i:'illuyanka-2', s:[6, 4, 4, 7], e:'Sorcery (whirlwind)', f:'purple'},
+  {n:'Dragon', i:'dragon', s:[0, 0, 0, 7], e:'', f:''},
+  {n:'Dragonhead Figurehead', i:'dragonhead-figurehead', s:[8, 7, 0, 0], e:'', f:''},
+  {n:'Zheng He\'s fleet', i:'zheng-he-s-fleet', s:[7, 0, 0, 8], e:'Restore Order', f:'purple'},
+  {n:'Sea Serpent', i:'sea-serpent', s:[7, 2, 3, 3], e:'Leak fixing', f:'purple'},
+  {n:'Jormundgand', i:'jormundgand', s:[8, 4, 0, 1], e:'', f:''},
+  {n:'Leviathan', i:'leviathan', s:[8, 2, 0, 2], e:'Repel Kraken', f:'purple'},
+  {n:'Quetzalcoatl', i:'quetzalcoatl', s:[7, 7, 0, 0], e:'Repel Octopus', f:'purple'},
+  {n:'Kukulkan', i:'kukulkan', s:[7, 3, 0, 4], e:'Repel Kraken', f:'purple'},
+  {n:'Ananta', i:'ananta', s:[8, 1, 0, 4], e:'', f:''},
+  {n:'Azi Dahaka', i:'azi-dahaka', s:[7, 3, 0, 3], e:'Repel Shark', f:'purple'},
+  {n:'Tiamat', i:'tiamat', s:[7, 1, 0, 6], e:'Seaweed removal', f:'purple'},
+  {n:'Sea Monster 1', i:'sea-monster-1', s:[7, 0, 0, 0], e:'', f:''},
+  {n:'Leopard', i:'leopard', s:[0, 0, 2, 3], e:'', f:''},
+  {n:'Tiger', i:'tiger', s:[0, 0, 3, 2], e:'', f:''},
+  {n:'Manticore', i:'manticore', s:[0, 6, 5, 5], e:'Rat extermination', f:'purple'},
+  {n:'Fenrir', i:'fenrir', s:[0, 6, 4, 6], e:'', f:''},
+  {n:'Lion', i:'lion', s:[0, 2, 0, 2], e:'', f:''},
+  {n:'Sea Turtle', i:'sea-turtle', s:[0, 2, 0, 0], e:'', f:''},
+  {n:'Fin Whale', i:'fin-whale', s:[0, 5, 0, 1], e:'', f:''},
+  {n:'Blue Whale', i:'blue-whale', s:[1, 5, 0, 0], e:'', f:''},
+  {n:'Manatee', i:'manatee', s:[0, 4, 3, 0], e:'', f:''},
+  {n:'Dugong', i:'dugong', s:[0, 4, 0, 3], e:'', f:''},
+  {n:'Beluga', i:'beluga', s:[0, 6, 0, 0], e:'', f:''},
+  {n:'Whale', i:'whale', s:[0, 4, 0, 0], e:'', f:''},
+  {n:'Great white shark', i:'great-white-shark', s:[0, 5, 3, 0], e:'', f:''},
+  {n:'Sawshark', i:'sawshark', s:[0, 6, 1, 0], e:'', f:''},
+  {n:'Sand shark', i:'sand-shark', s:[0, 5, 2, 0], e:'', f:''},
+  {n:'Shark', i:'shark', s:[0, 3, 1, 0], e:'', f:''},
+  {n:'White-sided dolphin', i:'white-sided-dolphin', s:[0, 4, 0, 1], e:'', f:''},
+  {n:'Orca', i:'orca', s:[0, 3, 0, 1], e:'', f:''},
+  {n:'Porpoise', i:'porpoise', s:[1, 4, 0, 1], e:'', f:''},
+  {n:'Narwhal', i:'narwhal', s:[1, 3, 0, 2], e:'', f:''},
+  {n:'Dolphin', i:'dolphin', s:[0, 1, 0, 0], e:'', f:''},
+  {n:'Cupid', i:'cupid', s:[1, 1, 1, 4], e:'', f:''},
+  {n:'Eros', i:'eros', s:[1, 2, 2, 3], e:'', f:''},
+  {n:'Angel', i:'angel', s:[1, 1, 1, 2], e:'', f:''},
+  {n:'Parvati', i:'parvati', s:[5, 6, 1, 4], e:'Repel Sirens', f:'purple'},
+  {n:'Freya', i:'freya', s:[6, 5, 1, 3], e:'', f:''},
+  {n:'Venus', i:'venus', s:[8, 4, 2, 2], e:'Cure Scurvy', f:'purple'},
+  {n:'Pandora', i:'pandora', s:[6, 3, 0, 0], e:'', f:''},
+  {n:'Aphrodite', i:'aphrodite', s:[7, 4, 1, 4], e:'Fatigue recovery', f:'purple'},
+  {n:'Goddess 1', i:'goddess-1', s:[5, 3, 0, 0], e:'', f:''},
+  {n:'Neptune', i:'neptune', s:[8, 0, 6, 2], e:'Sorcery (ice and snow)', f:'purple'},
+  {n:'Poseidon', i:'poseidon', s:[8, 2, 6, 0], e:'Sorcery (thunder)', f:'purple'},
+  {n:'God of the Seas', i:'god-of-the-seas', s:[5, 0, 3, 0], e:'', f:''},
+  {n:'Saint Agatha', i:'saint-agatha', s:[6, 4, 3, 3], e:'Fire Fighting', f:'fire'},
+  {n:'Mary Magdalene', i:'mary-magdalene', s:[3, 6, 3, 4], e:'', f:''},
+  {n:'Saint Barbara', i:'saint-barbara', s:[4, 5, 2, 5], e:'Fire Fighting', f:'fire'},
+  {n:'Lakshmi', i:'lakshmi', s:[1, 6, 4, 5], e:'', f:''},
+  {n:'Isis', i:'isis', s:[2, 7, 1, 6], e:'', f:''},
+  {n:'Juno', i:'juno', s:[2, 6, 3, 5], e:'Rescue', f:'rescue'},
+  {n:'Danu', i:'danu', s:[4, 7, 2, 2], e:'Cure Scurvy', f:'purple'},
+  {n:'Hera', i:'hera', s:[0, 8, 3, 5], e:'Fatigue recovery', f:'purple'},
+  {n:'Virgin Mary', i:'virgin-mary', s:[0, 5, 0, 3], e:'', f:''},
+  {n:'Saint Cuthbert', i:'saint-cuthbert', s:[4, 7, 2, 2], e:'', f:''},
+  {n:'Saint Brendan', i:'saint-brendan', s:[7, 2, 2, 4], e:'Eradication', f:'eradication'},
+  {n:'Saint Nicholas', i:'saint-nicholas', s:[5, 3, 4, 4], e:'Rescue', f:'rescue'},
+  {n:'Saint Peter', i:'saint-peter', s:[2, 7, 2, 4], e:'Fatigue recovery', f:'purple'},
+  {n:'Saint Andrew', i:'saint-andrew', s:[5, 4, 2, 4], e:'Cure Scurvy', f:'purple'},
+  {n:'Saint George', i:'saint-george', s:[3, 2, 7, 4], e:'Increase Loyalty', f:'purple'},
+  {n:'Saint Mark', i:'saint-mark', s:[5, 4, 3, 4], e:'Survival', f:''},
+  {n:'Saint Christopher', i:'saint-christopher', s:[7, 3, 2, 4], e:'Cure Plague', f:'purple'},
+  {n:'Saint', i:'saint', s:[3, 3, 3, 3], e:'', f:''},
+  {n:'Harun al-Rashid', i:'harun-al-rashid', s:[4, 1, 8, 1], e:'Sorcery (flame)', f:'purple'},
+  {n:'Marcus Aurelius', i:'marcus-aurelius', s:[4, 0, 7, 0], e:'', f:''},
+  {n:'Antoninus Pius', i:'antoninus-pius', s:[3, 0, 7, 0], e:'', f:''},
+  {n:'Hadrian', i:'hadrian', s:[3, 0, 6, 1], e:'', f:''},
+  {n:'Trajan', i:'trajan', s:[4, 0, 6, 0], e:'', f:''},
+  {n:'Nerva', i:'nerva', s:[3, 1, 6, 0], e:'Sorcery', f:'purple'},
+  {n:'Ruler', i:'ruler', s:[3, 0, 5, 0], e:'', f:''},
+  {n:'Emperor Ashoka', i:'emperor-ashoka', s:[4, 4, 7, 1], e:'', f:''},
+  {n:'Rameses II', i:'rameses-ii', s:[4, 4, 8, 1], e:'', f:''},
+  {n:'Plato', i:'plato', s:[1, 3, 7, 0], e:'', f:''},
+  {n:'Odysseus', i:'odysseus', s:[3, 4, 5, 0], e:'', f:''},
+  {n:'Archimedes', i:'archimedes', s:[0, 3, 6, 1], e:'', f:''},
+  {n:'Socrates', i:'socrates', s:[0, 3, 7, 1], e:'', f:''},
+  {n:'Great Man', i:'great-man', s:[0, 3, 5, 0], e:'', f:''},
+  {n:'Hannibal', i:'hannibal', s:[0, 2, 7, 5], e:'', f:''},
+  {n:'Saladin', i:'saladin', s:[0, 0, 8, 4], e:'Restore Order', f:'purple'},
+  {n:'Aeneas', i:'aeneas', s:[2, 0, 6, 4], e:'', f:''},
+  {n:'Agamemnon', i:'agamemnon', s:[1, 1, 5, 3], e:'Tactics', f:'tactics'},
+  {n:'Paris', i:'paris', s:[0, 0, 6, 3], e:'', f:''},
+  {n:'Warrior', i:'warrior', s:[0, 0, 5, 3], e:'', f:''},
+  {n:'Joan of Arc', i:'joan-of-arc', s:[0, 5, 5, 3], e:'Restore Order', f:'purple'},
+  {n:'Siren', i:'siren', s:[4, 0, 0, 1], e:'', f:''},
+  {n:'Ixtab 3', i:'ixtab-3', s:[5, 0, 8, 0], e:'', f:''},
+  {n:'Saraswati', i:'saraswati', s:[1, 6, 5, 4], e:'', f:''},
+  {n:'Anahita', i:'anahita', s:[3, 4, 3, 3], e:'Fatigue recovery', f:'purple'},
+  {n:'Ishtar', i:'ishtar', s:[3, 5, 3, 4], e:'', f:''},
+  {n:'Mawu 1', i:'mawu-1', s:[3, 5, 4, 2], e:'Cure Plague', f:'purple'},
+  {n:'Europa', i:'europa', s:[1, 3, 2, 1], e:'', f:''},
+  {n:'Andromeda', i:'andromeda', s:[0, 3, 2, 2], e:'', f:''},
+  {n:'Diana', i:'diana', s:[4, 5, 4, 2], e:'Repel Sirens', f:'purple'},
+  {n:'Artemis', i:'artemis', s:[4, 5, 2, 4], e:'', f:''},
+  {n:'Maiden', i:'maiden', s:[1, 2, 1, 1], e:'', f:''},
+  {n:'Bald Eagle', i:'bald-eagle', s:[6, 0, 10, 4], e:'', f:''},
+  {n:'Gryphin', i:'gryphin', s:[2, 0, 4, 5], e:'', f:''},
+  {n:'Garuda', i:'garuda', s:[4, 1, 4, 8], e:'Fire Fighting', f:'fire'},
+  {n:'Vulture', i:'vulture', s:[0, 1, 1, 5], e:'', f:''},
+  {n:'Imperial Eagle', i:'imperial-eagle', s:[1, 0, 1, 5], e:'', f:''},
+  {n:'Golden Eagle', i:'golden-eagle', s:[0, 0, 2, 5], e:'', f:''},
+  {n:'Eagle', i:'eagle', s:[0, 0, 1, 5], e:'', f:''},
+  {n:'Sparrowhawk', i:'sparrowhawk', s:[1, 2, 0, 4], e:'', f:''},
+  {n:'Nighthawk', i:'nighthawk', s:[0, 3, 0, 4], e:'', f:''},
+  {n:'Goshawk', i:'goshawk', s:[0, 2, 0, 5], e:'', f:''},
+  {n:'Hawk', i:'hawk', s:[0, 0, 0, 3], e:'', f:''},
+  {n:'Kestrel', i:'kestrel', s:[2, 1, 0, 4], e:'', f:''},
+  {n:'Lanner Falcon', i:'lanner-falcon', s:[0, 0, 0, 6], e:'', f:''},
+  {n:'Peregrine', i:'peregrine', s:[0, 0, 0, 2], e:'', f:''},
+  {n:'Roc', i:'roc', s:[1, 2, 0, 5], e:'', f:''},
+  {n:'Pearl Kite', i:'pearl-kite', s:[1, 1, 0, 3], e:'', f:''},
+  {n:'Kite', i:'kite', s:[0, 0, 0, 1], e:'', f:''},
+  {n:'Advanced Statue of Gaia', i:'advanced-statue-of-gaia', s:[7, 7, 7, 7], e:'', f:''},
+  {n:'Ancient Statue of Gaia', i:'advanced-statue-of-gaia', s:[8, 8, 8, 8], e:'', f:''},
+  {n:'Athena', i:'athena', s:[0, 0, 0, 8], e:'', f:''},
+  {n:'Atlas', i:'atlas', s:[10, 4, 0, 6], e:'', f:''},
+  {n:'Delphin Statue', i:'delphin-statue', s:[6, 0, 4, 8], e:'', f:''},
+  {n:'Emperor', i:'emperor', s:[8, 5, 8, 0], e:'', f:''},
+  {n:'Eos', i:'advanced-statue-of-gaia', s:[5, 10, 5, 10], e:'', f:''},
+  {n:'Goddess of Seafaring', i:'advanced-statue-of-gaia', s:[4, 7, 3, 6], e:'', f:''},
+  {n:'Guardian Creature', i:'guardian-creature', s:[6, 6, 10, 8], e:'', f:''},
+  {n:'Legendary Statue of Gaia', i:'advanced-statue-of-gaia', s:[10, 10, 10, 10], e:'', f:''},
+  {n:'Melissa Figurehead', i:'melissa-figurehead', s:[8, 6, 2, 8], e:'', f:''},
+  {n:'Modified Statue of Gaia', i:'advanced-statue-of-gaia', s:[8, 5, 5, 10], e:'', f:''},
+  {n:'Oceanus', i:'oceanus', s:[4, 10, 2, 6], e:'', f:''},
+  {n:'Protector of the Seas', i:'protector-of-the-seas', s:[10, 5, 5, 10], e:'', f:''},
+  {n:'Secret Statue of Gaia', i:'advanced-statue-of-gaia', s:[9, 9, 9, 9], e:'', f:''},
+  {n:'Statue of Gaia', i:'advanced-statue-of-gaia', s:[5, 10, 3, 7], e:'', f:''},
+  {n:'Superior Statue of Gaia', i:'advanced-statue-of-gaia', s:[10, 8, 5, 5], e:'', f:''}
+];
+
+var CRESTS = [
+  {n:'Admiral', i:'admiral'},
+  {n:'Age of Revolution', i:'age-of-revolution'},
+  {n:'Alvero', i:'alvero'},
+  {n:'Amberjack', i:'amberjack'},
+  {n:'Anchor', i:'anchor'},
+  {n:'Ape', i:'ape'},
+  {n:'Bald Eagle', i:'bald-eagle'},
+  {n:'Baltazar', i:'baltazar'},
+  {n:'Barbary Pirates Crest', i:'barbary-pirates-crest'},
+  {n:'Beast', i:'beast'},
+  {n:'Bingo Bongo Crest', i:'bingo-bongo-crest-1'},
+  {n:'Blue Dragon Crest', i:'blue-dragon-crest'},
+  {n:'Butterfly', i:'butterfly'},
+  {n:'Caduceus', i:'caduceus'},
+  {n:'Cannon Maker\'s Crest', i:'cannon-makers-crest'},
+  {n:'Cetus', i:'cetus'},
+  {n:'Circle Cross', i:'circle-cross'},
+  {n:'Clover', i:'clover'},
+  {n:'Crest of a New Age', i:'crest-of-a-new-age'},
+  {n:'Cross', i:'cross'},
+  {n:'Crossed Swords', i:'crossed-swords'},
+  {n:'Cruz del Sur', i:'cruz-del-sur'},
+  {n:'Death', i:'death'},
+  {n:'Decoration', i:'decoration'},
+  {n:'Delphin', i:'delphin'},
+  {n:'Diamond', i:'diamond'},
+  {n:'Double-Headed Eagle', i:'double-headed-eagle'},
+  {n:'Dragon', i:'dragon'},
+  {n:'Dragon', i:'dragon-19'},
+  {n:'Dragon Slayer Crest', i:'dragon-slayer-crest'},
+  {n:'Dutch Crest', i:'dutch-crest'},
+  {n:'El Oriente', i:'el-oriente'},
+  {n:'English Crest', i:'english-crest'},
+  {n:'Escape', i:'escape'},
+  {n:'Eye of Ra', i:'eye-of-ra'},
+  {n:'Fairy', i:'fairy-3'},
+  {n:'Family Crest', i:'family-crest'},
+  {n:'Family Crest', i:'family-crest-2'},
+  {n:'Firebird Crest', i:'firebird-crest'},
+  {n:'Fisherman', i:'fisherman'},
+  {n:'Flaming Shield', i:'flaming-shield'},
+  {n:'Fox', i:'fox'},
+  {n:'French Crest', i:'french-crest'},
+  {n:'Ganesha', i:'ganesha'},
+  {n:'Garuda', i:'garuda'},
+  {n:'Genoan Crest', i:'genoan-crest'},
+  {n:'Gold Crest (Autumn)', i:'gold-crest-autumn'},
+  {n:'Gold Crest (Spring)', i:'gold-crest-spring'},
+  {n:'Gold Crest (Summer)', i:'gold-crest-summer'},
+  {n:'Gold Crest (Winter)', i:'gold-crest-winter'},
+  {n:'Gran Atlas', i:'gran-atlas'},
+  {n:'Great Pirate', i:'great-pirate'},
+  {n:'Great Viking', i:'great-viking'},
+  {n:'Gryphin', i:'gryphin'},
+  {n:'Hayreddin', i:'hayreddin'},
+  {n:'Heart', i:'heart'},
+  {n:'Heavenly Stormbringer', i:'heavenly-stormbringer'},
+  {n:'Helm', i:'helm'},
+  {n:'Holy Roman Empire Crest', i:'holy-roman-empire-crest'},
+  {n:'Hornet', i:'hornet'},
+  {n:'Jack O\'Lantern', i:'jack-olantern'},
+  {n:'Jose', i:'jose'},
+  {n:'Kangaroo', i:'kangaroo'},
+  {n:'Kirin Crest', i:'kirin-crest'},
+  {n:'Knight\'s Crest', i:'knights-crest'},
+  {n:'Knights Hospitaller Crest', i:'knights-hospitaller-crest'},
+  {n:'LA Frontera', i:'la-frontera'},
+  {n:'Lady\'s Crest', i:'ladys-crest'},
+  {n:'Leviathan', i:'leviathan'},
+  {n:'Lily', i:'lily'},
+  {n:'Lion', i:'lion-3'},
+  {n:'Lisa', i:'lisa'},
+  {n:'Liza', i:'liza'},
+  {n:'Maiden', i:'maiden'},
+  {n:'Maymay', i:'maymay'},
+  {n:'Medusa', i:'medusa'},
+  {n:'Middleton Family Crest', i:'middleton-family-crest'},
+  {n:'Mina', i:'mina'},
+  {n:'Moai', i:'moai'},
+  {n:'Moon Face', i:'moon-face'},
+  {n:'Nazca', i:'nazca'},
+  {n:'No Plunder', i:'no-plunder'},
+  {n:'Orca Mercenary\'s Crest', i:'orca-mercenarys-crest'},
+  {n:'Original', i:'original'},
+  {n:'Ottoman Turks Crest', i:'ottoman-turks-crest'},
+  {n:'Pegasus', i:'pegasus-1'},
+  {n:'Penguin', i:'penguin'},
+  {n:'Phoenix', i:'phoenix-1'},
+  {n:'Pigeon and Olives', i:'pigeon-and-olives'},
+  {n:'Pirate', i:'pirate-5'},
+  {n:'Planet', i:'planet'},
+  {n:'Portuguese Crest', i:''},
+  {n:'Prince Henrique', i:'prince-henrique'},
+  {n:'Princess Sophie', i:'princess-sophie'},
+  {n:'Queen Chrstina', i:'queen-chrstina'},
+  {n:'Quetzalcoatl', i:'quetzalcoatl'},
+  {n:'Raven', i:'raven'},
+  {n:'Rose', i:'rose'},
+  {n:'Russian Empire Crest', i:'russian-empire-crest'},
+  {n:'Sail Sign', i:'sail-sign'},
+  {n:'Saint Mark\'s Lion Crest', i:'saint-marks-lion-crest'},
+  {n:'Sakura', i:'sakura'},
+  {n:'Salamander', i:'salamander'},
+  {n:'Sarmiento Company Crest', i:'sarmiento-company-crest'},
+  {n:'Scorpion', i:'scorpion'},
+  {n:'Sea Brigade Crest', i:'sea-brigade-crest'},
+  {n:'Sea Dragon', i:'sea-dragon'},
+  {n:'Sea Serpent', i:'sea-serpent'},
+  {n:'Seagull', i:'seagull'},
+  {n:'Serpent\'s Cross', i:'serpents-cross'},
+  {n:'Shellfish', i:'shellfish'},
+  {n:'Silver Crest (Autumn)', i:'silver-crest-autumn'},
+  {n:'Silver Crest (Spring)', i:'silver-crest-spring'},
+  {n:'Silver Crest (Summer)', i:'silver-crest-summer'},
+  {n:'Silver Crest (Winter)', i:'silver-crest-winter'},
+  {n:'Sirens', i:'sirens'},
+  {n:'Spade', i:'spade'},
+  {n:'Spanish Crest', i:'spanish-crest'},
+  {n:'Spider', i:'spider-2'},
+  {n:'Sun', i:'sun'},
+  {n:'Sunshine', i:'sunshine'},
+  {n:'Swedish Crest', i:'swedish-crest'},
+  {n:'Tierra Americana', i:'tierra-americana'},
+  {n:'Tiger', i:'tiger'},
+  {n:'Trident', i:'trident'},
+  {n:'Turtle-Snake Crest', i:'turtle-snake-crest'},
+  {n:'Twin Birds', i:'twin-birds'},
+  {n:'Unicorn', i:'unicorn'},
+  {n:'Venetian Crest', i:''},
+  {n:'Viscount of Vernier Crest', i:'viscount-of-vernier-crest'},
+  {n:'Voyage', i:'voyage'},
+  {n:'Whale', i:'whale'},
+  {n:'White Tiger Crest', i:'white-tiger-crest'}
+];
+
+var SPECIAL = [
+  {n:'Superior Sterncastle', i:'superior-sterncastle', d:'Melee Battle Support 12'},
+  {n:'Advanced Sterncastle', i:'sterncastle', d:'Melee Battle Support 10'},
+  {n:'Heavily Armoured Sterncastle', i:'heavily-armoured-sterncastle', d:'Melee Battle Support 7'},
+  {n:'Large Sterncastle', i:'large-sterncastle', d:'Melee Battle Support 6'},
+  {n:'Sterncastle', i:'sterncastle', d:'Melee Battle Support 5'},
+  {n:'Large Forecastle', i:'large-forecastle', d:'Melee Battle Support 4'},
+  {n:'Superstructure', i:'superstructure', d:'Melee Battle Support 3'},
+  {n:'Small Sterncastle', i:'small-sterncastle', d:'Melee Battle Support 3'},
+  {n:'Forecastle', i:'forecastle', d:'Melee Battle Support 2'},
+  {n:'Small Forecastle', i:'small-forecastle', d:'Melee Battle Support 1'},
+  {n:'Superior Spanker', i:'superior-spanker', d:'Vertical Sail 24'},
+  {n:'Advanced Spanker', i:'advanced-spanker', d:'Vertical Sail 22'},
+  {n:'Improved Large Extra Spanker', i:'improved-large-extra-spanker', d:'Vertical Sail 20'},
+  {n:'Large Extra Spanker', i:'large-extra-spanker', d:'Vertical Sail 11'},
+  {n:'Extra Spanker', i:'extra-spanker', d:'Vertical Sail 7'},
+  {n:'Small Extra Spanker', i:'small-extra-spanker', d:'Vertical Sail 3'},
+  {n:'Superior Sprit', i:'superior-sprit', d:'Horizontal Sail 25'},
+  {n:'Advanced Sprit', i:'advanced-sprit', d:'Horizontal Sail 23'},
+  {n:'Improved Large Sprit', i:'improved-large-sprit', d:'Horizontal Sail 21'},
+  {n:'Large Extra Sprit', i:'large-extra-sprit', d:'Horizontal Sail 12'},
+  {n:'Extra Sprit', i:'extra-sprit', d:'Horizontal Sail 8'},
+  {n:'Small Extra Sprit', i:'small-extra-sprit', d:'Horizontal Sail 4'},
+  {n:'Large Corvus', i:'large-corvus', d:'Aboardage Effect 4'},
+  {n:'Corvus', i:'corvus', d:'Aboardage Effect 2'},
+  {n:'Small Corvus', i:'small-corvus', d:'Aboardage Effect 1'},
+  {n:'Superior Ram', i:'ram', d:'Ram Attack 13'},
+  {n:'Modified Ram', i:'ram', d:'Ram Attack 12'},
+  {n:'Advanced Ram', i:'ram', d:'Ram Attack 10'},
+  {n:'Huge Ram', i:'huge-ram', d:'Ram Attack 6'},
+  {n:'Large Ram', i:'large-ram', d:'Ram Attack 5'},
+  {n:'Medium Ram', i:'medium-ram', d:'Ram Attack 4'},
+  {n:'Ram', i:'ram', d:'Ram Attack 3'},
+  {n:'Small Ram', i:'small-ram', d:'Ram Attack 2'},
+  {n:'Superior Flamethrower', i:'superior-flamethrower', d:'Firepower 250 / Range 520 / Firing Speed 10 / Melee Battle Hindering'},
+  {n:'Superior Bow Flamethrower', i:'superior-bow-flamethrower', d:'Firepower 245 / Range 520 / Firing Speed 10'},
+  {n:'Superior Stern Flamethrower', i:'superior-flamethrower', d:'Firepower 245 / Range 520 / Firing Speed 10'},
+  {n:'Superior Bow Gatling Gun', i:'superior-bow-gatling-gun', d:'Firepower 235 / Range 520 / Firing Speed 10'},
+  {n:'Superior Gatling Gun', i:'superior-gatling-gun', d:'Firepower 235 / Range 520 / Firing Speed 10'},
+  {n:'Superior Stern Gatling Gun', i:'superior-gatling-gun', d:'Firepower 235 / Range 520 / Firing Speed 10'},
+  {n:'Advanced Flamethrower', i:'superior-flamethrower', d:'Firepower 220 / Range 500 / Firing Speed 10 / Melee Battle Hindering'},
+  {n:'Advanced Bow Flamethrower', i:'superior-flamethrower', d:'Firepower 210 / Range 500 / Firing Speed 10'},
+  {n:'Advanced Stern Flamethrower', i:'superior-flamethrower', d:'Firepower 210 / Range 500 / Firing Speed 10'},
+  {n:'Advanced Bow Gatling Gun', i:'superior-gatling-gun', d:'Firepower 200 / Range 500 / Firing Speed 10'},
+  {n:'Advanced Gatling Gun', i:'advanced-gatling-gun', d:'Firepower 200 / Range 500 / Firing Speed 10'},
+  {n:'Advanced Stern Gatling Gun', i:'superior-gatling-gun', d:'Firepower 200 / Range 500 / Firing Speed 10'},
+  {n:'Augmented Flamethrower', i:'augmented-flamethrower', d:'Firepower 180 / Range 500 / Firing Speed 12'},
+  {n:'Augmented Gatling Gun', i:'superior-gatling-gun', d:'Firepower 180 / Range 500 / Firing Speed 12'},
+  {n:'Superior Barrier', i:'', d:'Bullet Resistance 33 / Fire Resistance 33'},
+  {n:'Augmented Barrier', i:'', d:'Bullet Resistance 30 / Fire Resistance 30'}
+];
+
+var ARMS = [
+  {n:'Master\'s Hardened Steel Plating', i:'master-s-hardened-steel-plating', a:'+18', b:'-12'},
+  {n:'Master\'s Steel Plating', i:'master-s-steel-plating', a:'+16', b:'-11'},
+  {n:'Trained Iron Plating', i:'master-s-hardened-steel-plating', a:'+14', b:'-13'},
+  {n:'Deep Sea Iron Plating', i:'master-s-hardened-steel-plating', a:'+13', b:'-10'},
+  {n:'Maestro\'s Hardened Iron Plating', i:'master-s-hardened-steel-plating', a:'+13', b:'-9'},
+  {n:'Maestro\'s Rolled Iron Plating', i:'master-s-hardened-steel-plating', a:'+13', b:'-13'},
+  {n:'Rolled Iron Plating', i:'master-s-hardened-steel-plating', a:'+13', b:'-14'},
+  {n:'Hardened Iron Plating', i:'master-s-hardened-steel-plating', a:'+12', b:'-11'},
+  {n:'Weathered Iron Plating', i:'master-s-hardened-steel-plating', a:'+11', b:'-9'},
+  {n:'Light Iron Plating', i:'master-s-hardened-steel-plating', a:'+11', b:'-10'},
+  {n:'Iron Plating', i:'master-s-hardened-steel-plating', a:'+11', b:'-11'},
+  {n:'Simple Iron Plating', i:'master-s-hardened-steel-plating', a:'+10', b:'-12'},
+  {n:'Maestro\'s Thick Hinoki Plating', i:'maestro-s-thick-hinoki-plating', a:'+12', b:'-5'},
+  {n:'Thick Hinoki Plating', i:'maestro-s-thick-hinoki-plating', a:'+11', b:'-6'},
+  {n:'Trained Rosewood Plating', i:'trained-rosewood-plating', a:'+11', b:'-8'},
+  {n:'Hardened Rosewood Plating', i:'trained-rosewood-plating', a:'+11', b:'-10'},
+  {n:'Weathered Rosewood Plating', i:'trained-rosewood-plating', a:'+10', b:'-8'},
+  {n:'Light Rosewood Plating', i:'trained-rosewood-plating', a:'+10', b:'-9'},
+  {n:'Rosewood Plating', i:'trained-rosewood-plating', a:'+10', b:'-10'},
+  {n:'Simple Rosewood Plating', i:'trained-rosewood-plating', a:'+9', b:'-10'},
+  {n:'Rolled Copper Plating', i:'rolled-copper-plating', a:'+11', b:'-12'},
+  {n:'Hardened Copper Plating', i:'rolled-copper-plating', a:'+10', b:'-9'},
+  {n:'Weathered Copper Plating', i:'rolled-copper-plating', a:'+9', b:'-7'},
+  {n:'Light Copper Plating', i:'rolled-copper-plating', a:'+9', b:'-8'},
+  {n:'Copper Plating', i:'rolled-copper-plating', a:'+9', b:'-9'},
+  {n:'Simple Copper Plating', i:'rolled-copper-plating', a:'+8', b:'-10'},
+  {n:'Hardened Mahogany Plating', i:'hardened-mahogany-plating', a:'+9', b:'-8'},
+  {n:'Weathered Mahogany Plating', i:'hardened-mahogany-plating', a:'+8', b:'-6'},
+  {n:'Light Mahogany Plating', i:'hardened-mahogany-plating', a:'+8', b:'-7'},
+  {n:'Mahogany Plating', i:'hardened-mahogany-plating', a:'+8', b:'-8'},
+  {n:'Simple Mahogany Plating', i:'hardened-mahogany-plating', a:'+7', b:'-9'},
+  {n:'x', i:'x', a:'+10', b:'-7'},
+  {n:'x', i:'x', a:'+9', b:'-6'},
+  {n:'x', i:'x', a:'+9', b:'-7'},
+  {n:'x', i:'x', a:'+9', b:'-8'},
+  {n:'x', i:'x', a:'+8', b:'-9'},
+  {n:'Japanese Evergreen Plating', i:'japanese-evergreen-plating', a:'+8', b:'-7'},
+  {n:'Hardened Oak Plating', i:'x', a:'+8', b:'-7'},
+  {n:'Weathered Oak Plating', i:'x', a:'+7', b:'-5'},
+  {n:'Light Oak Plating', i:'x', a:'+7', b:'-6'},
+  {n:'Oak Plating', i:'x', a:'+7', b:'-7'},
+  {n:'Simple Oak Plating', i:'x', a:'+6', b:'-8'},
+  {n:'Zelkova Plating', i:'maestro-s-thick-hinoki-plating', a:'+7', b:'-6'},
+  {n:'Hardened Teak Plating', i:'hardened-teak-plating', a:'+7', b:'-6'},
+  {n:'Weathered Teak Plating', i:'hardened-teak-plating', a:'+6', b:'-4'},
+  {n:'Light Teak Plating', i:'hardened-teak-plating', a:'+6', b:'-5'},
+  {n:'Teak Plating', i:'hardened-teak-plating', a:'+6', b:'-6'},
+  {n:'Simple Teak Plating', i:'hardened-teak-plating', a:'+5', b:'-7'},
+  {n:'Hardened Elm Plating', i:'hardened-elm-plating', a:'+6', b:'-5'},
+  {n:'Weathered Elm Plating', i:'hardened-elm-plating', a:'+5', b:'-3'},
+  {n:'Light Elm Plating', i:'hardened-elm-plating', a:'+5', b:'-4'},
+  {n:'Elm Plating', i:'hardened-elm-plating', a:'+5', b:'-5'},
+  {n:'Simple Elm Plating', i:'hardened-elm-plating', a:'+4', b:'-6'},
+  {n:'Deep Sea Beech Plating', i:'deep-sea-beech-plating', a:'+4', b:'-0'},
+  {n:'Hardened Beech Plating', i:'japanese-evergreen-plating', a:'+5', b:'-4'},
+  {n:'Weathered Beech Plating', i:'japanese-evergreen-plating', a:'+4', b:'-2'},
+  {n:'Light Beech Plating', i:'japanese-evergreen-plating', a:'+4', b:'-3'},
+  {n:'Beech Plating', i:'japanese-evergreen-plating', a:'+4', b:'-4'},
+  {n:'Simple Beech Plating', i:'japanese-evergreen-plating', a:'+3', b:'-5'},
+  {n:'Hardened Red Pine Plating', i:'hardened-red-pine-plating', a:'+4', b:'-3'},
+  {n:'Weathered Red Pine Plating', i:'hardened-red-pine-plating', a:'+3', b:'-1'},
+  {n:'Light Red Pine Plating', i:'hardened-red-pine-plating', a:'+3', b:'-2'},
+  {n:'Red Pine Plating', i:'hardened-red-pine-plating', a:'+3', b:'-3'},
+  {n:'Simple Red Pine Plating', i:'hardened-red-pine-plating', a:'+2', b:'-4'},
+  {n:'Hardened Cedar Plating', i:'maestro-s-thick-hinoki-plating', a:'+3', b:'-2'},
+  {n:'Weathered Cedar Plating', i:'maestro-s-thick-hinoki-plating', a:'+2', b:'-0'},
+  {n:'Light Cedar Plating', i:'maestro-s-thick-hinoki-plating', a:'+2', b:'-1'},
+  {n:'Cedar Plating', i:'maestro-s-thick-hinoki-plating', a:'+2', b:'-2'},
+  {n:'Simple Cedar Plating', i:'maestro-s-thick-hinoki-plating', a:'+1', b:'-3'},
+  {n:'Admiral Hardened Steel Plating', i:'pirate-hardened-steel-plating', a:'+38', b:'-20'},
+  {n:'Admiral Light Steel Plating', i:'pirate-hardened-steel-plating', a:'+31', b:'-11'},
+  {n:'Advanced Hardened Steel Plating', i:'pirate-hardened-steel-plating', a:'+26', b:'-12'},
+  {n:'Advanced Rolled Steel Plating', i:'pirate-hardened-steel-plating', a:'+24', b:'-20'},
+  {n:'Advanced Steel Plating', i:'pirate-hardened-steel-plating', a:'+20', b:'-15'},
+  {n:'Advanced Teak Plating', i:'advanced-teak-plating', a:'+14', b:'0'},
+  {n:'Ancient Special Alloy Plating', i:'', a:'+15', b:'-10'},
+  {n:'Custom Strong Steel Plating', i:'pirate-hardened-steel-plating', a:'+17', b:'-21'},
+  {n:'Deluxe Hardened Steel Plating', i:'deluxe-hardened-steel-plating', a:'+32', b:'-18'},
+  {n:'Deluxe Light Steel Plating', i:'pirate-hardened-steel-plating', a:'+28', b:'-10'},
+  {n:'Deluxe Steel Plating', i:'pirate-hardened-steel-plating', a:'+30', b:'-15'},
+  {n:'Elite Hardened Steel Plating', i:'pirate-hardened-steel-plating', a:'+35', b:'-19'},
+  {n:'Elite Light Steel Plating', i:'pirate-hardened-steel-plating', a:'+27', b:'-8'},
+  {n:'Elite Steel Plating', i:'pirate-hardened-steel-plating', a:'+33', b:'-17'},
+  {n:'Epic Hardened Steel Plating', i:'epic-hardened-steel-plating', a:'+42', b:'-24'},
+  {n:'Epic Light Steel Plating', i:'epic-light-steel-plating', a:'+25', b:'-7'},
+  {n:'Grand Light Steel Plating', i:'grand-light-steel-plating', a:'+22', b:'-5'},
+  {n:'Modified Hardened Steel Plating', i:'pirate-hardened-steel-plating', a:'+27', b:'-11'},
+  {n:'Modified Light Steel Plating', i:'pirate-hardened-steel-plating', a:'+21', b:'-21'},
+  {n:'Modified Steel Plating', i:'pirate-hardened-steel-plating', a:'+23', b:'-14'},
+  {n:'Modified Thick Hinoki Plating', i:'maestro-s-thick-hinoki-plating', a:'+13', b:'-5'},
+  {n:'Phantom Hardened Steel Plating', i:'pirate-hardened-steel-plating', a:'+46', b:'-28'},
+  {n:'Phantom Light Steel Plating', i:'phantom-light-steel-plating', a:'+33', b:'-16'},
+  {n:'Pirate Hardened Steel Plating', i:'pirate-hardened-steel-plating', a:'+44', b:'-26'},
+  {n:'Pirate Light Steel Plating', i:'pirate-light-steel-plating', a:'+32', b:'-15'},
+  {n:'Premium Hardened Steel Plating', i:'premium-hardened-steel-plating', a:'+40', b:'-22'},
+  {n:'Premium Light Steel Plating', i:'pirate-hardened-steel-plating', a:'+30', b:'-10'},
+  {n:'Refined Teak Plating', i:'advanced-teak-plating', a:'+10', b:'0'},
+  {n:'Specially-Processed Hardened Iron Plating', i:'master-s-hardened-steel-plating', a:'+18', b:'-10'},
+  {n:'Specially-Processed Teak Plating', i:'advanced-teak-plating', a:'+8', b:'0'},
+  {n:'Superior Hardened Steel Plating', i:'superior-hardened-steel-plating', a:'+34', b:'-18'},
+  {n:'Superior Teak Plating', i:'advanced-teak-plating', a:'+16', b:'-1'},
+  {n:'Supreme Hardened Steel Plating', i:'pirate-hardened-steel-plating', a:'+48', b:'-30'},
+  {n:'Supreme Light Steel Plating', i:'pirate-hardened-steel-plating', a:'+34', b:'-17'}
+];
+
+var NORMALS = [
+  {n:'Stern Carronade', i:'stern-carronade', s:[512, 320, 9, 3, 4]},
+  {n:'Stern Pedrero', i:'stern-pedrero', s:[240, 440, 6, 4, 2]},
+  {n:'Stern Culverin', i:'stern-culverin', s:[204, 600, 6, 2, 3]},
+  {n:'Stern Demi-Culverin', i:'stern-demi-culverin', s:[180, 600, 5, 2, 4]},
+  {n:'Stern Minion', i:'stern-minion', s:[136, 400, 7, 1, 5]},
+  {n:'Stern Falcon', i:'stern-falcon', s:[120, 360, 8, 1, 6]},
+  {n:'Bow Carronade', i:'stern-carronade', s:[384, 320, 9, 3, 4]},
+  {n:'Bow Pedrero', i:'stern-pedrero', s:[160, 440, 6, 4, 2]},
+  {n:'Bow Culverin', i:'stern-culverin', s:[136, 600, 6, 2, 3]},
+  {n:'Bow Demi-Culverin', i:'stern-demi-culverin', s:[120, 600, 5, 2, 4]},
+  {n:'Bow Minion', i:'stern-minion', s:[102, 400, 7, 1, 5]},
+  {n:'Bow Falcon', i:'stern-falcon', s:[60, 360, 8, 1, 6]},
+  {n:'Elite Carronade (20)', i:'elite-carronade-20', s:[0, 0, 0, 0, 0]},
+  {n:'Patriot Carronade (20)', i:'patriot-carronade-20', s:[0, 0, 0, 0, 0]},
+  {n:'Tactical Carronade (20)', i:'tactical-carronade-20', s:[0, 0, 0, 0, 0]},
+  {n:'Modified Carronade (16)', i:'modified-carronade-16', s:[1088, 375, 10, 4, 4]},
+  {n:'Master\'s Carronade (16)', i:'modified-carronade-16', s:[1024, 370, 10, 3, 4]},
+  {n:'Carronade (16)', i:'modified-carronade-16', s:[1024, 340, 9, 3, 4]},
+  {n:'Maestro\'s Carronade (14)', i:'maestro-s-carronade-14', s:[896, 375, 10, 4, 4]},
+  {n:'Master\'s Carronade (14)', i:'maestro-s-carronade-14', s:[896, 370, 10, 3, 4]},
+  {n:'Carronade (14)', i:'maestro-s-carronade-14', s:[896, 340, 9, 3, 4]},
+  {n:'Master\'s Carronade (12)', i:'master-s-carronade-12', s:[768, 370, 10, 3, 4]},
+  {n:'Carronade (12)', i:'master-s-carronade-12', s:[768, 340, 9, 3, 4]},
+  {n:'Master\'s Carronade (10)', i:'master-s-carronade-10', s:[640, 370, 10, 3, 4]},
+  {n:'Carronade (10)', i:'master-s-carronade-10', s:[640, 340, 9, 3, 4]},
+  {n:'Master\'s Carronade (8)', i:'master-s-carronade-8', s:[512, 370, 10, 3, 4]},
+  {n:'Carronade (8)', i:'master-s-carronade-8', s:[512, 340, 9, 3, 4]},
+  {n:'Master\'s Carronade (6)', i:'master-s-carronade-6', s:[384, 370, 10, 3, 4]},
+  {n:'Carronade (6)', i:'master-s-carronade-6', s:[384, 340, 9, 3, 4]},
+  {n:'Master\'s Carronade (4)', i:'master-s-carronade-4', s:[256, 370, 10, 3, 4]},
+  {n:'Carronade (4)', i:'master-s-carronade-4', s:[256, 340, 9, 3, 4]},
+  {n:'Elite High Perrier (18)', i:'elite-high-perrier-18', s:[0, 0, 0, 0, 0]},
+  {n:'Master\'s High Perrier Cannon (16)', i:'master-s-high-perrier-cannon-16', s:[960, 540, 9, 1, 3]},
+  {n:'High Perrier Cannon (16)', i:'master-s-high-perrier-cannon-16', s:[912, 520, 8, 1, 3]},
+  {n:'Koxinga Cannon (14)', i:'koxinga-cannon-14', s:[896, 560, 10, 1, 3]},
+  {n:'Special Order High Perrier (6)', i:'special-order-high-perrier-6', s:[384, 560, 10, 1, 3]},
+  {n:'Special Order High Perrier (4)', i:'special-order-high-perrier-4', s:[256, 560, 10, 1, 3]},
+  {n:'Master\'s High Perrier (14)', i:'koxinga-cannon-14', s:[840, 540, 9, 1, 3]},
+  {n:'High Perrier (14)', i:'koxinga-cannon-14', s:[798, 520, 8, 1, 3]},
+  {n:'Master\'s High Perrier (12)', i:'master-s-high-perrier-12', s:[720, 540, 9, 1, 3]},
+  {n:'High Perrier (12)', i:'master-s-high-perrier-12', s:[684, 520, 8, 1, 3]},
+  {n:'Master\'s High Perrier (10)', i:'master-s-high-perrier-10', s:[600, 540, 9, 1, 3]},
+  {n:'High Perrier (10)', i:'master-s-high-perrier-10', s:[570, 520, 8, 1, 3]},
+  {n:'Master\'s High Perrier (8)', i:'master-s-high-perrier-8', s:[480, 540, 9, 1, 3]},
+  {n:'High Perrier Cannon (8)', i:'master-s-high-perrier-8', s:[456, 520, 8, 1, 3]},
+  {n:'Master\'s High Perrier (6)', i:'special-order-high-perrier-6', s:[360, 540, 9, 1, 3]},
+  {n:'High Perrier Cannon (6)', i:'special-order-high-perrier-6', s:[342, 520, 8, 1, 3]},
+  {n:'Master\'s High Perrier (4)', i:'special-order-high-perrier-4', s:[240, 540, 9, 1, 3]},
+  {n:'High Perrier (4)', i:'special-order-high-perrier-4', s:[228, 520, 8, 1, 3]},
+  {n:'Master\'s Perrier (16)', i:'master-s-perrier-16', s:[928, 540, 8, 2, 3]},
+  {n:'Perrier Cannon (16)', i:'master-s-perrier-16', s:[864, 520, 7, 2, 3]},
+  {n:'Master\'s Perrier (14)', i:'master-s-perrier-14', s:[812, 540, 8, 2, 3]},
+  {n:'Perrier Cannon (14)', i:'master-s-perrier-14', s:[756, 520, 7, 2, 3]},
+  {n:'Master\'s Perrier (12)', i:'master-s-perrier-12', s:[696, 540, 8, 2, 3]},
+  {n:'Perrier Cannon (12)', i:'master-s-perrier-12', s:[648, 520, 7, 2, 3]},
+  {n:'Master\'s Perrier (10)', i:'master-s-perrier-10', s:[580, 540, 8, 2, 3]},
+  {n:'Perrier Cannon (10)', i:'master-s-perrier-10', s:[540, 520, 7, 2, 3]},
+  {n:'Master\'s Perrier (8)', i:'master-s-perrier-8', s:[464, 540, 8, 2, 3]},
+  {n:'Perrier Cannon (8)', i:'master-s-perrier-8', s:[432, 520, 7, 2, 3]},
+  {n:'Master\'s Perrier (6)', i:'master-s-perrier-6', s:[348, 540, 8, 2, 3]},
+  {n:'Perrier Cannon (6)', i:'master-s-perrier-6', s:[324, 520, 7, 2, 3]},
+  {n:'Master\'s Perrier (4)', i:'master-s-perrier-4', s:[232, 540, 8, 2, 3]},
+  {n:'Perrier (4)', i:'master-s-perrier-4', s:[216, 520, 7, 2, 3]},
+  {n:'Master\'s Demi-Cannon (16)', i:'master-s-demi-cannon-16', s:[768, 500, 7, 4, 6]},
+  {n:'Demi-Cannon (16)', i:'master-s-demi-cannon-16', s:[704, 480, 7, 3, 5]},
+  {n:'Master\'s Demi-Cannon (14)', i:'master-s-demi-cannon-14', s:[672, 500, 7, 4, 6]},
+  {n:'Demi-Cannon (14)', i:'master-s-demi-cannon-14', s:[616, 480, 7, 3, 5]},
+  {n:'Master\'s Demi-Cannon (12)', i:'master-s-demi-cannon-12', s:[576, 500, 7, 4, 6]},
+  {n:'Demi-Cannon (12)', i:'master-s-demi-cannon-12', s:[528, 480, 7, 3, 5]},
+  {n:'Master\'s Demi-Cannon (10)', i:'master-s-demi-cannon-10', s:[480, 500, 7, 4, 6]},
+  {n:'Demi-Cannon (10)', i:'master-s-demi-cannon-10', s:[440, 480, 7, 3, 5]},
+  {n:'Master\'s Demi-Cannon (8)', i:'master-s-demi-cannon-8', s:[384, 500, 7, 4, 6]},
+  {n:'Demi-Cannon (8)', i:'master-s-demi-cannon-8', s:[352, 480, 7, 3, 5]},
+  {n:'Master\'s Demi-Cannon (6)', i:'master-s-demi-cannon-6', s:[288, 500, 7, 4, 6]},
+  {n:'Demi-Cannon (6)', i:'master-s-demi-cannon-6', s:[264, 480, 7, 3, 5]},
+  {n:'Master\'s Demi-Cannon (4)', i:'master-s-demi-cannon-4', s:[192, 500, 7, 4, 6]},
+  {n:'Demi-Cannon (4)', i:'master-s-demi-cannon-4', s:[176, 480, 7, 3, 5]},
+  {n:'Master\'s Rapid-Fire (16)', i:'master-s-rapid-fire-16', s:[864, 280, 8, 2, 9]},
+  {n:'Rapid-Fire (16)', i:'master-s-rapid-fire-16', s:[800, 280, 7, 2, 8]},
+  {n:'Master\'s Rapid-Fire (14)', i:'master-s-rapid-fire-14', s:[756, 280, 8, 2, 9]},
+  {n:'Rapid-Fire (14)', i:'master-s-rapid-fire-14', s:[700, 280, 7, 2, 8]},
+  {n:'Master\'s Rapid-Fire (12)', i:'master-s-rapid-fire-12', s:[648, 280, 8, 2, 9]},
+  {n:'Rapid-Fire (12)', i:'master-s-rapid-fire-12', s:[600, 280, 7, 2, 8]},
+  {n:'Master\'s Rapid-Fire (10)', i:'master-s-rapid-fire-10', s:[540, 280, 8, 2, 9]},
+  {n:'Rapid-Fire (10)', i:'master-s-rapid-fire-10', s:[500, 280, 7, 2, 8]},
+  {n:'Master\'s Rapid-Fire (8)', i:'master-s-rapid-fire-8', s:[432, 280, 8, 2, 9]},
+  {n:'Rapid-Fire (8)', i:'master-s-rapid-fire-8', s:[400, 280, 7, 2, 8]},
+  {n:'Master\'s Rapid-Fire (6)', i:'master-s-rapid-fire-6', s:[324, 280, 8, 2, 9]},
+  {n:'Rapid-Fire (6)', i:'master-s-rapid-fire-6', s:[300, 280, 7, 2, 8]},
+  {n:'Master\'s Rapid-Fire (4)', i:'master-s-rapid-fire-4', s:[216, 280, 8, 2, 9]},
+  {n:'Rapid-Fire (4)', i:'master-s-rapid-fire-4', s:[200, 280, 7, 2, 8]},
+  {n:'Master\'s Rapid-Fire (2)', i:'master-s-rapid-fire-2', s:[108, 280, 8, 2, 9]},
+  {n:'Rapid-Fire Cannon (2)', i:'master-s-rapid-fire-2', s:[100, 280, 7, 2, 8]},
+  {n:'Elite Armour Howitzer (20)', i:'elite-armour-howitzer-20', s:[0, 0, 0, 0, 0]},
+  {n:'Patriot Armour Howitzer (20)', i:'patriot-armour-howitzer-20', s:[0, 0, 0, 0, 0]},
+  {n:'Elite Flare Howitzer (20)', i:'elite-flare-howitzer-20', s:[0, 0, 0, 0, 0]},
+  {n:'Patriot Flare Howitzer (20)', i:'patriot-flare-howitzer-20', s:[0, 0, 0, 0, 0]},
+  {n:'Master\'s Howitzer (16)', i:'master-s-howitzer-16', s:[768, 440, 5, 4, 4]},
+  {n:'Howitzer (16)', i:'master-s-howitzer-16', s:[704, 400, 4, 4, 3]},
+  {n:'Master\'s Howitzer (14)', i:'master-s-howitzer-14', s:[672, 440, 5, 4, 4]},
+  {n:'Howitzer (14)', i:'howitzer-14', s:[616, 400, 4, 4, 3]},
+  {n:'Master\'s Howitzer (12)', i:'master-s-howitzer-12', s:[576, 440, 5, 4, 4]},
+  {n:'Howitzer (12)', i:'master-s-howitzer-12', s:[528, 400, 4, 4, 3]},
+  {n:'Master\'s Howitzer (10)', i:'master-s-howitzer-10', s:[480, 440, 5, 4, 4]},
+  {n:'Howitzer (10)', i:'master-s-howitzer-10', s:[440, 400, 4, 4, 3]},
+  {n:'Master\'s Howitzer (8)', i:'master-s-howitzer-8', s:[384, 440, 5, 4, 4]},
+  {n:'Howitzer (8)', i:'master-s-howitzer-8', s:[352, 400, 4, 4, 3]},
+  {n:'Master\'s Howitzer (6)', i:'master-s-howitzer-6', s:[288, 440, 5, 4, 4]},
+  {n:'Howitzer (6)', i:'master-s-howitzer-6', s:[264, 400, 4, 4, 3]},
+  {n:'Master\'s Howitzer (4)', i:'master-s-howitzer-4', s:[192, 440, 5, 4, 4]},
+  {n:'Howitzer (4)', i:'master-s-howitzer-4', s:[176, 400, 4, 4, 3]},
+  {n:'Master\'s Howitzer (2)', i:'master-s-howitzer-2', s:[96, 440, 5, 4, 4]},
+  {n:'Howitzer (2)', i:'master-s-howitzer-2', s:[88, 400, 4, 4, 3]},
+  {n:'Frankish Gun (10)', i:'frankish-gun-10', s:[420, 440, 6, 4, 2]},
+  {n:'Frankish Gun (8)', i:'frankish-gun-8', s:[336, 440, 6, 4, 2]},
+  {n:'Frankish Gun (6)', i:'frankish-gun-6', s:[252, 440, 6, 4, 2]},
+  {n:'Frankish Gun (4)', i:'frankish-gun-4', s:[168, 440, 6, 4, 2]},
+  {n:'Master\'s Pedrero (16)', i:'master-s-pedrero-16', s:[720, 440, 7, 5, 2]},
+  {n:'Pedrero (16)', i:'master-s-pedrero-16', s:[640, 440, 6, 4, 2]},
+  {n:'Master\'s Pedrero (14)', i:'master-s-pedrero-14', s:[630, 440, 7, 5, 2]},
+  {n:'Pedrero (14)', i:'master-s-pedrero-14', s:[560, 440, 6, 4, 2]},
+  {n:'Master\'s Pedrero (12)', i:'master-s-pedrero-12', s:[540, 440, 7, 5, 2]},
+  {n:'Pedrero (12)', i:'master-s-pedrero-12', s:[480, 440, 6, 4, 2]},
+  {n:'Master\'s Pedrero (10)', i:'frankish-gun-10', s:[450, 440, 7, 5, 2]},
+  {n:'Pedrero (10)', i:'frankish-gun-10', s:[400, 440, 6, 4, 2]},
+  {n:'Master\'s Pedrero (8)', i:'frankish-gun-8', s:[360, 440, 7, 5, 2]},
+  {n:'Pedrero (8)', i:'frankish-gun-8', s:[320, 440, 6, 4, 2]},
+  {n:'Master\'s Pedrero (6)', i:'frankish-gun-6', s:[270, 440, 7, 5, 2]},
+  {n:'Pedrero (6)', i:'frankish-gun-6', s:[240, 440, 6, 4, 2]},
+  {n:'Master\'s Pedrero (4)', i:'frankish-gun-4', s:[180, 440, 7, 5, 2]},
+  {n:'Pedrero (4)', i:'frankish-gun-4', s:[160, 440, 6, 4, 2]},
+  {n:'Deluxe Black Cannon (18)', i:'deluxe-black-cannon-18', s:[0, 0, 0, 0, 0]},
+  {n:'Black Cannon (16)', i:'black-cannon-16', s:[640, 700, 6, 3, 5]},
+  {n:'Master\'s Culverin (16)', i:'black-cannon-16', s:[592, 680, 6, 3, 3]},
+  {n:'Culverin (16)', i:'black-cannon-16', s:[544, 600, 6, 2, 3]},
+  {n:'Master\'s Culverin (14)', i:'master-s-culverin-14', s:[518, 680, 6, 3, 3]},
+  {n:'Culverin (14)', i:'master-s-culverin-14', s:[476, 600, 6, 2, 3]},
+  {n:'Master\'s Culverin (12)', i:'master-s-culverin-12', s:[444, 680, 6, 3, 3]},
+  {n:'Culverin (12)', i:'master-s-culverin-12', s:[408, 600, 6, 2, 3]},
+  {n:'Master\'s Culverin (10)', i:'master-s-culverin-10', s:[370, 680, 6, 3, 3]},
+  {n:'Culverin (10)', i:'master-s-culverin-10', s:[340, 600, 6, 2, 3]},
+  {n:'Master\'s Culverin (8)', i:'master-s-culverin-8', s:[296, 680, 6, 3, 3]},
+  {n:'Culverin (8)', i:'master-s-culverin-8', s:[272, 600, 6, 2, 3]},
+  {n:'Master\'s Culverin (6)', i:'master-s-culverin-6', s:[222, 680, 6, 3, 3]},
+  {n:'Culverin (6)', i:'master-s-culverin-6', s:[204, 600, 6, 2, 3]},
+  {n:'Master\'s Culverin (4)', i:'master-s-culverin-4', s:[148, 680, 6, 3, 3]},
+  {n:'Culverin (4)', i:'master-s-culverin-4', s:[136, 600, 6, 2, 3]},
+  {n:'Yellow Cannon (10)', i:'yellow-cannon-10', s:[320, 620, 5, 2, 4]},
+  {n:'Yellow Cannon (8)', i:'yellow-cannon-8', s:[256, 620, 5, 2, 4]},
+  {n:'Yellow Cannon (6)', i:'yellow-cannon-6', s:[192, 620, 5, 2, 4]},
+  {n:'Yellow Cannon (4)', i:'yellow-cannon-4', s:[128, 620, 5, 2, 4]},
+  {n:'Master\'s Demi-Culverin (16)', i:'master-s-demi-culverin-16', s:[528, 630, 5, 3, 5]},
+  {n:'Demi-Culverin (16)', i:'master-s-demi-culverin-16', s:[480, 600, 5, 2, 4]},
+  {n:'Master\'s Demi-Culverin (14)', i:'master-s-demi-culverin-14', s:[462, 630, 5, 3, 5]},
+  {n:'Demi-Culverin (14)', i:'master-s-demi-culverin-14', s:[420, 600, 5, 2, 4]},
+  {n:'Master\'s Demi-Culverin (12)', i:'master-s-demi-culverin-12', s:[396, 630, 5, 3, 5]},
+  {n:'Demi-Culverin (12)', i:'master-s-demi-culverin-12', s:[360, 600, 5, 2, 4]},
+  {n:'Master\'s Demi-Culverin (10)', i:'yellow-cannon-10', s:[330, 630, 5, 3, 5]},
+  {n:'Demi-Culverin (10)', i:'yellow-cannon-10', s:[300, 600, 5, 2, 4]},
+  {n:'Master\'s Demi-Culverin (8)', i:'yellow-cannon-8', s:[264, 630, 5, 3, 5]},
+  {n:'Demi-Culverin (8)', i:'yellow-cannon-8', s:[240, 600, 5, 2, 4]},
+  {n:'Master\'s Demi-Culverin (6)', i:'yellow-cannon-6', s:[198, 630, 5, 3, 5]},
+  {n:'Demi-Culverin (6)', i:'yellow-cannon-6', s:[180, 600, 5, 2, 4]},
+  {n:'Master\'s Demi-Culverin (4)', i:'yellow-cannon-4', s:[132, 630, 5, 3, 5]},
+  {n:'Demi-Culverin (4)', i:'yellow-cannon-4', s:[120, 600, 5, 2, 4]},
+  {n:'Master\'s Demi-Culverin (2)', i:'master-s-demi-culverin-2', s:[66, 630, 5, 3, 5]},
+  {n:'Demi-Culverin (2)', i:'master-s-demi-culverin-2', s:[60, 600, 5, 2, 4]},
+  {n:'Master\'s Minion (10)', i:'master-s-minion-10', s:[370, 400, 8, 1, 6]},
+  {n:'Minion (10)', i:'master-s-minion-10', s:[340, 400, 7, 1, 5]},
+  {n:'Master\'s Minion (8)', i:'master-s-minion-8', s:[296, 400, 8, 1, 6]},
+  {n:'Minion (8)', i:'master-s-minion-8', s:[272, 400, 7, 1, 5]},
+  {n:'Master\'s Minion (6)', i:'master-s-minion-6', s:[222, 400, 8, 1, 6]},
+  {n:'Minion (6)', i:'master-s-minion-6', s:[204, 400, 7, 1, 5]},
+  {n:'Master\'s Minion (4)', i:'master-s-minion-4', s:[148, 400, 8, 1, 6]},
+  {n:'Minion (4)', i:'master-s-minion-4', s:[136, 400, 7, 1, 5]},
+  {n:'Master\'s Minion (2)', i:'master-s-minion-2', s:[74, 400, 8, 1, 6]},
+  {n:'Minion (2)', i:'master-s-minion-2', s:[68, 400, 7, 1, 5]},
+  {n:'Master\'s Falcon (8)', i:'master-s-falcon-8', s:[264, 380, 8, 1, 7]},
+  {n:'Falcon (8)', i:'master-s-falcon-8', s:[240, 360, 8, 1, 6]},
+  {n:'Master\'s Falcon (6)', i:'master-s-falcon-6', s:[198, 380, 8, 1, 7]},
+  {n:'Falcon (6)', i:'master-s-falcon-6', s:[180, 360, 8, 1, 6]},
+  {n:'Master\'s Falcon (4)', i:'master-s-falcon-4', s:[132, 380, 8, 1, 7]},
+  {n:'Falcon (4)', i:'master-s-falcon-4', s:[120, 360, 8, 1, 6]},
+  {n:'Master\'s Falcon (2)', i:'master-s-falcon-2', s:[66, 380, 8, 1, 7]},
+  {n:'Falcon (2)', i:'master-s-falcon-2', s:[60, 360, 8, 1, 6]}
+];
+var DOUBLES = [
+  {n:'Stern Saker', i:'stern-saker', s:[180, 220, 7, 2, 2]},
+  {n:'Bow Saker', i:'stern-saker', s:[180, 220, 7, 2, 2]},
+  {n:'Patriot Cannon (18)', i:'patriot-cannon-18', s:[0, 0, 0, 0, 0]},
+  {n:'Superior Cannon (18)', i:'superior-cannon-18', s:[0, 0, 0, 0, 0]},
+  {n:"Master's Cannon (16)", i:'master-s-cannon-16', s:[1456, 280, 9, 2, 1]},
+  {n:'Cannon (16)', i:'master-s-cannon-16', s:[1376, 280, 8, 2, 1]},
+  {n:"Maestro's Cannon (14)", i:'maestro-s-cannon-14', s:[1274, 285, 9, 3, 1]},
+  {n:"Master's Cannon (14)", i:'maestro-s-cannon-14', s:[1274, 280, 9, 2, 1]},
+  {n:'Cannon (14)', i:'maestro-s-cannon-14', s:[1204, 280, 8, 2, 1]},
+  {n:"Master's Cannon (12)", i:'master-s-cannon-12', s:[1092, 280, 9, 2, 1]},
+  {n:'Cannon (12)', i:'master-s-cannon-12', s:[1032, 280, 8, 2, 1]},
+  {n:"Master's Cannon (10)", i:'master-s-cannon-10', s:[910, 280, 9, 2, 1]},
+  {n:'Cannon (10)', i:'master-s-cannon-10', s:[860, 280, 8, 2, 1]},
+  {n:"Master's Cannon (8)", i:'master-s-cannon-8', s:[728, 280, 9, 2, 1]},
+  {n:'Cannon (8)', i:'master-s-cannon-8', s:[688, 280, 8, 2, 1]},
+  {n:"Master's Cannon (6)", i:'master-s-cannon-6', s:[546, 280, 9, 2, 1]},
+  {n:'Cannon (6)', i:'master-s-cannon-6', s:[516, 280, 8, 2, 1]},
+  {n:"Master's Cannon (4)", i:'master-s-cannon-4', s:[364, 280, 9, 2, 1]},
+  {n:'Cannon (4)', i:'master-s-cannon-4', s:[344, 280, 8, 2, 1]},
+  {n:"Master's Mortar (16)", i:'master-s-mortar-16', s:[1200, 270, 2, 8, 2]},
+  {n:'Mortar (16)', i:'master-s-mortar-16', s:[1200, 260, 1, 8, 1]},
+  {n:"Master's Mortar (14)", i:'master-s-mortar-14', s:[1050, 270, 2, 8, 2]},
+  {n:'Mortar (14)', i:'master-s-mortar-14', s:[1050, 260, 1, 8, 1]},
+  {n:"Master's Mortar (12)", i:'master-s-mortar-12', s:[900, 270, 2, 8, 2]},
+  {n:'Mortar (12)', i:'master-s-mortar-12', s:[900, 260, 1, 8, 1]},
+  {n:"Master's Mortar (10)", i:'master-s-mortar-10', s:[750, 270, 2, 8, 2]},
+  {n:'Mortar (10)', i:'master-s-mortar-10', s:[750, 260, 1, 8, 1]},
+  {n:"Master's Mortar (8)", i:'master-s-mortar-8', s:[600, 270, 2, 8, 2]},
+  {n:'Mortar (8)', i:'master-s-mortar-8', s:[600, 260, 1, 8, 1]},
+  {n:"Master's Mortar (6)", i:'master-s-mortar-6', s:[450, 270, 2, 8, 2]},
+  {n:'Mortar (6)', i:'master-s-mortar-6', s:[450, 260, 1, 8, 1]},
+  {n:"Master's Mortar (4)", i:'master-s-mortar-4', s:[300, 270, 2, 8, 2]},
+  {n:'Mortar (4)', i:'master-s-mortar-4', s:[300, 260, 1, 8, 1]},
+  {n:"Master's Mortar (2)", i:'master-s-mortar-2', s:[150, 270, 2, 8, 2]},
+  {n:'Mortar (2)', i:'master-s-mortar-2', s:[150, 260, 1, 8, 1]},
+  {n:"Master's Saker (10)", i:'master-s-saker-10', s:[520, 275, 7, 3, 3]},
+  {n:'Saker (10)', i:'master-s-saker-10', s:[450, 270, 7, 2, 2]},
+  {n:"Master's Saker (8)", i:'master-s-saker-8', s:[416, 275, 7, 3, 3]},
+  {n:'Saker (8)', i:'master-s-saker-8', s:[360, 270, 7, 2, 2]},
+  {n:"Master's Saker (6)", i:'master-s-saker-6', s:[312, 275, 7, 3, 3]},
+  {n:'Saker (6)', i:'master-s-saker-6', s:[270, 270, 7, 2, 2]},
+  {n:"Master's Saker (4)", i:'master-s-saker-4', s:[208, 275, 7, 3, 3]},
+  {n:'Saker (4)', i:'master-s-saker-4', s:[180, 270, 7, 2, 2]},
+  {n:"Master's Saker (2)", i:'master-s-saker-2', s:[104, 275, 7, 3, 3]},
+  {n:'Saker (2)', i:'master-s-saker-2', s:[90, 270, 7, 2, 2]}
+];
+var GRAPES = [
+  {n:'Elite Exploder (18)', i:'elite-exploder-18', s:[0, 0, 0, 0, 0]},
+  {n:'Heavy Exploder (18)', i:'heavy-exploder-18', s:[0, 0, 0, 0, 0]},
+  {n:'Pirate Exploder (18)', i:'pirate-exploder-18', s:[0, 0, 0, 0, 0]},
+  {n:"Master's Exploder (16)", i:'master-s-exploder-16', s:[160, 440, 5, 6, 2]},
+  {n:'Exploder (16)', i:'master-s-exploder-16', s:[144, 440, 5, 5, 2]},
+  {n:"Master's Exploder (14)", i:'master-s-exploder-14', s:[140, 440, 5, 6, 2]},
+  {n:'Exploder (14)', i:'master-s-exploder-14', s:[126, 440, 5, 5, 2]},
+  {n:"Master's Exploder (12)", i:'master-s-exploder-12', s:[120, 440, 5, 6, 2]},
+  {n:'Exploder (12)', i:'master-s-exploder-12', s:[108, 440, 5, 5, 2]},
+  {n:"Master's Exploder (10)", i:'master-s-exploder-10', s:[100, 440, 5, 6, 2]},
+  {n:'Exploder (10)', i:'master-s-exploder-10', s:[90, 440, 5, 5, 2]},
+  {n:"Master's Exploder (8)", i:'master-s-exploder-8', s:[80, 440, 5, 6, 2]},
+  {n:'Exploder (8)', i:'master-s-exploder-8', s:[72, 440, 5, 5, 2]},
+  {n:"Master's Exploder (6)", i:'master-s-exploder-6', s:[60, 440, 5, 6, 2]},
+  {n:'Exploder (6)', i:'master-s-exploder-6', s:[54, 440, 5, 5, 2]},
+  {n:"Master's Exploder (4)", i:'master-s-exploder-4', s:[40, 440, 5, 6, 2]},
+  {n:'Exploder (4)', i:'master-s-exploder-4', s:[36, 440, 5, 5, 2]},
+  {n:"Master's Exploder (2)", i:'master-s-exploder-2', s:[20, 440, 5, 6, 2]},
+  {n:'Exploder (2)', i:'master-s-exploder-2', s:[18, 440, 5, 5, 2]},
+  {n:"Master's Trench (12)", i:'master-s-trench-12', s:[108, 360, 4, 7, 3]},
+  {n:'Trench Cannon (12)', i:'master-s-trench-12', s:[96, 360, 3, 6, 3]},
+  {n:"Master's Trench (10)", i:'master-s-trench-10', s:[90, 360, 4, 7, 3]},
+  {n:'Trench (10)', i:'master-s-trench-10', s:[80, 360, 3, 6, 3]},
+  {n:"Master's Trench (8)", i:'master-s-trench-8', s:[72, 360, 4, 7, 3]},
+  {n:'Trench (8)', i:'master-s-trench-8', s:[64, 360, 3, 6, 3]},
+  {n:"Master's Trench (6)", i:'master-s-trench-6', s:[54, 360, 4, 7, 3]},
+  {n:'Trench (6)', i:'master-s-trench-6', s:[48, 360, 3, 6, 3]},
+  {n:"Master's Trench (4)", i:'master-s-trench-4', s:[36, 360, 4, 7, 3]},
+  {n:'Trench (4)', i:'master-s-trench-4', s:[32, 360, 3, 6, 3]},
+  {n:"Master's Trench (2)", i:'master-s-trench-2', s:[18, 360, 4, 7, 3]},
+  {n:'Trench Cannon (2)', i:'master-s-trench-2', s:[16, 360, 3, 6, 3]}
+];
+var CHAINS = [
+  {n:'Stern Angel', i:'stern-angel', s:[270, 400, 5, 3, 3]},
+  {n:'Bow Angel', i:'stern-angel', s:[216, 400, 5, 3, 3]},
+  {n:'Patriot Seraphim (18)', i:'patriot-seraphim-18', s:[0, 0, 0, 0, 0]},
+  {n:'Refitted Grand Seraphim (18)', i:'refitted-grand-seraphim-18', s:[0, 0, 0, 0, 0]},
+  {n:"Master's Seraphim (16)", i:'master-s-seraphim-16', s:[512, 500, 7, 3, 4]},
+  {n:'Seraphim (16)', i:'master-s-seraphim-16', s:[480, 460, 7, 2, 4]},
+  {n:"Master's Seraphim (14)", i:'master-s-seraphim-14', s:[448, 500, 7, 3, 4]},
+  {n:'Seraphim (14)', i:'master-s-seraphim-14', s:[420, 460, 7, 2, 4]},
+  {n:"Master's Seraphim (12)", i:'master-s-seraphim-12', s:[384, 500, 7, 3, 4]},
+  {n:'Seraphim (12)', i:'master-s-seraphim-12', s:[360, 460, 7, 2, 4]},
+  {n:"Master's Seraphim (10)", i:'master-s-seraphim-10', s:[320, 500, 7, 3, 4]},
+  {n:'Seraphim (10)', i:'master-s-seraphim-10', s:[300, 460, 7, 2, 4]},
+  {n:"Master's Seraphim (8)", i:'master-s-seraphim-8', s:[256, 500, 7, 3, 4]},
+  {n:'Seraphim (8)', i:'master-s-seraphim-8', s:[240, 460, 7, 2, 4]},
+  {n:"Master's Seraphim (6)", i:'master-s-seraphim-6', s:[192, 500, 7, 3, 4]},
+  {n:'Seraphim (6)', i:'master-s-seraphim-6', s:[180, 460, 7, 2, 4]},
+  {n:"Master's Seraphim (4)", i:'master-s-seraphim-4', s:[128, 500, 7, 3, 4]},
+  {n:'Seraphim Cannon (4)', i:'master-s-seraphim-4', s:[120, 460, 7, 2, 4]},
+  {n:"Master's Angel (16)", i:'master-s-angel-16', s:[448, 440, 5, 4, 4]},
+  {n:'Angel Cannon (16)', i:'master-s-angel-16', s:[432, 400, 5, 3, 3]},
+  {n:"Master's Angel (14)", i:'master-s-angel-14', s:[392, 440, 5, 4, 4]},
+  {n:'Angel Cannon (14)', i:'master-s-angel-14', s:[378, 400, 5, 3, 3]},
+  {n:"Master's Angel (12)", i:'master-s-angel-12', s:[336, 440, 5, 4, 4]},
+  {n:'Angel Cannon (12)', i:'master-s-angel-12', s:[324, 400, 5, 3, 3]},
+  {n:"Master's Angel (10)", i:'master-s-angel-10', s:[280, 440, 5, 4, 4]},
+  {n:'Angel (10)', i:'master-s-angel-10', s:[270, 400, 5, 3, 3]},
+  {n:"Master's Angel (8)", i:'master-s-angel-8', s:[224, 440, 5, 4, 4]},
+  {n:'Angel (8)', i:'master-s-angel-8', s:[216, 400, 5, 3, 3]},
+  {n:"Master's Angel (6)", i:'master-s-angel-6', s:[168, 440, 5, 4, 4]},
+  {n:'Angel (6)', i:'master-s-angel-6', s:[162, 400, 5, 3, 3]},
+  {n:"Master's Angel (4)", i:'master-s-angel-4', s:[112, 440, 5, 4, 4]},
+  {n:'Angel (4)', i:'master-s-angel-4', s:[108, 400, 5, 3, 3]},
+  {n:"Master's Angel (2)", i:'master-s-angel-2', s:[56, 440, 5, 4, 4]},
+  {n:'Angel Cannon (2)', i:'master-s-angel-2', s:[54, 400, 5, 3, 3]}
+];
+var INCENDS = [
+  {n:'Assault Volkan (18)', i:'assault-volkan-18', s:[0, 0, 0, 0, 0]},
+  {n:'Deluxe Superior Volkan (18)', i:'deluxe-superior-volkan-18', s:[0, 0, 0, 0, 0]},
+  {n:'Superior Volkan (16)', i:'superior-volkan-16', s:[0, 0, 0, 0, 0]},
+  {n:"Master's Volkan (16)", i:'master-s-volkan-16', s:[960, 420, 7, 8, 5]},
+  {n:'Volkan (16)', i:'master-s-volkan-16', s:[896, 420, 7, 7, 4]},
+  {n:"Master's Volkan (14)", i:'master-s-volkan-14', s:[840, 420, 7, 8, 5]},
+  {n:'Volkan (14)', i:'master-s-volkan-14', s:[784, 420, 7, 7, 4]},
+  {n:"Master's Volkan (12)", i:'master-s-volkan-12', s:[720, 420, 7, 8, 5]},
+  {n:'Volkan (12)', i:'master-s-volkan-12', s:[672, 420, 7, 7, 4]},
+  {n:"Master's Volkan (10)", i:'master-s-volkan-10', s:[600, 420, 7, 8, 5]},
+  {n:'Volkan (10)', i:'master-s-volkan-10', s:[560, 420, 7, 7, 4]},
+  {n:"Master's Volkan (8)", i:'master-s-volkan-8', s:[480, 420, 7, 8, 5]},
+  {n:'Volkan (8)', i:'master-s-volkan-8', s:[448, 420, 7, 7, 4]},
+  {n:"Master's Volkan (6)", i:'master-s-volkan-6', s:[360, 420, 7, 8, 5]},
+  {n:'Volkan (6)', i:'master-s-volkan-6', s:[336, 420, 7, 7, 4]},
+  {n:"Master's Volkan (4)", i:'master-s-volkan-4', s:[240, 420, 7, 8, 5]},
+  {n:'Volkan (4)', i:'master-s-volkan-4', s:[224, 420, 7, 7, 4]},
+  {n:"Master's Enfer (16)", i:'master-s-enfer-16', s:[896, 400, 4, 9, 6]},
+  {n:'Enfer Cannon (16)', i:'master-s-enfer-16', s:[832, 400, 4, 8, 5]},
+  {n:"Master's Enfer (14)", i:'master-s-enfer-14', s:[784, 400, 4, 9, 6]},
+  {n:'Enfer Cannon (14)', i:'master-s-enfer-14', s:[728, 400, 4, 8, 5]},
+  {n:"Master's Enfer (12)", i:'master-s-enfer-12', s:[672, 400, 4, 9, 6]},
+  {n:'Enfer Cannon (12)', i:'master-s-enfer-12', s:[624, 400, 4, 8, 5]},
+  {n:"Master's Enfer (10)", i:'master-s-enfer-10', s:[560, 400, 4, 9, 6]},
+  {n:'Enfer Cannon (10)', i:'master-s-enfer-10', s:[520, 400, 4, 8, 5]},
+  {n:"Master's Enfer (8)", i:'master-s-enfer-8', s:[448, 400, 4, 9, 6]},
+  {n:'Enfer Cannon (8)', i:'master-s-enfer-8', s:[416, 400, 4, 8, 5]},
+  {n:"Master's Enfer (6)", i:'master-s-enfer-6', s:[336, 400, 4, 9, 6]},
+  {n:'Enfer Cannon (6)', i:'master-s-enfer-6', s:[312, 400, 4, 8, 5]},
+  {n:"Master's Enfer (4)", i:'master-s-enfer-4', s:[224, 400, 4, 9, 6]},
+  {n:'Enfer Cannon (4)', i:'master-s-enfer-4', s:[208, 400, 4, 8, 5]},
+  {n:"Master's Draconis (16)", i:'master-s-draconis-16', s:[800, 440, 5, 6, 5]},
+  {n:'Draconis (16)', i:'master-s-draconis-16', s:[736, 440, 4, 6, 4]},
+  {n:"Master's Draconis (14)", i:'master-s-draconis-14', s:[700, 440, 5, 6, 5]},
+  {n:'Draconis (14)', i:'master-s-draconis-14', s:[644, 440, 4, 6, 4]},
+  {n:"Master's Draconis (12)", i:'master-s-draconis-12', s:[600, 440, 5, 6, 5]},
+  {n:'Draconis (12)', i:'master-s-draconis-12', s:[552, 440, 4, 6, 4]},
+  {n:"Master's Draconis (10)", i:'master-s-draconis-10', s:[500, 440, 5, 6, 5]},
+  {n:'Draconis (10)', i:'master-s-draconis-10', s:[460, 440, 4, 6, 4]},
+  {n:"Master's Draconis (8)", i:'master-s-draconis-8', s:[400, 440, 5, 6, 5]},
+  {n:'Draconis (8)', i:'master-s-draconis-8', s:[368, 440, 4, 6, 4]},
+  {n:"Master's Draconis (6)", i:'master-s-draconis-6', s:[300, 440, 5, 6, 5]},
+  {n:'Draconis (6)', i:'master-s-draconis-6', s:[276, 440, 4, 6, 4]},
+  {n:"Master's Draconis (4)", i:'master-s-draconis-4', s:[200, 440, 5, 6, 5]},
+  {n:'Draconis (4)', i:'master-s-draconis-4', s:[184, 440, 4, 6, 4]},
+  {n:"Master's Pyro (14)", i:'master-s-pyro-14', s:[560, 440, 3, 5, 5]},
+  {n:'Pyro (14)', i:'master-s-pyro-14', s:[504, 400, 3, 5, 4]},
+  {n:"Master's Pyro (12)", i:'master-s-pyro-12', s:[480, 440, 3, 5, 5]},
+  {n:'Pyro (12)', i:'master-s-pyro-12', s:[432, 400, 3, 5, 4]},
+  {n:"Master's Pyro (10)", i:'master-s-pyro-10', s:[400, 440, 3, 5, 5]},
+  {n:'Pyro (10)', i:'master-s-pyro-10', s:[360, 400, 3, 5, 4]},
+  {n:"Master's Pyro (8)", i:'master-s-pyro-8', s:[320, 440, 3, 5, 5]},
+  {n:'Pyro (8)', i:'master-s-pyro-8', s:[288, 400, 3, 5, 4]},
+  {n:"Master's Pyro (6)", i:'master-s-pyro-6', s:[240, 440, 3, 5, 5]},
+  {n:'Pyro (6)', i:'master-s-pyro-6', s:[216, 400, 3, 5, 4]},
+  {n:"Master's Pyro (4)", i:'master-s-pyro-4', s:[160, 440, 3, 5, 5]},
+  {n:'Pyro (4)', i:'master-s-pyro-4', s:[144, 400, 3, 5, 4]}
+];
+var SMOKES = [
+  {n:'Stern Meteora', i:'', s:[490, 400, 4, 9, 5]},
+  {n:'Bow Meteora', i:'', s:[392, 400, 4, 9, 5]},
+  {n:'Elite Cheminee (18)', i:'elite-cheminee-18', s:[0, 0, 0, 0, 0]},
+  {n:'Refitted Superior Cheminee (18)', i:'refitted-superior-cheminee-18', s:[0, 0, 0, 0, 0]},
+  {n:'Superior Cheminee (16)', i:'superior-cheminee-16', s:[0, 0, 0, 0, 0]},
+  {n:"Master's Cheminee (16)", i:'master-s-cheminee-16', s:[960, 460, 7, 7, 5]},
+  {n:'Cheminee (16)', i:'master-s-cheminee-16', s:[896, 460, 6, 7, 4]},
+  {n:"Master's Cheminee (14)", i:'master-s-cheminee-14', s:[840, 460, 7, 7, 5]},
+  {n:'Cheminee Cannon (14)', i:'master-s-cheminee-14', s:[784, 460, 6, 7, 4]},
+  {n:"Master's Cheminee (12)", i:'master-s-cheminee-12', s:[720, 460, 7, 7, 5]},
+  {n:'Cheminee Cannon (12)', i:'master-s-cheminee-12', s:[672, 460, 6, 7, 4]},
+  {n:"Master's Cheminee (10)", i:'master-s-cheminee-10', s:[600, 460, 7, 7, 5]},
+  {n:'Cheminee Cannon (10)', i:'master-s-cheminee-10', s:[560, 460, 6, 7, 4]},
+  {n:"Master's Cheminee (8)", i:'master-s-cheminee-8', s:[480, 460, 7, 7, 5]},
+  {n:'Cheminee Cannon (8)', i:'master-s-cheminee-8', s:[448, 460, 6, 7, 4]},
+  {n:"Master's Cheminee (6)", i:'', s:[360, 460, 7, 7, 5]},
+  {n:'Cheminee Cannon (6)', i:'', s:[336, 460, 6, 7, 4]},
+  {n:"Master's Cheminee (4)", i:'', s:[240, 460, 7, 7, 5]},
+  {n:'Cheminee Cannon (4)', i:'', s:[224, 460, 6, 7, 4]},
+  {n:"Master's Meteora (16)", i:'', s:[848, 400, 4, 10, 6]},
+  {n:'Meteora Cannon (16)', i:'', s:[784, 400, 4, 9, 5]},
+  {n:"Master's Meteora (14)", i:'master-s-meteora-14', s:[742, 400, 4, 10, 6]},
+  {n:'Meteora Cannon (14)', i:'master-s-meteora-14', s:[686, 400, 4, 9, 5]},
+  {n:"Master's Meteora (12)", i:'master-s-meteora-12', s:[636, 400, 4, 10, 6]},
+  {n:'Meteora (12)', i:'master-s-meteora-12', s:[588, 400, 4, 9, 5]},
+  {n:"Master's Meteora (10)", i:'master-s-meteora-10', s:[530, 400, 4, 10, 6]},
+  {n:'Meteora (10)', i:'master-s-meteora-10', s:[490, 400, 4, 9, 5]},
+  {n:"Master's Meteora (8)", i:'master-s-meteora-8', s:[424, 400, 4, 10, 6]},
+  {n:'Meteora (8)', i:'master-s-meteora-8', s:[392, 400, 4, 9, 5]},
+  {n:"Master's Meteora (6)", i:'', s:[318, 400, 4, 10, 6]},
+  {n:'Meteora Cannon (6)', i:'', s:[294, 400, 4, 9, 5]},
+  {n:"Master's Meteora (4)", i:'', s:[212, 400, 4, 10, 6]},
+  {n:'Meteora Cannon (4)', i:'', s:[196, 400, 4, 9, 5]},
+  {n:"Master's Caprice (16)", i:'master-s-caprice-16', s:[752, 440, 5, 7, 5]},
+  {n:'Caprice (16)', i:'master-s-caprice-16', s:[688, 440, 4, 7, 4]},
+  {n:"Master's Caprice (14)", i:'master-s-caprice-14', s:[658, 440, 5, 7, 5]},
+  {n:'Caprice (14)', i:'master-s-caprice-14', s:[602, 440, 4, 7, 4]},
+  {n:"Master's Caprice (12)", i:'master-s-caprice-12', s:[564, 440, 5, 7, 5]},
+  {n:'Caprice (12)', i:'master-s-caprice-12', s:[516, 440, 4, 7, 4]},
+  {n:"Master's Caprice (10)", i:'', s:[470, 440, 5, 7, 5]},
+  {n:'Caprice (10)', i:'', s:[430, 440, 4, 7, 4]},
+  {n:"Master's Caprice (8)", i:'', s:[376, 440, 5, 7, 5]},
+  {n:'Caprice (8)', i:'', s:[344, 440, 4, 7, 4]},
+  {n:"Master's Caprice (6)", i:'', s:[282, 440, 5, 7, 5]},
+  {n:'Caprice (6)', i:'', s:[258, 440, 4, 7, 4]},
+  {n:"Master's Caprice (4)", i:'', s:[188, 440, 5, 7, 5]},
+  {n:'Caprice (4)', i:'', s:[172, 440, 4, 7, 4]},
+  {n:"Master's Frango (14)", i:'master-s-frango-14', s:[518, 440, 3, 6, 5]},
+  {n:'Frango Cannon (14)', i:'master-s-frango-14', s:[462, 400, 3, 6, 4]},
+  {n:"Master's Frango (12)", i:'master-s-frango-12', s:[444, 440, 3, 6, 5]},
+  {n:'Frango (12)', i:'master-s-frango-12', s:[396, 400, 3, 6, 4]},
+  {n:"Master's Frango (10)", i:'master-s-frango-10', s:[370, 440, 3, 6, 5]},
+  {n:'Frango (10)', i:'master-s-frango-10', s:[330, 400, 3, 6, 4]},
+  {n:"Master's Frango (8)", i:'master-s-frango-8', s:[296, 440, 3, 6, 5]},
+  {n:'Frango (8)', i:'master-s-frango-8', s:[264, 400, 3, 6, 4]},
+  {n:"Master's Frango (6)", i:'', s:[222, 440, 3, 6, 5]},
+  {n:'Frango Cannon (6)', i:'', s:[198, 400, 3, 6, 4]},
+  {n:"Master's Frango (4)", i:'', s:[148, 440, 3, 6, 5]},
+  {n:'Frango Cannon (4)', i:'', s:[132, 400, 3, 6, 4]}
+];
+
+(function () {
+  var R = '../../images/';
+  var sg = function (v) { return (v >= 0 ? '+' : '') + v; };
+  // Fills a list with one row per item. Click a stat icon: highest first; click it again: lowest first. Another icon starts highest first again.
+  function setup(list, items, rowHtml, val, fill, initKey, tieKeys) {
+    var sortKey = (initKey === undefined ? null : initKey), sortDir = -1;
+    function render() {
+      var rows = items.map(function (s, i) { return { s: s, i: i }; });
+      if (sortKey !== null) rows.sort(function (x, y) {
+        var d = sortDir * (val(x.s, sortKey) - val(y.s, sortKey));
+        if (d) return d;
+        if (tieKeys) for (var t = 0; t < tieKeys.length; t++) {
+          if (tieKeys[t] === sortKey) continue;
+          d = sortDir * (val(x.s, tieKeys[t]) - val(y.s, tieKeys[t]));
+          if (d) return d;
+        }
+        return x.i - y.i;
+      });
+      list.innerHTML = '';
+      rows.forEach(function (o) {
+        var r = document.createElement('div'); r.className = 'sp-row';
+        r.innerHTML = rowHtml(o.s);
+        fill(r, o.s);
+        if (sortKey !== null) { var on = r.querySelector('[data-k="' + sortKey + '"]'); if (on) on.classList.add('sp-on'); }
+        list.appendChild(r);
+      });
+      list.scrollTop = 0;
+    }
+    list.addEventListener('click', function (e) {
+      var ic = e.target.closest('.sp-st img'); if (!ic) return;
+      var k = ic.parentNode.getAttribute('data-k');
+      if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = -1; }
+      render();
+    });
+    render();
+  }
+
+  setup(document.getElementById('sp-sails-list'), SAILS,
+    function (s) {
+      return (s.i ? '<img class="sp-ic" src="' + R + 'ship-parts/sails/' + s.i + '.png" alt="">' : '<span class="sp-ic"></span>') + '<span class="sp-nm"></span>' +
+        '<span class="sp-st"><span data-k="a"><img src="' + R + 'ships/ico-sail.png" alt=""><b>' + sg(s.a) + '</b></span>' +
+        '<span data-k="b"><img src="' + R + 'ships/ico-mast.png" alt=""><b>' + sg(s.b) + '</b></span>' +
+        '<span data-k="t"><img src="' + R + 'ships/ico-turn.png" alt=""><b>' + s.t + '</b></span></span>';
+    },
+    function (s, k) { return Number(s[k]); },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n; }, 'a', ['a', 'b', 't']);
+
+  var ST = ['wave', 'face', 'man', 'bottle'];
+  setup(document.getElementById('sp-figs-list'), FIGS,
+    function (s) {
+      var st = '';
+      for (var k = 0; k < 4; k++) st += '<span data-k="' + k + '"><img src="' + R + 'ship-parts/fig-st-' + ST[k] + '.png" alt=""><b>' + s.s[k] + '</b></span>';
+      return '<img class="sp-ic" src="' + R + 'ship-parts/figureheads/' + s.i + '.png" alt=""><span class="sp-nm"></span>' +
+        '<span class="sp-st sp-st4">' + st + '</span><span class="sp-ef">' +
+        (s.f ? '<img src="' + R + 'ship-parts/fx-' + s.f + '.png" alt="">' : '<i></i>') + '<span></span></span>';
+    },
+    function (s, k) { return s.s[k]; },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n; r.querySelector('.sp-ef > span').textContent = s.e; });
+  setup(document.getElementById('sp-crests-list'), CRESTS,
+    function (s) {
+      return (s.i ? '<img class="sp-ic" src="' + R + 'ship-parts/crests/' + s.i + '.png" alt="">' : '<span class="sp-ic"></span>') +
+        '<span class="sp-nm"></span>';
+    },
+    function () { return 0; },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n; });
+  setup(document.getElementById('sp-special-list'), SPECIAL,
+    function (s) {
+      return (s.i ? '<img class="sp-ic" src="' + R + 'ship-parts/special/' + s.i + '.png" alt="">' : '<span class="sp-ic"></span>') + '<span class="sp-nm"></span><span class="sp-ds"></span>';
+    },
+    function () { return 0; },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n; r.querySelector('.sp-ds').textContent = s.d; });
+  setup(document.getElementById('sp-arms-list'), ARMS,
+    function (s) {
+      return (s.i ? '<img class="sp-ic" src="' + R + 'ship-parts/armour/' + s.i + '.png" alt="">' : '<span class="sp-ic"></span>') + '<span class="sp-nm"></span>' +
+        '<span class="sp-st"><span data-k="a"><img src="' + R + 'ship-parts/arm-st-a.png" alt=""><b>' + s.a + '</b></span>' +
+        '<span data-k="b"><img src="' + R + 'ship-parts/arm-st-b.png" alt=""><b>' + s.b + '</b></span></span>';
+    },
+    function (s, k) { return Number(s[k]); },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n; }, 'a', ['a', 'b']);
+  setup(document.getElementById('sp-normal-list'), NORMALS,
+    function (s) {
+      var st = '';
+      for (var k = 0; k < 5; k++) st += '<span data-k="' + k + '"><img src="' + R + 'ship-parts/ns-st' + (k + 1) + '.png" alt=""><b>' + s.s[k] + '</b></span>';
+      return '<img class="sp-ic" src="' + R + 'ship-parts/normal-shot/' + s.i + '.png" alt=""><span class="sp-nm"></span><span class="sp-st">' + st + '</span>';
+    },
+    function (s, k) { return s.s[k]; },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n; }, '0', ['0', '1', '2', '3', '4']);
+  setup(document.getElementById('sp-double-list'), DOUBLES,
+    function (s) {
+      var st = '';
+      for (var k = 0; k < 5; k++) st += '<span data-k="' + k + '"><img src="' + R + 'ship-parts/ns-st' + (k + 1) + '.png" alt=""><b>' + s.s[k] + '</b></span>';
+      return '<img class="sp-ic" src="' + R + 'ship-parts/double-shot/' + s.i + '.png" alt=""><span class="sp-nm"></span><span class="sp-st">' + st + '</span>';
+    },
+    function (s, k) { return s.s[k]; },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n; }, '0', ['0', '1', '2', '3', '4']);
+  setup(document.getElementById('sp-grape-list'), GRAPES,
+    function (s) {
+      var st = '';
+      for (var k = 0; k < 5; k++) st += '<span data-k="' + k + '"><img src="' + R + 'ship-parts/ns-st' + (k + 1) + '.png" alt=""><b>' + s.s[k] + '</b></span>';
+      return '<img class="sp-ic" src="' + R + 'ship-parts/grapeshot/' + s.i + '.png" alt=""><span class="sp-nm"></span><span class="sp-st">' + st + '</span>';
+    },
+    function (s, k) { return s.s[k]; },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n; }, '0', ['0', '1', '2', '3', '4']);
+  setup(document.getElementById('sp-chain-list'), CHAINS,
+    function (s) {
+      var st = '';
+      for (var k = 0; k < 5; k++) st += '<span data-k="' + k + '"><img src="' + R + 'ship-parts/ns-st' + (k + 1) + '.png" alt=""><b>' + s.s[k] + '</b></span>';
+      return '<img class="sp-ic" src="' + R + 'ship-parts/chain-shot/' + s.i + '.png" alt=""><span class="sp-nm"></span><span class="sp-st">' + st + '</span>';
+    },
+    function (s, k) { return s.s[k]; },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n; }, '0', ['0', '1', '2', '3', '4']);
+  setup(document.getElementById('sp-incend-list'), INCENDS,
+    function (s) {
+      var st = '';
+      for (var k = 0; k < 5; k++) st += '<span data-k="' + k + '"><img src="' + R + 'ship-parts/ns-st' + (k + 1) + '.png" alt=""><b>' + s.s[k] + '</b></span>';
+      return '<img class="sp-ic" src="' + R + 'ship-parts/incendiary-shot/' + s.i + '.png" alt=""><span class="sp-nm"></span><span class="sp-st">' + st + '</span>';
+    },
+    function (s, k) { return s.s[k]; },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n; }, '0', ['0', '1', '2', '3', '4']);
+  setup(document.getElementById('sp-smoke-list'), SMOKES,
+    function (s) {
+      var st = '';
+      for (var k = 0; k < 5; k++) st += '<span data-k="' + k + '"><img src="' + R + 'ship-parts/ns-st' + (k + 1) + '.png" alt=""><b>' + s.s[k] + '</b></span>';
+      return (s.i ? '<img class="sp-ic" src="' + R + 'ship-parts/smoke-shells/' + s.i + '.png" alt="">' : '<span class="sp-ic"></span>') + '<span class="sp-nm"></span><span class="sp-st">' + st + '</span>';
+    },
+    function (s, k) { return s.s[k]; },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n; }, '0', ['0', '1', '2', '3', '4']);
+})();
+</script>
+</body>
+</html>

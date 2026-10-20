@@ -1,0 +1,774 @@
+  /* ====== COLORS: change these to restyle the whole site ====== */
+  :root {
+    --bg: #021a40;          /* dark navy page background */
+    --link: #6f8fe8;        /* link color */
+    --link-hover: #ffffff;
+    --text: #ffffff;
+    --accent: #7ee8e8;      /* cyan highlighted text */
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+  }
+
+  a { color: var(--link); text-decoration: none; }
+  a:hover { color: var(--link-hover); text-decoration: underline; }
+
+  /* ====== TOP BAR ====== */
+  /* Top bar = your original image (1904 x 35 px), shown as is: no fill, no repeat */
+  .topbar {
+    height: 35px;
+    background: url("images/topbar.png") no-repeat left top, url("images/topbar-tile.png") repeat-x 1904px 0;   /* topbar-tile.png (32px) continues the pattern to the right on wide screens */
+  }
+
+/* ====== LAYOUT: sidebar + content ====== */
+.layout { display: flex; padding: 20px; gap: 30px; }
+
+.sidebar { 
+  width: 208px; 
+  flex-shrink: 0; 
+}
+
+  /* Search box */
+  /* Search box = your image (208 x 24 px), empty until you type */
+  .sidebar input[type=text] {
+    display: block;
+    width: 208px;
+    height: 24px;
+    background: url("images/search-bar.png") no-repeat center / 100% 100%;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 0 8px;              /* space so typed text doesn't touch the edges */
+    font-size: 12px;
+    outline: none;
+  }
+  /* Search button = your image (the image already contains the word "Search") */
+  .sidebar button {
+    display: block;
+    width: 98px;            /* same size as your image */
+    height: 18px;
+    margin: 8px 0 22px 55px;  /* 55px = centered under the 208px search box */
+    padding: 0;
+    border: none;
+    background: url("images/search-button.png") no-repeat center / 100% 100%;
+    font-size: 0;           /* hides the real text, the image shows it */
+    cursor: pointer;
+    transition: filter .2s, transform .1s;
+  }
+  .sidebar button:hover { filter: brightness(1.2); }
+  .sidebar button:active { transform: translateY(1px); }
+
+  /* Menu image: original is 260 x 32 px, shown smaller at 180 px wide (same proportions) */
+  .sidebar .menu-img { display: block; width: 180px; }
+  .sidebar .menu-img img {
+    display: block;
+    width: 180px;
+    height: auto;              /* keeps the original proportions */
+    transition: filter .2s;
+  }
+  /* Hover effect: image gets brighter */
+  .sidebar .menu-img:hover img { filter: brightness(1.3); }
+  .sidebar .menu-box + .menu-img,
+  .sidebar .menu-img + .menu-img { margin-top: 6px; }   /* same gap above every title that follows another (box or direct-link button) */
+
+  /* Box that opens/closes when you click the Trade Goods image.
+     Your image is 186 x 176 px; shown at 180 px wide (same as the title).
+     The height is animated by the script at the bottom of this file. */
+  .sidebar .menu-box {
+    height: 0;                        /* closed */
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: height var(--dur, .45s) ease, opacity var(--dur, .45s) ease, visibility 0s var(--dur, .45s);
+  }
+  .sidebar .menu-box.open {
+    opacity: 1;
+    visibility: visible;
+    transition: height var(--dur, .45s) ease, opacity var(--dur, .45s) ease, visibility 0s;
+  }
+  .sidebar .menu-box-content {
+    margin-top: 6px;                  /* space between the title and the box */
+    width: 180px;
+    min-height: 0;                    /* box fits its content exactly */
+    padding: 8px 4px;                 /* space between the box edge and your text */
+    /* Your image's 3px frame stays sharp; only the flat middle stretches when the box gets taller */
+    border: 3px solid transparent;
+    border-image: url("images/bar-box.png") 3 fill / 3px stretch;
+    color: #fff;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  /* Words inside the box: same font and color as the items inside the info box
+     (Arial 12px, link blue, no outline). The hover animation is kept. */
+  .sidebar .menu-box-content a {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: var(--link);
+    text-decoration: none;
+    padding: 1px 4px;
+    white-space: nowrap;
+    border-left: 2px solid transparent;
+    cursor: pointer;
+    transition: color .2s, background .25s, border-color .2s, padding-left .2s, text-shadow .2s;
+  }
+  /* Hover effect on every option: slides right, turns light blue (like the top bar), glows, and gets a soft highlight bar */
+  .sidebar .menu-box-content a:hover {
+    color: #8cc2de;
+    padding-left: 11px;
+    border-left-color: #8cc2de;
+    background: linear-gradient(90deg, rgba(140, 194, 222, .28), rgba(140, 194, 222, 0));
+    text-shadow: 0 0 8px rgba(140, 194, 222, .85);
+    text-decoration: none;
+  }
+
+  .content { flex: 1; line-height: 15px; margin-top: 100px; }   /* 100px = top of the content lines up with the top of the word box under Trade Goods */
+  .content p { margin: 0 0 15px; }
+
+  /* Title on the information pages */
+  .content h1 {
+    margin: 0 0 14px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 22px;
+    font-weight: normal;
+    color: #fff;
+  }
+
+  /* Smooth page load: the page stays hidden for a moment and fades in once the images are ready */
+  html { background: var(--bg); }
+  body { transition: opacity .35s ease; }
+  body.loading { opacity: 0; }
+
+  /* Information table (your image, 717 x 377 px). Put images, words, etc. inside it.
+     The ornate frame keeps its original size; only the flat middle stretches if you add a lot of content. */
+  .info-box {
+    margin: 0 0 0 -2px;
+    width: 717px;
+	height: auto;         /* Allows it to grow infinitely as you add table rows */
+	min-height: 378px;    /* Keeps a minimum height if there are only 1-2 items */
+	border: 24px solid transparent;
+	border-image: url("images/info-box.png") 24 fill / 24px stretch; /* Keeps the corners sharp while stretching the middle */
+	padding: 4px 8px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 20px;
+  }
+
+/* Item table inside the info box */
+.item-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  table-layout: fixed; /* Ensures exact column width proportions */
+  }
+.item-table tr { border-top: 1px solid var(--link); }
+.item-table tr:last-child { border-bottom: 1px solid var(--link); }
+.item-table td { height: 52px; padding: 0; vertical-align: middle; font-size: 12px; }
+
+/* Icon cell width */
+.item-table td.icon { width: 54px; }
+
+/* Text columns take equal remaining width (approx 50% each) */
+.item-table td.name-text,
+.item-table td.specialty-text {
+  width: calc(50% - 54px);
+  padding-left: 6px;
+  }
+
+.item-table .item-icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-left: 3px;
+  background: no-repeat center / 48px 48px;
+  }
+
+.item-table a { color: var(--link); }
+
+/* Header tabs alignment */
+.col-headers {
+  display: flex;
+  margin: -20px 0 0 -2px;
+  width: 717px; /* matches info-box width */
+  }
+.col-header {
+  display: block;
+  width: 101px;
+  height: 20px;
+  flex-shrink: 0;
+  }
+
+/* Align Specialty header exactly above the 2nd icon column */
+.col-header:nth-child(2) {
+  margin-left: calc(50% - 101px);
+  }
+  
+/* Custom widths for Name vs Description layout */
+.item-table td.name-text-wide {
+  width: 180px; /* Fixed width for the skill name */
+  padding-left: 6px;
+  }
+
+.item-table td.description-text {
+  padding-left: 12px;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 16px;
+  }
+
+/* Adjust Description header position */
+.col-header-desc:nth-child(2) {
+  margin-left: 150px; /* Aligns the "Description" header tab over the text */
+  }
+  
+/* Custom size for 24x28 px skill icons */
+.item-table td.icon-small {
+  width: 30px; /* Slightly wider than the 24px icon to leave padding */
+  }
+
+.item-table .item-icon-small {
+  display: block;
+  width: 24px;
+  height: 28px;
+  margin-left: 3px;
+  background: no-repeat center / 24px 28px;
+  }
+  
+/* Title Wrapper Container */
+.page-title-wrapper {
+  position: relative; /* Allows free movement using pixels */
+  width: 100%;
+  margin-bottom: 12px;
+  
+  /* ADJUST THESE PIXELS TO MOVE FREELY: */
+  top: -26px;    /* Increase to move down, negative to move up */
+  left: -14px;   /* Increase to move right, negative to move left */
+  }
+
+.page-title-img {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+  }
+  
+/* Custom size and spacing for Duty Icon and Text columns */
+.item-table td.icon-duty {
+  width: 10px; /* Gives room to push the icon right */
+  padding-left: 20px; /* Adjust this to move icons right */
+  }
+
+.item-table .item-icon-duty {
+  display: block;
+  width: 19px;
+  height: 19px;
+  margin-left: 0;
+  background: no-repeat center / 19px 19px;
+  }
+
+.item-table td.specialty-text {
+  padding-left: 25px; /* Adjust this to move the duty words further right from the icon */
+  }
+/* ====== SEARCH: red alert + result list ====== */
+.search-wrap { position: relative; z-index: 30; transition: padding-bottom .3s ease; }   /* padding-bottom is what slides the menu down */
+
+/* Red message under the search bar (opens smoothly when the search is too short) */
+.search-msg {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 4px;
+  color: #ff5a5a;
+  font-size: 12px;
+  line-height: 16px;
+  transition: height .2s ease, opacity .2s ease, padding .2s ease;
+}
+.search-msg.show { height: 24px; padding-top: 6px; opacity: 1; }
+
+/* Search bar glows red + a quick shake */
+.sidebar input[type=text].error {
+  box-shadow: 0 0 0 1px #ff5a5a, 0 0 8px rgba(255, 90, 90, .8);
+}
+.sidebar input[type=text].shake { animation: search-shake .3s; }
+@keyframes search-shake {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-4px); }
+  75%      { transform: translateX(4px); }
+}
+
+/* Result list under the Begin Search button (pages only)
+   Same size and look as the Trade Goods / Skills boxes */
+.search-results {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 180px;
+  padding: 8px 4px;
+  border: 3px solid transparent;
+  border-image: url("images/bar-box.png") 3 fill / 3px stretch;
+  line-height: 20px;
+}
+.search-results.open { display: block; }
+.search-results a {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: var(--link);
+  text-decoration: none;
+  padding: 1px 4px;
+  white-space: nowrap;
+  border-left: 2px solid transparent;
+  transition: color .2s, background .25s, border-color .2s, padding-left .2s, text-shadow .2s;
+}
+.search-results a:hover {
+  color: #8cc2de;
+  padding-left: 11px;
+  border-left-color: #8cc2de;
+  background: linear-gradient(90deg, rgba(140, 194, 222, .28), rgba(140, 194, 222, 0));
+  text-shadow: 0 0 8px rgba(140, 194, 222, .85);
+}
+.search-none { font-size: 12px; color: #fff; padding: 1px 4px 1px 6px; }
+
+/* ====== SKILL PAGES (one page per skill) ====== */
+.skill-page { min-height: 300px; }
+.skill-head { display: flex; align-items: center; gap: 14px; margin: 4px 0 16px; }
+.skill-icon, .skill-req-icon, .skill-duty-icon { display: block; flex-shrink: 0; }   /* icons keep their original size */
+.skill-head h1 { margin: 0; }
+.skill-cat { color: var(--accent); font-size: 12px; line-height: 16px; }
+.skill-desc { margin: 0 0 16px; font-size: 14px; line-height: 20px; }
+.skill-section { margin: 0 0 16px; }
+.skill-label { display: block; color: var(--accent); margin-bottom: 6px; font-size: 12px; }
+.skill-req { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.skill-req-item { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+
+/* ====== REQUIREMENTS PANEL (RQMTs) - bottom right corner of a skill page ======
+   Empty slots: put your own .png in each slot (see the comments in the page).
+   Every slot is placed with left/top (px) inside the panel - change them to fit your images. */
+.skill-page { position: relative; }
+.skill-corner-icon { position: absolute; top: -6px; right: 2px; display: block; line-height: 0; }   /* top-right corner button (refine-icon.png, natural size 40 x 24) - top/right move it */
+.skill-corner-icon img { display: block; }
+/* Same hover / click effect as the Search and Location buttons */
+.skill-corner-icon:hover img  { filter: brightness(1.2); }
+.skill-corner-icon:active img { transform: translateY(1px); }
+.rqmts {
+  position: absolute;
+  right: 10px;          /* whole panel: bigger = further from the right edge */
+  bottom: 6px;          /* whole panel: bigger = further from the bottom edge */
+  width: 246px;         /* panel size - make it as big as your design */
+  height: 119px;
+}
+.rqmts > * { position: absolute; }
+.rqmts img { display: block; }
+
+/* Slot positions and sizes (left / top / width / height) */
+.rq-tab      { left: 11px;  top: 7px;   width: 80px; height: 20px; }   /* "RQMTs" title (tab.png, natural size 80 x 20) */
+/* The three Lv boxes all come from ONE image (images/rqmts/rqmts-ui.png, 219 x 20 px).
+   Each box shows its own part of that image (background-position = how far to slide it left). */
+.rq-lv       { top: 34px; height: 20px; background: url("images/rqmts/rqmts-ui.png") no-repeat; }
+.rq-lv-1     { left: 18px;  width: 68px; background-position: 0 0; }        /* Adventure */
+.rq-lv-2     { left: 93px;  width: 70px; background-position: -75px 0; }    /* Trade     */
+.rq-lv-3     { left: 170px; width: 67px; background-position: -152px 0; }   /* Battle    */
+.rq-lv .rq-num { line-height: 20px; }
+.rq-item     { left: 18px;  top: 57px;  width: 50px; height: 31px; }   /* item box */
+.rq-item-2   { left: 93px; }   /* second item: same left edge as the Trade Lv box (.rq-lv-2) */
+.rq-item-icon { position: absolute; left: 2px; top: 50%; transform: translateY(-50%); }  /* item icon inside the item box: natural size, centered vertically */
+.rq-location { left: 3px;   top: 98px;  width: 98px; height: 18px; }   /* Location button (location.png, natural size 98 x 18) */
+/* Same hover / click effect as the Search button (see .sidebar button:hover / :active) */
+.rq-location:hover img  { filter: brightness(1.2); }
+.rq-location:active img { transform: translateY(1px); }
+
+/* The numbers (text, not images) */
+.rq-num {
+  position: absolute;
+  right: 3px;           /* distance from the right edge of its box */
+  top: 0;
+  font: 14px/17px Arial, Helvetica, sans-serif;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}
+.rq-item .rq-num { right: 2px; top: 12px; line-height: 16px; }
+
+
+/* ====== LOCATION PANEL (opens to the right of the skill box when Location is pressed) ====== */
+.skill-row { display: flex; align-items: flex-start; gap: 8px; }
+.skill-row > * { flex-shrink: 0; }
+/* The panel is revealed / hidden with a wipe (clip-path) + fade, like the sidebar menu boxes.
+   While closing it KEEPS its space, and only shrinks to 0 when the animation has finished,
+   so the page does not slide or jump during the animation. Change .45s to make it faster / slower. */
+.loc-panel {
+  position: relative; overflow: hidden; visibility: hidden; opacity: 0;
+  width: 0; height: 0; margin-left: -8px;                 /* -8px cancels the gap while closed */
+  clip-path: inset(0 100% 100% 0);
+  transition: clip-path .45s ease, opacity .45s ease,
+              width 0s .45s, height 0s .45s, margin-left 0s .45s, visibility 0s .45s;
+}
+.loc-panel.open {
+  visibility: visible; opacity: 1;
+  width: 441px; height: 273px; margin-left: 0;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path .45s ease, opacity .45s ease,
+              width 0s, height 0s, margin-left 0s, visibility 0s;
+}
+.loc-panel > img { display: block; max-width: none; }
+/* Title at the top of the panel: skill icon + skill name (icon keeps its natural size) */
+.loc-title { position: absolute; left: 22px; top: 17px; display: flex; align-items: center; gap: 10px; color: #fff; font: 16px/20px Arial, Helvetica, sans-serif; }
+.loc-title img { display: block; }
+
+/* Rows on the dark part of the panel: [icon] [Where to learn] [Name of NPC] */
+.loc-rows { position: absolute; left: 20px; top: 88px; width: 402px; height: 158px; overflow-y: auto; scrollbar-width: thin; }
+.loc-row  { display: grid; grid-template-columns: 34px 188px 1fr; align-items: center; height: 22px; color: #fff; font: 14px/22px Arial, Helvetica, sans-serif; }
+.loc-icon { display: flex; align-items: center; justify-content: center; }   /* your icon keeps its natural size */
+.loc-icon img { display: block; }
+.loc-city, .loc-npc { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ===== SHIP PAGE UI (Ships > Adventure / Trade / Battle) - images in images/ships/ ===== */
+.sh-ui { display: flex; gap: 0; align-items: flex-start; }
+.sh-list { width: 324px; flex: none; }
+.sh-list > img, .sh-detail img { display: block; }
+.sh-items { margin-top: 8px; height: 330px; overflow-y: scroll; }
+.sh-item { width: 218px; box-sizing: border-box; display: grid; grid-template-columns: 48px 1fr; column-gap: 8px; padding: 4px 3px; cursor: pointer; align-items: center; color: #fff; }
+.sh-item img { grid-row: 1; width: 48px; height: 48px; }
+.sh-item.sel { background: rgba(60, 200, 190, .6); }
+.sh-item .sh-iname { line-height: 22px; }
+.sh-detail { width: 350px; flex: none; border-left: 1px solid #3a4a90; padding-left: 4px; }
+.sh-name { display: flex; align-items: center; gap: 6px; font-size: 15px; line-height: 20px; margin-bottom: 12px; }
+.sh-row { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+.sh-cols { display: flex; gap: 8px; margin-bottom: 14px; }
+.sh-col { flex: none; }
+.sh-stats { display: grid; grid-template-columns: repeat(3, auto); gap: 6px 8px; margin: 8px 0; align-items: center; }
+.sh-stat { display: flex; align-items: center; gap: 6px; padding: 1px 4px; min-width: 56px; }
+.sh-ups { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.sh-durcol .sh-dur { margin-top: 8px; }
+.sh-dur .sh-stat { min-width: 0; }
+.sh-hold { display: flex; gap: 10px; margin-top: 8px; }
+.sh-hold > div { flex: 1; }
+.sh-req { display: flex; gap: 18px; margin-top: 8px; }
+.sh-req span { display: flex; align-items: center; gap: 4px; }
+.sh-block { margin-bottom: 14px; }
+.sh-btncol { margin: 0 -2px; }
+.sh-parts-btn { display: inline-block; }
+.sh-parts-btn:hover img  { filter: brightness(1.2); }
+.sh-parts-btn:active img { transform: translateY(1px); }
+/* Ships pages: both side panels share the same spot (one at a time) */
+.sh-panels { display: grid; align-items: start; }
+.sh-panels > .loc-panel { grid-area: 1 / 1; }
+.sh-ship-btn { display: inline-block; }
+.sh-ship-btn:hover img  { filter: brightness(1.2); }
+.sh-ship-btn:active img { transform: translateY(1px); }
+
+/* Ship list scroll bar (in-game look). Built by menu.js. Images: images/ships/sb-up, sb-down, sb-track and sb-thumb-<top|mid|bottom>-<top|mid|bot> (all .png).
+   The thumb keeps a fixed height (THUMB_H below), like in the game. */
+.sh-scroll { display: flex; align-items: stretch; margin: 8px 0 0 -8px; height: 288px; }
+.sh-scroll .sh-items { flex: none; box-sizing: border-box; width: 301px; padding: 4px 0 0 5px; margin: 0; height: 288px; overflow-y: auto; scrollbar-width: none; background: url("images/ships/ships-box-background.png") 0 0 / 100% 288px no-repeat; }   /* box = ships-box-background.png stretched to the box width; the scroll bar sits outside it */
+.sh-scroll .sh-items::-webkit-scrollbar { display: none; }
+.sh-sb { width: 16px; flex: none; margin-left: 0; display: flex; flex-direction: column; user-select: none; touch-action: none; }
+.sb-btn { height: 15px; flex: none; background: no-repeat center / 16px 15px; cursor: pointer; }
+.sb-up   { background-image: url("images/ships/sb-up.png"); }
+.sb-down { background-image: url("images/ships/sb-down.png"); }
+.sb-btn:hover { filter: brightness(1.2); }
+.sb-track { flex: 1; position: relative; background: url("images/ships/sb-track.png") repeat-y; }
+.sb-thumb { position: absolute; left: 0; width: 16px; height: 51px; /* THUMB_H */ cursor: pointer; display: none;
+  background: url("images/ships/sb-thumb-mid-top.png") 0 0 no-repeat, url("images/ships/sb-thumb-mid-bot.png") 0 100% no-repeat, url("images/ships/sb-thumb-mid-mid.png") 0 7px / 16px calc(100% - 14px) no-repeat; }
+.sb-thumb.sb-top { background-image: url("images/ships/sb-thumb-top-top.png"), url("images/ships/sb-thumb-top-bot.png"), url("images/ships/sb-thumb-top-mid.png"); }
+.sb-thumb.sb-bottom { background-image: url("images/ships/sb-thumb-bottom-top.png"), url("images/ships/sb-thumb-bottom-bot.png"), url("images/ships/sb-thumb-bottom-mid.png"); }
+.sb-thumb:hover { filter: brightness(1.1); }
+
+/* ===== SHIP PANELS (Ship Parts button = pnl-b, round ship button = pnl-a). Every item is placed with left/top pixels. ===== */
+.loc-panel.pnl-a.open { width: 582px; height: 341px; }
+.loc-panel.pnl-b.open { width: 819px; height: 346px; }
+.pn-box { width: auto; min-height: 0; height: auto; }
+.pn { position: relative; }
+.pn-a { width: 518px; height: 282px; }
+.pn-b { width: 710px; height: 282px; }
+.pn-abs { position: absolute; display: block; }
+.pn-inset { position: absolute; background: url("images/ships/ships-box-background.png") 0 0 / 100% 100% no-repeat; }
+.pn-row { position: absolute; width: 236px; height: 24px; display: flex; align-items: center; gap: 4px; line-height: 20px; }
+.pn-row.dim { opacity: .5; }
+.pn-row img { display: block; }
+.pn-row .pn-v { margin-left: auto; padding-right: 4px; }
+.pn-bar { position: absolute; left: 0; right: 0; bottom: -3px; height: 6px; background: url("images/ships/pn-bar.png") 0 0 / 100% 100% no-repeat; }   /* bar image: images/ships/pn-bar.png (236 x 6) */
+.pn-bar b { display: block; height: 100%; width: 0; background: #e87878; }
+.pn-special { display: flex; align-items: center; gap: 3px; }
+.pn-total { width: 98px; height: 24px; display: flex; align-items: center; gap: 6px; }
+.pn-total span { margin-left: auto; }
+.pn-total .pn-bar { bottom: -3px; }
+.pn-total .pn-bar b { width: 100%; }
+.pn-divider { width: 1px; background: rgba(160, 175, 205, .6); }
+
+/* Part options (Ship Parts panel): small icon + 1 to 5 boxes, boxes are created by menu.js from data-boxes. */
+.pn-cat { display: flex; align-items: flex-start; }
+.pn-cat > img { display: block; }
+.pn-cat .pn-slot { display: block; width: 48px; height: 48px; }
+.pn-cat .pn-slot + .pn-slot { margin-left: 9px; }   /* space between boxes */
+
+.sh-v { font-style: normal; }
+
+.sh-uwc { width: 16px; height: 16px; margin-left: 6px; vertical-align: -3px; }
+.sh-item .sh-iname img.sh-uwc, .sh-name img.sh-uwc { width: 16px; height: 16px; grid-row: auto; display: inline; margin-left: 6px; vertical-align: -3px; }
+.sh-item .sh-iname { display: flex; align-items: center; white-space: nowrap; } .sh-item .sh-iname img.sh-uwc { display: block; flex: none; vertical-align: baseline; }
+.sh-scroll .sh-item { width: max-content; min-width: 218px; max-width: 100%; padding-right: 8px; }   /* long names: the row (and highlight) grows a little so the name + icon fit on one line */
+/* ship search box (above the ship list) */
+.sh-search { display: block; box-sizing: border-box; width: 260px; height: 24px; margin: 6px 0 0 14px; padding: 0 8px; color: #fff; font: 12px Arial, sans-serif; background: url("images/search-bar.png") no-repeat center / 100% 100%; border: none; border-radius: 0; outline: none; caret-color: transparent; }
+.sidebar input[type=text] { caret-color: transparent; }
+.caret-blink { position: absolute; width: 4px; height: 16px; pointer-events: none; z-index: 5; background: no-repeat center / 100% 100%; }
+.sh-search + .sh-scroll { margin-top: 6px; }
+.sh-item.sh-hide { display: none; }
+.sh-empty { color: #aab; padding: 10px 6px; font-size: 13px; }
+
+/* hover tip under each Improvements stat */
+.pn-tip { position: absolute; display: none; z-index: 20; box-sizing: border-box; height: 25px; padding: 0 8px; line-height: 17px; white-space: nowrap; pointer-events: none; font: 13px/17px Arial, sans-serif; color: #fff; border: 4px solid transparent; border-image: url("images/ships/info-performance-box.png") 4 fill / 4px stretch; }
+
+/* Ship Parts page: three columns of links */
+.sp-links { display: flex; align-items: flex-start; }
+.sp-col { width: 150px; }
+.sp-col a { display: block; font: 14px/17px Arial, sans-serif; margin-bottom: 17px; }
+.sp-col.sp-tight a { margin-bottom: 0; }
+.sp-col.sp-icons { width: 210px; }
+.sp-icons a { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; line-height: 48px; }
+.sp-icons a img { display: block; width: 48px; height: 48px; }
+.sp-links > .sp-col:nth-child(2) { width: 90px; }
+.sp-col span { display: block; font: 14px/17px Arial, sans-serif; color: var(--link); }   /* shot names: plain text, no page */
+.sp-col.sp-tight { width: 190px; }
+.sp-col.sp-tight span { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; line-height: 48px; }
+.sp-col.sp-tight span img { display: block; width: 48px; height: 48px; }
+.info-box.sp-box { width: 490px; min-height: 0; }   /* box hugs the Ship Parts options */
+
+/* Ship Parts page: options are buttons; each opens its own panel on the right (one at a time, same wipe as the Ships pages) */
+.sp-col a[data-sp] { cursor: pointer; }
+.sp-col.sp-tight a { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; line-height: 48px; }
+.sp-col.sp-tight a img { display: block; width: 48px; height: 48px; }
+.sp-col a[data-sp].sel { color: #fff; }
+.loc-panel.pnl-sp.open { width: 441px; height: 412px; }   /* 392 box + 20 for the Name tab */
+.skill-row > .sp-box ~ .sh-panels { margin-top: -20px; }          /* tab sits above, the box lines up with the left box */
+.sp-name { display: block; width: 101px; height: 20px; margin-left: -2px; }
+.sp-tabs { display: flex; align-items: flex-end; height: 20px; }
+.sp-base { display: block; width: 155px; height: 20px; margin-left: 132px; }   /* Base Performance tab: margin-left sets how far it sits from Name */
+.pn-sp { position: relative; width: 377px; height: 336px; }
+.sp-title { display: flex; align-items: center; gap: 10px; color: #fff; font: 16px/20px Arial, Helvetica, sans-serif; }
+.sp-title img { display: block; width: 48px; height: 48px; }
+
+/* Studding Sails list (Ship Parts page): rows with icon, name and Base Performance numbers; the box scrolls */
+.sp-list { box-sizing: border-box; flex: none; width: 366px; height: 336px; padding: 4px 0 0 5px; overflow-y: auto; scrollbar-width: none; background: url("images/ships/ships-box-background.png") 0 0 / 100% 100% no-repeat; }   /* same box + inner gap (4px top, 5px left) as the Ships list; the slider stays outside it */   /* same box background as the Ships list, stretched to the list; the slider stays outside it */   /* the in-game scroll bar (menu.js) sits at its right, 16px */
+.sp-list::-webkit-scrollbar { display: none; }
+.sp-scroll { display: flex; align-items: stretch; height: 336px; }
+.sp-scroll .sh-sb { position: relative; left: 3px; }   /* slider offset to the right: raise/lower the number */
+.sp-row { display: flex; align-items: center; height: 51px; border-top: 1px solid transparent; background: linear-gradient(var(--link), var(--link)) 0 0 / calc(100% - 5px) 1px no-repeat; background-origin: border-box; }   /* blue line stops 5px short of the right edge */
+.sp-ic { display: block; width: 48px; height: 48px; margin-right: 8px; flex: none; }
+.sp-nm { width: 146px; flex: none; font: 12px/14px Arial, sans-serif; color: var(--link); }   /* stats start where the Base Performance tab starts */
+.sp-st { display: flex; width: 156px; height: 22px; flex: none; }
+.sp-st > span { display: flex; align-items: center; flex: 1; padding-left: 3px; }
+.sp-st img { display: block; flex: none; }
+.sp-st b { flex: 1; text-align: right; padding-right: 5px; font: 14px/22px Arial, sans-serif; color: #e6ecff; }
+.sp-st img { cursor: pointer; }                      /* click a stat icon to sort by it */
+.sp-st img:hover, .sp-st .sp-on img { filter: brightness(1.35); }
+
+/* Figureheads panel: same box height, same Name / Base Performance tab spots as Studding Sails; it grows 192px to the right to fit the Effect column */
+#sp-figureheads.loc-panel.open { width: 633px; }
+#sp-figureheads .pn-sp { width: 569px; }
+#sp-figureheads .sp-list { width: 558px; }
+.sp-ds { box-sizing: border-box; width: 155px; padding-left: 0; flex: none; font: 13px/15px Arial, sans-serif; color: #e6ecff; }   /* Special Equipments: base performance text */
+/* Crests: narrow box, only icon + name */
+#sp-crests.loc-panel.open { width: 350px; }
+#sp-crests .pn-sp { width: 286px; }
+#sp-crests .sp-list { width: 275px; }
+#sp-crests .sp-nm { width: 200px; }
+.sp-effect { display: block; height: 20px; margin-left: 41px; }   /* Effect tab: right after the Base Performance tab */
+.sp-st4 { margin-right: 40px; }   /* gap between the numbers and the Effect column (the Effect tab margin-left follows it) */
+.sp-st4 > span { padding-left: 0; }
+.sp-st4 b { padding-right: 3px; }
+.sp-ef { display: flex; align-items: center; gap: 4px; width: 155px; flex: none; font: 12px/14px Arial, sans-serif; color: var(--link); }
+.sp-ef img { display: block; width: 24px; height: auto; flex: none; }
+.sp-ef > span { white-space: nowrap; }   /* effect texts stay on one line */
+.sp-ef i { display: block; width: 24px; height: 24px; flex: none; }   /* the empty <i> keeps effect texts without an icon aligned */
+
+/* Ship Parts options box (left): same box background and inner gap as the lists on the right */
+.sp-links { box-sizing: border-box; height: 336px; padding: 4px 0 0 5px; background: url("images/ships/ships-box-background.png") 0 0 / 100% 100% no-repeat; }
+
+/* Extra Armourings: numbers sit right next to their icons (fixed 36px, right-aligned) */
+#sp-extra-armourings .sp-st > span { flex: none; width: 70px; }
+#sp-extra-armourings .sp-st b { flex: none; width: 36px; padding-right: 0; }
+
+/* Normal Shot: 5 stats, each number hugs its icon (slot widths fit 4 / 3 / 2 / 1 / 1 digits); box grows to the right, left edge and tabs unchanged */
+#sp-normal-shot.loc-panel.open { width: 515px; }
+#sp-normal-shot .pn-sp { width: 451px; }
+#sp-normal-shot .sp-list { width: 440px; }
+#sp-normal-shot .sp-st { width: 223px; }
+#sp-normal-shot .sp-st > span { flex: none; padding-left: 0; box-sizing: border-box; }
+#sp-normal-shot .sp-st img { width: 19px; height: 20px; }
+#sp-normal-shot .sp-st b { flex: none; padding-right: 0; text-align: left; padding-left: 4px; box-sizing: content-box; }
+#sp-normal-shot .sp-st > span:nth-child(1) { width: 61px; } #sp-normal-shot .sp-st > span:nth-child(1) b { width: 32px; }
+#sp-normal-shot .sp-st > span:nth-child(2) { width: 53px; } #sp-normal-shot .sp-st > span:nth-child(2) b { width: 24px; }
+#sp-normal-shot .sp-st > span:nth-child(3) { width: 45px; } #sp-normal-shot .sp-st > span:nth-child(3) b { width: 16px; }
+#sp-normal-shot .sp-st > span:nth-child(4) { width: 37px; } #sp-normal-shot .sp-st > span:nth-child(4) b { width: 8px; }
+#sp-normal-shot .sp-st > span:nth-child(5) { width: 27px; } #sp-normal-shot .sp-st > span:nth-child(5) b { width: 8px; }
+
+/* Double Shot (same columns as Normal Shot) */
+#sp-double-shot.loc-panel.open { width: 515px; }
+#sp-double-shot .pn-sp { width: 451px; }
+#sp-double-shot .sp-list { width: 440px; }
+#sp-double-shot .sp-st { width: 223px; }
+#sp-double-shot .sp-st > span { flex: none; padding-left: 0; box-sizing: border-box; }
+#sp-double-shot .sp-st img { width: 19px; height: 20px; }
+#sp-double-shot .sp-st b { flex: none; padding-right: 0; text-align: left; padding-left: 4px; box-sizing: content-box; }
+#sp-double-shot .sp-st > span:nth-child(1) { width: 61px; } #sp-double-shot .sp-st > span:nth-child(1) b { width: 32px; }
+#sp-double-shot .sp-st > span:nth-child(2) { width: 53px; } #sp-double-shot .sp-st > span:nth-child(2) b { width: 24px; }
+#sp-double-shot .sp-st > span:nth-child(3) { width: 45px; } #sp-double-shot .sp-st > span:nth-child(3) b { width: 16px; }
+#sp-double-shot .sp-st > span:nth-child(4) { width: 37px; } #sp-double-shot .sp-st > span:nth-child(4) b { width: 8px; }
+#sp-double-shot .sp-st > span:nth-child(5) { width: 27px; } #sp-double-shot .sp-st > span:nth-child(5) b { width: 8px; }
+
+/* Grapeshot (same columns as Normal Shot) */
+#sp-grapeshot.loc-panel.open { width: 515px; }
+#sp-grapeshot .pn-sp { width: 451px; }
+#sp-grapeshot .sp-list { width: 440px; }
+#sp-grapeshot .sp-st { width: 223px; }
+#sp-grapeshot .sp-st > span { flex: none; padding-left: 0; box-sizing: border-box; }
+#sp-grapeshot .sp-st img { width: 19px; height: 20px; }
+#sp-grapeshot .sp-st b { flex: none; padding-right: 0; text-align: left; padding-left: 4px; box-sizing: content-box; }
+#sp-grapeshot .sp-st > span:nth-child(1) { width: 61px; } #sp-grapeshot .sp-st > span:nth-child(1) b { width: 32px; }
+#sp-grapeshot .sp-st > span:nth-child(2) { width: 53px; } #sp-grapeshot .sp-st > span:nth-child(2) b { width: 24px; }
+#sp-grapeshot .sp-st > span:nth-child(3) { width: 45px; } #sp-grapeshot .sp-st > span:nth-child(3) b { width: 16px; }
+#sp-grapeshot .sp-st > span:nth-child(4) { width: 37px; } #sp-grapeshot .sp-st > span:nth-child(4) b { width: 8px; }
+#sp-grapeshot .sp-st > span:nth-child(5) { width: 27px; } #sp-grapeshot .sp-st > span:nth-child(5) b { width: 8px; }
+
+/* Chain-Shot (same columns as Normal Shot) */
+#sp-chain-shot.loc-panel.open { width: 515px; }
+#sp-chain-shot .pn-sp { width: 451px; }
+#sp-chain-shot .sp-list { width: 440px; }
+#sp-chain-shot .sp-st { width: 223px; }
+#sp-chain-shot .sp-st > span { flex: none; padding-left: 0; box-sizing: border-box; }
+#sp-chain-shot .sp-st img { width: 19px; height: 20px; }
+#sp-chain-shot .sp-st b { flex: none; padding-right: 0; text-align: left; padding-left: 4px; box-sizing: content-box; }
+#sp-chain-shot .sp-st > span:nth-child(1) { width: 61px; } #sp-chain-shot .sp-st > span:nth-child(1) b { width: 32px; }
+#sp-chain-shot .sp-st > span:nth-child(2) { width: 53px; } #sp-chain-shot .sp-st > span:nth-child(2) b { width: 24px; }
+#sp-chain-shot .sp-st > span:nth-child(3) { width: 45px; } #sp-chain-shot .sp-st > span:nth-child(3) b { width: 16px; }
+#sp-chain-shot .sp-st > span:nth-child(4) { width: 37px; } #sp-chain-shot .sp-st > span:nth-child(4) b { width: 8px; }
+#sp-chain-shot .sp-st > span:nth-child(5) { width: 27px; } #sp-chain-shot .sp-st > span:nth-child(5) b { width: 8px; }
+
+/* Incendiary Shot (same columns as Normal Shot) */
+#sp-incendiary-shot.loc-panel.open { width: 515px; }
+#sp-incendiary-shot .pn-sp { width: 451px; }
+#sp-incendiary-shot .sp-list { width: 440px; }
+#sp-incendiary-shot .sp-st { width: 223px; }
+#sp-incendiary-shot .sp-st > span { flex: none; padding-left: 0; box-sizing: border-box; }
+#sp-incendiary-shot .sp-st img { width: 19px; height: 20px; }
+#sp-incendiary-shot .sp-st b { flex: none; padding-right: 0; text-align: left; padding-left: 4px; box-sizing: content-box; }
+#sp-incendiary-shot .sp-st > span:nth-child(1) { width: 61px; } #sp-incendiary-shot .sp-st > span:nth-child(1) b { width: 32px; }
+#sp-incendiary-shot .sp-st > span:nth-child(2) { width: 53px; } #sp-incendiary-shot .sp-st > span:nth-child(2) b { width: 24px; }
+#sp-incendiary-shot .sp-st > span:nth-child(3) { width: 45px; } #sp-incendiary-shot .sp-st > span:nth-child(3) b { width: 16px; }
+#sp-incendiary-shot .sp-st > span:nth-child(4) { width: 37px; } #sp-incendiary-shot .sp-st > span:nth-child(4) b { width: 8px; }
+#sp-incendiary-shot .sp-st > span:nth-child(5) { width: 27px; } #sp-incendiary-shot .sp-st > span:nth-child(5) b { width: 8px; }
+
+/* Smoke Shells (same columns as Normal Shot) */
+#sp-smoke-shells.loc-panel.open { width: 515px; }
+#sp-smoke-shells .pn-sp { width: 451px; }
+#sp-smoke-shells .sp-list { width: 440px; }
+#sp-smoke-shells .sp-st { width: 223px; }
+#sp-smoke-shells .sp-st > span { flex: none; padding-left: 0; box-sizing: border-box; }
+#sp-smoke-shells .sp-st img { width: 19px; height: 20px; }
+#sp-smoke-shells .sp-st b { flex: none; padding-right: 0; text-align: left; padding-left: 4px; box-sizing: content-box; }
+#sp-smoke-shells .sp-st > span:nth-child(1) { width: 61px; } #sp-smoke-shells .sp-st > span:nth-child(1) b { width: 32px; }
+#sp-smoke-shells .sp-st > span:nth-child(2) { width: 53px; } #sp-smoke-shells .sp-st > span:nth-child(2) b { width: 24px; }
+#sp-smoke-shells .sp-st > span:nth-child(3) { width: 45px; } #sp-smoke-shells .sp-st > span:nth-child(3) b { width: 16px; }
+#sp-smoke-shells .sp-st > span:nth-child(4) { width: 37px; } #sp-smoke-shells .sp-st > span:nth-child(4) b { width: 8px; }
+#sp-smoke-shells .sp-st > span:nth-child(5) { width: 27px; } #sp-smoke-shells .sp-st > span:nth-child(5) b { width: 8px; }
+/* Smoke Shells: 4th stat reaches 2 digits (10), so that slot is 8px wider */
+#sp-smoke-shells .sp-st { width: 231px; }
+#sp-smoke-shells .sp-st > span:nth-child(4) { width: 45px; } #sp-smoke-shells .sp-st > span:nth-child(4) b { width: 16px; }
+
+/* Special Equipments: wider text column (Firepower / Range / Firing Speed lines) */
+#sp-special-equipments.loc-panel.open { width: 576px; }
+#sp-special-equipments .pn-sp { width: 512px; }
+#sp-special-equipments .sp-list { width: 501px; }
+#sp-special-equipments .sp-ds { width: 290px; }
+
+/* SF Parts page: same options box as Ship Parts, one column of options, each opens its own panel */
+.info-box.sp-box.sf-box { width: 300px; }
+
+/* SF Parts > Hull: all stats in ONE row (4 columns); box grows right so +1 ~ +3 fits (left edge / tabs unchanged) */
+#sp-hull.loc-panel.open { width: 772px; }
+#sp-hull .pn-sp { width: 708px; }
+#sp-hull .sp-list { width: 697px; }
+#sp-hull .sp-row { height: auto; min-height: 51px; }
+#sp-hull .sp-ds { width: 490px; padding: 4px 0; text-align: left; }
+#sp-hull .sp-ds .hl { display: flex; align-items: flex-start; }
+#sp-hull .sp-ds .hl i { font-style: normal; flex: none; width: 88px; display: flex; align-items: center; }
+#sp-hull .sp-ds .hl i.sz { width: 194px; }
+#sp-hull .sp-ds .hl i.sz + i + i { width: 88px; }
+#sp-hull .sp-ds .hl i.sz + i + i + i { width: 88px; }
+#sp-hull .sp-ds .hl i.sz + i { width: 102px; }
+#sp-hull .sp-ds .hl i img { margin-right: 4px; }
+#sp-hull .sp-ds .hl b { display: block; white-space: nowrap; font: 14px/18px Arial, sans-serif; color: #e6ecff; }
+#sp-hull .sp-ds .hl em { display: block; font: 12px/16px Arial, sans-serif; font-style: normal; color: #e6ecff; white-space: nowrap; }
+
+/* SF Parts - Main Sail panel */
+#sp-main-sail .sp-row { height: auto; min-height: 51px; }
+#sp-main-sail.loc-panel.open { width: 609px; }
+#sp-main-sail .pn-sp { width: 535px; }
+#sp-main-sail .sp-list { width: 534px; }
+#sp-main-sail .sp-ds { width: 313px; padding: 4px 0; text-align: left; }
+#sp-main-sail .sp-ds .hl { display: flex; align-items: center; min-height: 43px; }
+#sp-main-sail .sp-ds .hl i { font-style: normal; flex: none; display: flex; align-items: center; }
+#sp-main-sail .sp-ds .hl i.sz { width: 118px; }
+#sp-main-sail .sp-ds .hl i:not(.sz) { margin-right: 14px; }
+#sp-main-sail .sp-ds .hl i img { margin-right: 4px; }
+#sp-main-sail .sp-ds .hl b { display: block; white-space: nowrap; font: 14px/18px Arial, sans-serif; color: #e6ecff; }
+
+/* SF Parts - Gun Ports */
+#sp-gun-ports .sp-row { height: auto; min-height: 51px; }                  /* 1. Sets the height of each item row in the list */
+#sp-gun-ports.loc-panel.open { width: 514px; }                             /* 2. Sets the total outer width of the Gun Ports panel when open */
+#sp-gun-ports .pn-sp { width: 524px; }                                      /* 3. Sets the inner content container width inside the panel */
+#sp-gun-ports .sp-list { width: 443px; }                                    /* 4. Sets the width of the scrolling background list box */
+#sp-gun-ports .sp-ds { width: 298px; padding: 4px 0; text-align: left; }    /* 5. Sets the description container width holding text and stats */
+#sp-gun-ports .sp-ds .hl { display: flex; align-items: center; min-height: 43px; } /* 6. Lines up all text items horizontally in a single row */
+#sp-gun-ports .sp-ds .hl i { font-style: normal; flex: none; display: flex; align-items: center; } /* 7. Base styling for item containers */
+#sp-gun-ports .sp-ds .hl i.sz { width: 118px; }                             /* 8. Controls space between Size text ('Light', 'Standard') and Stats */
+#sp-gun-ports .sp-ds .hl i.sz + i { width: 95px; }                          /* 9. Width assigned to the stat column right after size */
+#sp-gun-ports .sp-ds .hl i img { margin-right: 4px; }                       /* 10. Adds a small 4px margin between stat icon and numbers */
+#sp-gun-ports .sp-ds .hl b { display: block; white-space: nowrap; font: 14px/18px Arial, sans-serif; color: #e6ecff; } /* 11. Font styling */
+
+/* SF Parts - Armaments panel */
+#sp-armaments .sp-row { height: auto; min-height: 51px; }
+#sp-armaments.loc-panel.open { width: 684px; }
+#sp-armaments .pn-sp { width: 620px; }
+#sp-armaments .sp-list { width: 609px; }
+#sp-armaments .sp-ds { width: 399px; padding: 4px 0; text-align: left; }
+#sp-armaments .sp-ds .hl { display: flex; align-items: center; min-height: 43px; }
+#sp-armaments .sp-ds .hl i { font-style: normal; flex: none; display: flex; align-items: center; }
+#sp-armaments .sp-ds .hl i.sz { width: 125px; }
+#sp-armaments .sp-ds .hl i:not(.sz) { margin-right: 7px; }
+#sp-armaments .sp-ds .hl i:nth-child(2) { width: 84px; }
+#sp-armaments .sp-ds .hl i:nth-child(3) { width: 82px; }
+#sp-armaments .sp-ds .hl i:nth-child(4) { width: 67px; margin-right: 0; }
+#sp-armaments .sp-ds .hl i.sz b { white-space: normal; padding-right: 8px; }
+#sp-armaments .sp-ds .hl i img { margin-right: 4px; }
+#sp-armaments .sp-ds .hl b { display: block; white-space: nowrap; font: 14px/18px Arial, sans-serif; color: #e6ecff; }
+
+/* SF Parts: click a stat icon to sort by it */
+.sp-ds .hl i[data-k] img { cursor: pointer; }
+.sp-ds .hl i[data-k] img:hover, .sp-ds .hl i.sp-on img { filter: brightness(1.35); }
+
+/* SF Parts: "Type" tab above the Light/Standard/Heavy/All column (absolute, so Name and Base Performance stay where they are) */
+#sp-hull .sp-tabs, #sp-main-sail .sp-tabs, #sp-gun-ports .sp-tabs, #sp-armaments .sp-tabs, #sp-armaments-paneling .sp-tabs { position: relative; }
+.sp-type { position: absolute; bottom: 0; left: 244px; width: 101px; height: 20px; }
+
+/* SF Parts - Panels (default 441px panel) */
+#sp-armaments-paneling .sp-row { height: auto; min-height: 51px; }
+#sp-armaments-paneling .sp-ds { width: 155px; padding: 4px 0; text-align: left; }
+#sp-armaments-paneling .sp-ds .hl { display: flex; align-items: center; min-height: 43px; }
+#sp-armaments-paneling .sp-ds .hl i { font-style: normal; flex: none; display: flex; align-items: center; }
+#sp-armaments-paneling .sp-ds .hl i:not(:last-child) { margin-right: 14px; }
+#sp-armaments-paneling .sp-ds .hl i img { margin-right: 4px; }
+#sp-armaments-paneling .sp-ds .hl b { display: block; white-space: nowrap; font: 14px/18px Arial, sans-serif; color: #e6ecff; }
+#sp-armaments-paneling .sp-ds .hl i[data-k="d"] { width: 64px; margin-right: 0; }
+
+/* SF Parts > Panels: search box inside the outer frame, above the dark list box (list keeps its full 336px) */
+#sp-armaments-paneling.loc-panel.open { height: 426px; }
+#sp-armaments-paneling .pn-sp { height: 350px; }
+#sp-armaments-paneling .sp-search { margin: -14px 0 4px 53px; }
+

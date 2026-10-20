@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SF Parts - My Database</title>
+<link rel="stylesheet" href="../../style.css">
+
+<!-- Add your custom spacing here -->
+<style>
+  .sp-ds .hl .sz {
+    margin-left: 10px; /* Adjust this number to move it more or less to the right */
+  }
+
+  /* 1. Hull Base Performance tab */
+  #sp-hull .sp-base {
+    margin-left: 340px; 
+  }
+
+  /* 2. Main Sail Base Performance tab */
+  #sp-main-sail .sp-base {
+    margin-left: 258px; 
+  }
+
+  /* 3. Gun Ports Base Performance tab */
+  #sp-gun-ports .sp-base {
+    margin-left: 258px; 
+  }
+
+  /* 4. Armaments Base Performance tab */
+  #sp-armaments .sp-base {
+    margin-left: 270px; 
+  }
+
+  /* 5. Panels Base Performance tab */
+  #sp-armaments-paneling .sp-base {
+    margin-left: 135px; 
+  }
+
+  /* Panels detail box (opens at the right of the Panels list) */
+  .skill-row > .pnl-pd { margin-top: -20px; }
+  .loc-panel.pnl-pd.open { width: 310px; height: 278px; margin-left: 0; }
+  .pd-in { width: 250px; height: 202px; }
+  .pd-img { display: block; width: 250px; height: 202px; }
+  #sp-armaments-paneling .sp-row { cursor: pointer; }
+  #sp-armaments-paneling .sp-row.sp-sel .sp-nm { color: #fff; }
+  #sp-armaments-paneling .sp-row:hover:not(:has(.hl i:hover)) .sp-nm { color: #fff; text-decoration: underline; }   /* same hover as the site links */
+</style>
+</head>
+<body class="loading" data-root="../../">
+
+<!-- TOP BAR -->
+<div class="topbar"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR (built by ../../menu.js) -->
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <div class="skill-row">
+    <div class="info-box sp-box sf-box">
+    <div class="sp-links">
+      <div class="sp-col sp-icons">
+        <a href="#" data-sp="hull"><img src="../../images/ship-parts/sf/hull.png" alt="">Hull</a>
+        <a href="#" data-sp="main-sail"><img src="../../images/ship-parts/sf/main-sail.png" alt="">Main Sail</a>
+        <a href="#" data-sp="gun-ports"><img src="../../images/ship-parts/sf/gun-ports.png" alt="">Gun Ports</a>
+        <a href="#" data-sp="armaments"><img src="../../images/ship-parts/sf/armaments.png" alt="">Armaments</a>
+        <a href="#" data-sp="armaments-paneling"><img src="../../images/ship-parts/sf/armaments-paneling.png" alt="">Panels</a>
+      </div>
+    </div>
+    </div>
+    <div class="sh-panels">
+      <div class="loc-panel pnl-sp" id="sp-hull">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"><img class="sp-type" src="../../images/ship-parts/type.png" alt="Type"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-hull-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-main-sail">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"><img class="sp-type" src="../../images/ship-parts/type.png" alt="Type"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-main-sail-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-gun-ports">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"><img class="sp-type" src="../../images/ship-parts/type.png" alt="Type"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-gun-ports-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-armaments">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"><img class="sp-type" src="../../images/ship-parts/type.png" alt="Type"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-armaments-list"></div>
+        </div></div>
+      </div>
+      <div class="loc-panel pnl-sp" id="sp-armaments-paneling">
+        <div class="sp-tabs"><img class="sp-name" src="../../images/name.png" alt="Name"><img class="sp-base" src="../../images/ship-parts/base-performance.png" alt="Base Performance"></div>
+        <div class="info-box pn-box"><div class="pn-sp">
+          <div class="sp-list" id="sp-armaments-paneling-list"></div>
+        </div></div>
+      </div>
+    </div>
+    <!-- Panels: detail box, opens at the right of the list when a row is clicked -->
+    <div class="loc-panel pnl-pd" id="pd-box">
+      <div class="sp-tabs"><img class="sp-name" src="../../images/ship-parts/sf/example.png" alt="Example"></div>
+      <div class="info-box pn-box"><div class="pd-in"></div></div>
+    </div>
+    </div>
+  </main>
+
+</div>
+
+<script src="../../menu.js"></script>
+<script>
+// Hull: n = name, i = icon (images/ship-parts/sf/hull/<i>.png), k = Sail / Combined, z = Heavy / Standard / Light, r = first range (eye icon), a = second range (orange icon, '' = none), b = third range (arrow icon, '' = none). One per line, in-game order.
+var HULLS = [
+  {n:'Small Flush Deck Style Hull', i:'small-flush-deck-style-hull', k:'Sail', z:'Light', r:'+10 ~ +30', a:'', b:''},
+  {n:'Medium Flush Deck Style Hull', i:'small-flush-deck-style-hull', k:'Sail', z:'Standard', r:'+20 ~ +40', a:'', b:''},
+  {n:'Large Flush Deck Style Hull', i:'small-flush-deck-style-hull', k:'Sail', z:'Heavy', r:'+40 ~ +60', a:'', b:''},
+  {n:'Medium 2 Decked Hull', i:'medium-2-decked-hull', k:'Sail', z:'Standard', r:'+40 ~ +60', a:'', b:'-2 ~ 0'},
+  {n:'Large 2 Decked Hull', i:'medium-2-decked-hull', k:'Sail', z:'Heavy', r:'+60 ~ +80', a:'', b:'-2 ~ 0'},
+  {n:'Medium 3 Decked Hull', i:'medium-3-decked-hull', k:'Sail', z:'Standard', r:'+40 ~ +60', a:'0 ~ +2', b:'-2 ~ 0'},
+  {n:'Large 3 Decked Hull', i:'medium-3-decked-hull', k:'Sail', z:'Heavy', r:'+60 ~ +80', a:'+1 ~ +3', b:'-2 ~ 0'},
+  {n:'Small Row Boat', i:'small-row-boat', k:'Combined', z:'Light', r:'+10 ~ +30', a:'', b:''},
+  {n:'Medium Row Boat', i:'small-row-boat', k:'Combined', z:'Standard', r:'+20 ~ +40', a:'', b:''},
+  {n:'Large Row Boat', i:'small-row-boat', k:'Combined', z:'Heavy', r:'+40 ~ +60', a:'', b:''},
+  {n:'Large 2 Decked Row Boat', i:'large-2-decked-row-boat', k:'Combined', z:'Heavy', r:'+60 ~ +80', a:'+5 ~ +7', b:'-2 ~ 0'},
+  {n:'Large 3 Decked Row Boat', i:'large-3-decked-row-boat', k:'Combined', z:'Heavy', r:'+60 ~ +80', a:'+7 ~ +9', b:'-2 ~ 0'},
+  {n:'E. Asian Standard Hull', i:'e-asian-standard-hull', k:'Sail', z:'Standard', r:'+40 ~ +60', a:'0 ~ +2', b:''},
+  {n:'E. Asian Heavy Hull', i:'e-asian-heavy-hull', k:'Sail', z:'Heavy', r:'+60 ~ +80', a:'0 ~ +2', b:''},
+  {n:'E. Asian Large Row Boat', i:'e-asian-large-row-boat', k:'Combined', z:'Heavy', r:'+60 ~ +80', a:'+3 ~ +5', b:'-2 ~ 0'},
+  {n:'Modified E. Asian Heavy Hull', i:'e-asian-heavy-hull', k:'Sail', z:'Heavy', r:'+60 ~ +80', a:'+1 ~ +3', b:''},
+  {n:'Improved E. Asian Heavy Hull', i:'e-asian-heavy-hull', k:'Sail', z:'Heavy', r:'+60 ~ +80', a:'+1 ~ +3', b:''},
+  {n:'Modified E. Asian Large Row Boat', i:'e-asian-large-row-boat', k:'Combined', z:'Heavy', r:'+60 ~ +80', a:'+3 ~ +5', b:''},
+  {n:'Official Large 2 Decked Hull', i:'official-large-2-decked-hull', k:'Sail', z:'Heavy', r:'+60 ~ +80', a:'0 ~ +2', b:''},
+  {n:'Official Large 3 Decked Hull', i:'official-large-3-decked-hull', k:'Sail', z:'Heavy', r:'+60 ~ +80', a:'+1 ~ +3', b:''},
+  {n:'Official Large Row Boat', i:'official-large-row-boat', k:'Combined', z:'Heavy', r:'+40 ~ +60', a:'+1 ~ +3', b:'0 ~ +2'},
+  {n:'Official Large 2 Decked Row Boat', i:'official-large-2-decked-row-boat', k:'Combined', z:'Heavy', r:'+60 ~ +80', a:'+5 ~ +7', b:'0 ~ +2'},
+  {n:'Official Large 3 Decked Row Boat', i:'official-large-3-decked-row-boat', k:'Combined', z:'Heavy', r:'+60 ~ +80', a:'+7 ~ +9', b:'+1 ~ +3'},
+  {n:'Commander\'s Medium Flush Deck Style Hull', i:'small-flush-deck-style-hull', k:'Sail', z:'Standard', r:'+40 ~ +60', a:'0 ~ +2', b:''},
+  {n:'Commander\'s Medium 2 Decked Hull', i:'official-large-2-decked-hull', k:'Sail', z:'Standard', r:'+50 ~ +70', a:'0 ~ +2', b:''},
+  {n:'Commander\'s Medium Row Boat', i:'official-large-row-boat', k:'Combined', z:'Standard', r:'+40 ~ +60', a:'0 ~ +2', b:'+1 ~ +3'},
+  {n:'Improved Double-Shelled Heavy Hull', i:'official-large-2-decked-hull', k:'Sail', z:'Heavy', r:'+60 ~ +80', a:'+1 ~ +3', b:''},
+  {n:'General Small Hull', i:'small-flush-deck-style-hull', k:'Sail', z:'Light', r:'', a:'', b:''},
+  {n:'General Medium Hull', i:'small-flush-deck-style-hull', k:'Sail', z:'Standard', r:'', a:'', b:''},
+  {n:'General Large Hull', i:'small-flush-deck-style-hull', k:'Sail', z:'Heavy', r:'', a:'', b:''},
+  {n:'General Small Row Boat', i:'official-large-row-boat', k:'Combined', z:'Light', r:'', a:'', b:''},
+  {n:'General Medium Row Boat', i:'official-large-row-boat', k:'Combined', z:'Standard', r:'', a:'', b:''},
+  {n:'General Large Row Boat', i:'official-large-row-boat', k:'Combined', z:'Heavy', r:'', a:'', b:''}
+];
+// Main Sail: n = name, i = icon (images/ship-parts/sf/main-sail/<i>.png), z = size text, r = range (sail icon), a = optional second range (orange icon). In-game order.
+var SAILS = [
+  {n:'Small Gaff Sail', i:'small-gaff-sail', z:'Light', r:'+5 ~ +15'},
+  {n:'Medium Gaff Sail', i:'small-gaff-sail', z:'Standard', r:'+15 ~ +25'},
+  {n:'Large Gaff Sail', i:'small-gaff-sail', z:'Heavy', r:'+25 ~ +35'},
+  {n:'Delphin Gaff Sail', i:'small-gaff-sail', z:'All', r:'+35 ~ +45', a:'1 ~ 3'},
+  {n:'Small Latin Sail', i:'latin-sail', z:'Light', r:'+10 ~ +20', a:'-10 ~ 0'},
+  {n:'Medium Latin Sail', i:'latin-sail', z:'Standard', r:'+25 ~ +35', a:'-10 ~ 0'},
+  {n:'Large Latin Sail', i:'latin-sail', z:'Heavy', r:'+40 ~ +50', a:'-10 ~ 0'},
+  {n:'Small Square Sail', i:'small-square-sail', z:'Light', r:'+10 ~ +20', a:'-10 ~ 0'},
+  {n:'Medium Square Sail', i:'small-square-sail', z:'Standard', r:'+25 ~ +35', a:'-10 ~ 0'},
+  {n:'Large Square Sail', i:'small-square-sail', z:'Heavy', r:'+40 ~ +50', a:'-10 ~ 0'},
+  {n:'Medium Storm Sail', i:'medium-storm-sail', z:'Standard', r:'+10 ~ +20', a:'-+2 ~ +4'},
+  {n:'Large Storm Sail', i:'medium-storm-sail', z:'Heavy', r:'+15 ~ +25', a:'+3 ~ +5'},
+  {n:'Delphin Storm Sail', i:'medium-storm-sail', z:'All', r:'+20 ~ +30', a:'+3 ~ +5'},
+  {n:'Small Junk Sail', i:'small-junk-sail', z:'Light', r:'', a:'+5 ~ +15'},
+  {n:'Medium Junk Sail', i:'small-junk-sail', z:'Standard', r:'', a:'+15 ~ +25'},
+  {n:'Large Junk Sail', i:'small-junk-sail', z:'Heavy', r:'', a:'+25 ~ +35'},
+  {n:'General Small Latin Sail', i:'small-square-sail', z:'Light', r:'', a:'+5 ~ +15'},
+  {n:'General Medium Latin Sail', i:'small-square-sail', z:'Standard', r:'', a:'+5 ~ +15'},
+  {n:'General Large Latin Sail', i:'small-square-sail', z:'Heavy', r:'', a:'+5 ~ +15'},
+  {n:'General Small Latin Sail', i:'latin-sail', z:'Light', r:'+5 ~ +15'},
+  {n:'General Medium Latin Sail', i:'latin-sail', z:'Standard', r:'+5 ~ +15'},
+  {n:'General Large Latin Sail', i:'latin-sail', z:'Heavy', r:'+5 ~ +15'}
+];
+// Gun Ports: n = name, i = icon (images/ship-parts/sf/gun-ports/<i>.png), z = size text, r = range, a = optional second range
+var GUN_PORTS = [
+  {n:'Modified Light Gun Port', i:'gun-port', z:'Light', b:'+2 ~ +6'},
+  {n:'Modified Standard Gun Port', i:'gun-port', z:'Standard', b:'+4 ~ +8'},
+  {n:'Modified Heavy Gun Port', i:'gun-port', z:'Heavy', b:'+6 ~ +10'},
+  {n:'General Small Gun Port', i:'gun-port', z:'Light', b:'+2 ~ +6'},
+  {n:'General Medium Gun Port', i:'gun-port', z:'Standard', b:'+2 ~ +6'},
+  {n:'General Large Gun Port', i:'gun-port', z:'Heavy', b:'+2 ~ +6'}
+];
+// Armaments: n = name, i = icon (images/ship-parts/sf/armaments/<i>.png, '' = empty slot), z = size/type, then optional stat ranges: r sail, a armour, b cannon, c crew, d load, e durability, f turn, g mast, h oar, j wave. In-game order.
+var ARMAMENTS = [
+  {n:'Life Boat', i:'02200019', z:'All', e:'+20 ~ +40'},
+  {n:'Marine Sweeper', i:'02200020', z:'All', f:'+1 ~ +3'},
+  {n:'Casting Net', i:'02200036', z:'All', f:'+1 ~ +3'},
+  {n:'Painter Rope', i:'02200037', z:'All', f:'+2 ~ +4'},
+  {n:'Anti-skid Rope', i:'02200038', z:'All', a:'+1 ~ +3'},
+  {n:'Tangle Net', i:'02200036', z:'All', e:'+10 ~ +30'},
+  {n:'Traverse Rope', i:'02200040', z:'All', r:'1 ~ 3', a:'', b:''},
+  {n:'Small Mast', i:'02200041', z:'Light', r:'+5 ~ +15', g:'+5 ~ +15'},
+  {n:'Middle Mast', i:'02200041', z:'Standard', r:'+10 ~ +20', g:'+10 ~ +20'},
+  {n:'Large Mast', i:'02200041', z:'Heavy', r:'+15 ~ +25', g:'+15 ~ +25'},
+  {n:'Special Order Light Oar', i:'02200044', z:'All', h:'-3 ~ +1', f:'2 ~ 4'},
+  {n:'Special Order Large Oar', i:'02200044', z:'Heavy Combined Ship', h:'+3 ~ +5', f:'-2 ~ 0'},
+  {n:'Special High Explosives', i:'02200046', z:'All', b:'+2 ~ +6'},
+  {n:'Special Floating Mine', i:'02200047', z:'All', a:'+1 ~ +3', b:'-4 ~ 0'},
+  {n:'Loud Floating Mine', i:'02200047', z:'All', a:'+1 ~ +3', b:'-4 ~ 0'},
+  {n:'Lead Shell', i:'02200046', z:'All', b:'+2 ~ +6', f:'-2 ~ 0'},
+  {n:'Special All-purpose Ram', i:'02200050', z:'All', r:'10 ~ 30', a:'', b:''},
+  {n:'Control Tower', i:'02200054', z:'All', f:'+1 ~ +3'},
+  {n:'Stern Deck', i:'02200055', z:'All', e:'+10 ~ +30', a:'0 ~ +2', f:'-2 ~ 0'},
+  {n:"Admiral's Cabin", i:'02200056', z:'All', f:'+1 ~ +3', j:'0 ~ +2', d:'-4 ~ 0'},
+  {n:"Aide's Cabin", i:'02200056', z:'All', f:'+1 ~ +3', a:'0 ~ +2', d:'-4 ~ 0'},
+  {n:'Recreation Room', i:'02200056', z:'All', c:'+2 ~ +6', d:'-4 ~ 0'},
+  {n:'Galley', i:'02200056', z:'All', c:'-4 ~ 0', d:'+2 ~ +6'},
+  {n:'Infirmary', i:'02200056', z:'All', c:'-4 ~ 0', d:'+2 ~ +6'},
+  {n:'Workshop', i:'02200056', z:'All', c:'-4 ~ 0', d:'+2 ~ +6'},
+  {n:'Warehouse', i:'02200062', z:'All', c:'-4 ~ 0', d:'+4 ~ +8'},
+  {n:'Money Chest', i:'02200062', z:'All', c:'-4 ~ 0', d:'+4 ~ +8'},
+  {n:'Munitions Chambers', i:'02200062', z:'All', b:'+4 ~ +8', d:'-4 ~ 0'},
+  {n:'Special Ship Hold', i:'02200062', z:'All', e:'+10 ~ +30', a:'0 ~ +2', d:'-6 ~ -2'},
+  {n:'Antifouling Paint', i:'02200066', z:'All', r:'+5 ~ +15', g:'0 ~ +10', a:'-2 ~ 0'},
+  {n:'Set of Sail Sewing Tools', i:'02200067', z:'All', r:'+5 ~ +15', g:'0 ~ +10'},
+  {n:'Set of Dismantling Tools', i:'02200068', z:'All', a:'+1 ~ +3'},
+  {n:'Set of Repair Tools', i:'02200069', z:'All', e:'+10 ~ +30'},
+  {n:'High Quality Rigging', i:'02200070', z:'All', r:'+5 ~ +15', g:'+5 ~ +15'},
+  {n:'Mast Top', i:'02200041', z:'All', r:'+5 ~ +15', g:'+5 ~ +15'},
+  {n:'Processed Lumber', i:'02200072', z:'All', r:'-10 ~ 0', g:'-10 ~ 0', a:'+1 ~ +3'},
+  {n:'Metal Work', i:'02200073', z:'All', r:'-15 ~ -5', g:'-15 ~ -5', a:'+2 ~ +4'},
+  {n:'Rope', i:'02200074', z:'All', e:'+10 ~ +30'},
+  {n:'Improved Rope', i:'02200074', z:'All', e:'+20 ~ +40'},
+  {n:'Caustic Lime', i:'02200076', z:'All', e:'+10 ~ +30'},
+  {n:"Shipwright's Quarters", i:'02200056', z:'All', d:'-4 ~ 0', j:'+1 ~ +3'},
+  {n:'Specially Fashioned Rope', i:'02200074', z:'All', e:'+10 ~ +30', a:'0 ~ 2', c:'-6 ~ -2'},
+  {n:'Assault Cabin', i:'02200056', z:'Heavy Combined Ship', c:'+2 ~ +6', d:'-4 ~ 0'},
+  {n:'Reinforced Iron Deck Plating', i:'02200214', z:'All', a:'+1 ~ +3'},
+  {n:'Hull Bulkhead Plating', i:'02200214', z:'Standard Heavy', a:'+10 ~ +30', d:'-4 ~ 0'},
+  {n:'E. Asia Nanban Trade Ship Hold', i:'02200062', z:'Standard Heavy', d:'+2 ~ +6'},
+  {n:'General Small Enhanced Plating', i:'02202006', z:'Light', e:'+10 ~ +30'},
+  {n:'General Medium Enhanced Plating', i:'02202006', z:'Standard', e:'+10 ~ +30'},
+  {n:'General Large Enhanced Plating', i:'02202006', z:'Heavy', e:'+10 ~ +30'},
+  {n:'General Small Oar', i:'02200044', z:'Light', h:'+1 ~ +3'},
+  {n:'General Medium Oar', i:'02200044', z:'Standard', h:'+1 ~ +3'},
+  {n:'General Large Oar', i:'02200044', z:'Heavy', h:'+1 ~ +3'},
+  {n:'General Small Rudder', i:'02200055', z:'Light', f:'+1 ~ +3'},
+  {n:'General Medium Rudder', i:'02200055', z:'Standard', f:'+1 ~ +3'},
+  {n:'General Large Rudder', i:'02200055', z:'Heavy', f:'+1 ~ +3'},
+  {n:'General Small Anti-Rolling Tank', i:'02200056', z:'Light', j:'+1 ~ +3'},
+  {n:'General Medium Anti-Rolling Tank', i:'02200056', z:'Standard', j:'+1 ~ +3'},
+  {n:'General Large Anti-Rolling Tank', i:'02200056', z:'Heavy', j:'+1 ~ +3'},
+  {n:'General Small Armour Plating', i:'02200214', z:'Light', a:'+1 ~ +3'},
+  {n:'General Medium Armour Plating', i:'02200214', z:'Standard', a:'+1 ~ +3'},
+  {n:'General Large Armour Plating', i:'02200214', z:'Heavy', a:'+1 ~ +3'},
+  {n:'General Small Expanded Chamber', i:'02200056', z:'Light', c:'+2 ~ +6'},
+  {n:'General Medium Expanded Chamber', i:'02200056', z:'Standard', c:'+2 ~ +6'},
+  {n:'General Large Expanded Chamber', i:'02200056', z:'Heavy', c:'+2 ~ +6'},
+  {n:'General Small Expanded Ship Hold', i:'02200062', z:'Light', d:'+2 ~ +6'},
+  {n:'General Medium Expanded Ship Hold', i:'02200062', z:'Standard', d:'+2 ~ +6'},
+  {n:'General Large Expanded Ship Hold', i:'02200062', z:'Heavy', d:'+2 ~ +6'}
+];
+// Panels: n = name, i = icon (images/ship-parts/sf/armaments-paneling/<i>.png, '' = empty slot), d = durability, v = speed (percent strings), a = optional range shown after the label "All". In-game order.
+var PANELS = [
+  {n:'Cedar', i:'cedar', p:'1', d:'94%', v:'104%'},
+  {n:'Red Pine', i:'red-pine', p:'3', d:'97%', v:'102%'},
+  {n:'Beech', i:'beech', p:'5', d:'100%', v:'100%'},
+  {n:'Elm', i:'elm', p:'7', d:'105%', v:'98%'},
+  {n:'Teak', i:'teak', p:'9', d:'110%', v:'105%'},
+  {n:'Oak', i:'oak', p:'11', d:'125%', v:'99%'},
+  {n:'Mahogany', i:'mahogany', p:'13', d:'120%', v:'103%'},
+  {n:'Copper-Coated', i:'copper-coated', p:'15', d:'135%', v:'96%'},
+  {n:'Rosewood', i:'rosewood', p:'17', d:'130%', v:'101%'},
+  {n:'Iron-Plated', i:'iron-plated', p:'19', d:'140%', v:'95%'},
+  {n:'Spanish Military', i:'spanish-military', p:'21', d:'141%', v:'96%'},
+  {n:'Portuguese Military', i:'portuguese-military', p:'23', d:'141%', v:'96%'},
+  {n:'Venetian Military', i:'venetian-military', p:'25', d:'141%', v:'96%'},
+  {n:'French Military', i:'french-military', p:'27', d:'141%', v:'96%'},
+  {n:'Dutch Military', i:'dutch-military', p:'29', d:'141%', v:'96%'},
+  {n:'English Military', i:'english-military', p:'31', d:'141%', v:'96%'},
+  {n:'Ottoman Military', i:'ottoman-military', p:'33', d:'141%', v:'96%'},
+  {n:'Festival Wood', i:'festival-wood', p:'35', d:'110%', v:'105%'},
+  {n:'Festival Metal', i:'festival-metal', p:'37', d:'140%', v:'95%'},
+  {n:'Ceremonial Wood', i:'ceremonial-wood', p:'39', d:'110%', v:'105%'},
+  {n:'Ceremonial Metal', i:'ceremonial-metal', p:'41', d:'140%', v:'95%'},
+  {n:'Noble Wood', i:'noble-wood', p:'43', d:'110%', v:'105%'},
+  {n:'Noble Metal', i:'noble-metal', p:'45', d:'140%', v:'95%'},
+  {n:'Celebratory Wood', i:'celebratory-wood', p:'47', d:'110%', v:'105%'},
+  {n:'Celebratory Metal', i:'celebratory-metal', p:'49', d:'140%', v:'95%'},
+  {n:'Holy Roman Imperial Military', i:'holy-roman-imperial-military', p:'51', d:'141%', v:'96%'},
+  {n:'Nocturnal Wood', i:'nocturnal-wood', p:'53', d:'110%', v:'105%'},
+  {n:'Nocturnal Metal', i:'nocturnal-metal', p:'55', d:'140%', v:'95%'},
+  {n:'Swedish Military', i:'swedish-military', p:'57', d:'141%', v:'96%'},
+  {n:'Spanish Military Wood', i:'spanish-military-wood', p:'59', d:'111%', v:'105%'},
+  {n:'Portuguese Military Wood', i:'portuguese-military-wood', p:'61', d:'111%', v:'105%'},
+  {n:'Venetian Military Wood', i:'venetian-military-wood', p:'63', d:'111%', v:'105%'},
+  {n:'French Military Wood', i:'french-military-wood', p:'65', d:'111%', v:'105%'},
+  {n:'Dutch Military Wood', i:'dutch-military-wood', p:'67', d:'111%', v:'105%'},
+  {n:'English Military Wood', i:'english-military-wood', p:'69', d:'111%', v:'105%'},
+  {n:'Ottoman Military Wood', i:'ottoman-military-wood', p:'71', d:'111%', v:'105%'},
+  {n:'Holy Roman Imperial Military Wood', i:'holy-roman-imperial-military-wood', p:'73', d:'111%', v:'105%'},
+  {n:'Swedish Military Wood', i:'swedish-military-wood', p:'75', d:'111%', v:'105%'},
+  {n:'Phantom', i:'phantom', p:'77', d:'141%', v:'96%'},
+  {n:'Spanish Military Phantom', i:'spanish-military-phantom', p:'79', d:'141%', v:'96%'},
+  {n:'Portuguese Military Phantom', i:'portuguese-military-phantom', p:'81', d:'141%', v:'96%'},
+  {n:'Venetian Military Phantom', i:'venetian-military-phantom', p:'83', d:'141%', v:'96%'},
+  {n:'French Military Phantom', i:'french-military-phantom', p:'85', d:'141%', v:'96%'},
+  {n:'Dutch Military Phantom', i:'dutch-military-phantom', p:'87', d:'141%', v:'96%'},
+  {n:'English Military Phantom', i:'english-military-phantom', p:'89', d:'141%', v:'96%'},
+  {n:'Ottoman Military Phantom', i:'ottoman-military-phantom', p:'91', d:'141%', v:'96%'},
+  {n:'Holy Roman Imperial Phantom', i:'holy-roman-imperial-phantom', p:'93', d:'141%', v:'96%'},
+  {n:'Swedish Military Phantom', i:'swedish-military-phantom', p:'95', d:'141%', v:'96%'},
+  {n:'Nocturnal Phantom', i:'nocturnal-phantom', p:'97', d:'141%', v:'96%'},
+  {n:'Festival Phantom', i:'festival-phantom', p:'99', d:'141%', v:'96%'},
+  {n:'Ceremonial Phantom', i:'ceremonial-phantom', p:'101', d:'141%', v:'96%'},
+  {n:'Noble Phantom', i:'noble-phantom', p:'103', d:'141%', v:'96%'},
+  {n:'Celebratory Phantom', i:'celebratory-phantom', p:'105', d:'141%', v:'96%'},
+  {n:'Special Dark Green Wood', i:'special-dark-green-wood', p:'107', d:'111%', v:'105%'},
+  {n:'Special Dark Green Metal', i:'special-dark-green-metal', p:'109', d:'141%', v:'96%'},
+  {n:'Special Blue-Gray Wood', i:'special-blue-gray-wood', p:'111', d:'111%', v:'105%'},
+  {n:'Special Blue-Gray Metal', i:'special-blue-gray-metal', p:'113', d:'141%', v:'96%'},
+  {n:'Special Black-Purple Wood', i:'special-black-purple-wood', p:'115', d:'111%', v:'105%'},
+  {n:'Special Black-Purple Metal', i:'special-black-purple-metal', p:'117', d:'141%', v:'96%'},
+  {n:'Phantom Steel', i:'phantom-steel', p:'77', d:'141%', v:'96%'},
+  {n:'Spanish Military Phantom Steel', i:'spanish-military-phantom-steel', p:'79', d:'141%', v:'96%'},
+  {n:'Portuguese Military Phantom Steel', i:'portuguese-military-phantom-steel', p:'81', d:'141%', v:'96%'},
+  {n:'Venetian Military Phantom Steel', i:'venetian-military-phantom-steel', p:'83', d:'141%', v:'96%'},
+  {n:'French Military Phantom Steel', i:'french-military-phantom-steel', p:'85', d:'141%', v:'96%'},
+  {n:'Dutch Military Phantom Steel', i:'dutch-military-phantom-steel', p:'87', d:'141%', v:'96%'},
+  {n:'English Military Phantom Steel', i:'english-military-phantom-steel', p:'89', d:'141%', v:'96%'},
+  {n:'Ottoman Military Phantom Steel', i:'ottoman-military-phantom-steel', p:'91', d:'141%', v:'96%'},
+  {n:'Holy Roman Imperial Phantom Steel', i:'holy-roman-imperial-phantom-steel', p:'93', d:'141%', v:'96%'},
+  {n:'Swedish Military Phantom Steel', i:'swedish-military-phantom-steel', p:'95', d:'141%', v:'96%'},
+  {n:'Nocturnal Phantom Steel', i:'nocturnal-phantom-steel', p:'97', d:'141%', v:'96%'},
+  {n:'Festival Phantom Steel', i:'festival-phantom-steel', p:'99', d:'141%', v:'96%'},
+  {n:'Ceremonial Phantom Steel', i:'ceremonial-phantom-steel', p:'101', d:'141%', v:'96%'},
+  {n:'Noble Phantom Steel', i:'noble-phantom-steel', p:'103', d:'141%', v:'96%'},
+  {n:'Celebratory Phantom Steel', i:'celebratory-phantom-steel', p:'105', d:'141%', v:'96%'},
+  {n:'Commander\'s Crimson Wood', i:'commanders-crimson-wood', p:'149', d:'111%', v:'105%'},
+  {n:'Commander\'s Crimson Metal', i:'commanders-crimson-metal', p:'151', d:'141%', v:'96%'},
+  {n:'Commander\'s Dark Blue Wood', i:'commanders-dark-blue-wood', p:'153', d:'111%', v:'105%'},
+  {n:'Commander\'s Dark Blue Metal', i:'commanders-dark-blue-metal', p:'155', d:'141%', v:'96%'},
+  {n:'Moon White Wood', i:'moon-white-wood', p:'156', d:'111%', v:'105%'},
+  {n:'Moon White Metal', i:'moon-white-metal', p:'158', d:'141%', v:'96%'},
+  {n:'Special Golden Wood', i:'special-golden-wood', p:'160', d:'111%', v:'105%'},
+  {n:'Special Golden Metal', i:'special-golden-metal', p:'162', d:'141%', v:'96%'},
+  {n:'Special Pearl Purple Wood', i:'special-pearl-purple-wood', p:'164', d:'111%', v:'105%'},
+  {n:'Special Pearl Purple Metal', i:'special-pearl-purple-metal', p:'166', d:'141%', v:'96%'},
+  {n:'Special Vermilion Wood', i:'special-vermilion-wood', p:'168', d:'111%', v:'105%'},
+  {n:'Special Vermilion Metal', i:'special-vermilion-metal', p:'170', d:'141%', v:'96%'},
+  {n:'Spanish Admiral Metal', i:'spanish-admiral-metal', p:'172', d:'143%', v:'100%'},
+  {n:'Portuguese Admiral Metal', i:'portuguese-admiral-metal', p:'174', d:'143%', v:'100%'},
+  {n:'Venetian Admiral Metal', i:'venetian-admiral-metal', p:'176', d:'143%', v:'100%'},
+  {n:'French Admiral Metal', i:'french-admiral-metal', p:'178', d:'143%', v:'100%'},
+  {n:'Dutch Admiral Metal', i:'dutch-admiral-metal', p:'180', d:'143%', v:'100%'},
+  {n:'English Admiral Metal', i:'english-admiral-metal', p:'182', d:'143%', v:'100%'},
+  {n:'Ottoman Admiral Metal', i:'ottoman-admiral-metal', p:'184', d:'143%', v:'100%'},
+  {n:'Nocturnal Admiral Metal', i:'nocturnal-admiral-metal', p:'186', d:'143%', v:'100%'},
+  {n:'Moon White Admiral Metal', i:'moon-white-admiral-metal', p:'188', d:'143%', v:'100%'},
+  {n:'Holy Roman Imperial Admiral Metal', i:'holy-roman-imperial-admiral-metal', p:'190', d:'143%', v:'100%'},
+  {n:'Swedish Admiral Metal', i:'swedish-admiral-metal', p:'192', d:'143%', v:'100%'},
+  {n:'Marshal\'s Emerald Wood', i:'marshals-emerald-wood', p:'194', d:'125%', v:'108%'},
+  {n:'Marshal\'s Emerald Metal', i:'marshals-emerald-metal', p:'196', d:'148%', v:'102%'},
+  {n:'Marshal\'s Obsidian Wood', i:'marshals-obsidian-wood', p:'198', d:'125%', v:'108%'},
+  {n:'Marshal\'s Obsidian Metal', i:'marshals-obsidian-metal', p:'200', d:'148%', v:'102%'},
+  {n:'Marshal\'s Amethyst Wood', i:'marshals-amethyst-wood', p:'202', d:'125%', v:'108%'},
+  {n:'Marshal\'s Amethyst Metal', i:'marshals-amethyst-metal', p:'204', d:'148%', v:'102%'},
+  {n:'Marshal\'s Ruby Wood', i:'marshals-ruby-wood', p:'206', d:'125%', v:'108%'},
+  {n:'Marshal\'s Ruby Metal', i:'marshals-ruby-metal', p:'208', d:'148%', v:'102%'},
+  {n:'Marshal\'s Lapis Wood', i:'marshals-lapis-wood', p:'210', d:'125%', v:'108%'},
+  {n:'Marshal\'s Lapis Metal', i:'marshals-lapis-metal', p:'212', d:'148%', v:'102%'},
+  {n:'Marshal\'s Pearl Wood', i:'marshals-pearl-wood', p:'214', d:'125%', v:'108%'},
+  {n:'Marshal\'s Pearl Metal', i:'marshals-pearl-metal', p:'216', d:'148%', v:'102%'},
+  {n:'Marshal\'s Amber Wood', i:'marshals-amber-wood', p:'218', d:'125%', v:'108%'},
+  {n:'Marshal\'s Amber Metal', i:'marshals-amber-metal', p:'220', d:'148%', v:'102%'},
+  {n:'Marshal\'s Iolite Wood', i:'marshals-iolite-wood', p:'222', d:'125%', v:'108%'},
+  {n:'Marshal\'s Iolite Metal', i:'marshals-iolite-metal', p:'224', d:'148%', v:'102%'},
+  {n:'Marshal\'s Sunfire Wood', i:'marshals-sunfire-wood', p:'226', d:'125%', v:'108%'},
+  {n:'Marshal\'s Sunfire Metal', i:'marshals-sunfire-metal', p:'228', d:'148%', v:'102%'}
+];
+(function () {
+  var R = '../../images/';
+  // Sort value of a range text like "+10 ~ +30": the middle of its two ends (null = no value).
+  function rng(v) {
+    var m = String(v || '').match(/[-+]?\d+/g); if (!m) return null;
+    return (parseInt(m[0], 10) + parseInt(m[m.length - 1], 10)) / 2;
+  }
+  // Builds the rows. Click a stat icon (inside <i data-k="key">) = sort highest first, click again = lowest first,
+  // another icon starts highest first. Rows without that stat go last, ties keep the original order.
+  function fillList(list, items, rowHtml, fill) {
+    var key = null, dir = -1;
+    function render() {
+      var rows = items.map(function (s, i) { return { s: s, i: i, v: key === null ? null : rng(s[key]) }; });
+      if (key !== null) rows.sort(function (x, y) {
+        if (x.v === null || y.v === null) return x.v === y.v ? x.i - y.i : (x.v === null ? 1 : -1);
+        return (dir * (x.v - y.v)) || (x.i - y.i);
+      });
+      if (list._flt) rows = rows.filter(function (o) { return list._flt(o.s); });
+      list.innerHTML = '';
+      rows.forEach(function (o) {
+        var r = document.createElement('div'); r.className = 'sp-row';
+        r.innerHTML = rowHtml(o.s); fill(r, o.s);
+        if (key !== null) { var on = r.querySelector('i[data-k="' + key + '"]'); if (on) on.classList.add('sp-on'); }
+        list.appendChild(r);
+      });
+      if (!rows.length) { var em = document.createElement('div'); em.className = 'sh-empty'; em.textContent = 'No panels found'; list.appendChild(em); }
+      list.scrollTop = 0;
+    }
+    list.addEventListener('click', function (e) {
+      var ic = e.target.closest('.hl i[data-k] img'); if (!ic) return;
+      var k = ic.parentNode.getAttribute('data-k');
+      if (key === k) dir = -dir; else { key = k; dir = -1; }
+      render();
+    });
+    list._render = render;
+    render();
+  }
+
+  // 1. Hull list renderer
+  fillList(document.getElementById('sp-hull-list'), HULLS,
+    function (s) { return (s.i ? '<img class="sp-ic" src="' + R + 'ship-parts/sf/hull/' + s.i + '.png" alt="">' : '<span class="sp-ic"></span>') + '<span class="sp-nm"></span><span class="sp-ds"><div class="hl"><i class="sz"><img src="' + R + 'ship-parts/sf/hull-st-size.png" alt=""><b></b></i><i><img src="' + R + 'ship-parts/sf/hull-st-0.png" alt=""><b></b></i><i><img src="' + R + 'ship-parts/sf/hull-st-2.png" alt=""><b></b></i><i><img src="' + R + 'ship-parts/sf/hull-st-1.png" alt=""><b></b></i></div></span>'; },
+    function (r, s) { r.querySelector('.sp-nm').textContent = s.n;
+      var ii = r.querySelectorAll('.sp-ds .hl i'), v = [s.k + ' Ship (' + s.z + ')', s.r, s.a, s.b];
+      ['', 'r', 'a', 'b'].forEach(function (k, n) { if (k) ii[n].setAttribute('data-k', k); });
+      for (var k = 0; k < 4; k++) { ii[k].querySelector('b').textContent = v[k]; if (!v[k] && ii[k].querySelector('img')) ii[k].removeChild(ii[k].querySelector('img')); } });
+
+  // 2. Main Sail list renderer
+  fillList(document.getElementById('sp-main-sail-list'), SAILS,
+    function (s) {
+      var html = '<img class="sp-ic" src="' + R + 'ship-parts/sf/main-sail/' + s.i + '.png" alt=""><span class="sp-nm"></span><span class="sp-ds"><div class="hl"><i class="sz"><img src="' + R + 'ship-parts/sf/hull-st-size.png" alt=""><b>' + s.z + '</b></i>';
+      if (s.r) {
+        html += '<i data-k="r"><img src="' + R + 'ship-parts/sf/main-sail-st.png" alt=""><b>' + s.r + '</b></i>';
+      }
+      if (s.a) {
+        html += '<i data-k="a"><img src="' + R + 'ship-parts/sf/hull-st-h.png" alt=""><b>' + s.a + '</b></i>';
+      }
+      html += '</div></span>';
+      return html;
+    },
+    function (r, s) {
+      r.querySelector('.sp-nm').textContent = s.n;
+    });
+
+  // 3. Gun Ports list renderer (Only affects Gun Ports)
+  fillList(document.getElementById('sp-gun-ports-list'), GUN_PORTS,
+    function (s) {
+      var html = '<img class="sp-ic" src="' + R + 'ship-parts/sf/gun-ports/' + s.i + '.png" alt=""><span class="sp-nm"></span><span class="sp-ds"><div class="hl"><i class="sz"><img src="' + R + 'ship-parts/sf/hull-st-size.png" alt=""><b>' + s.z + '</b></i>';
+      
+      // Only check for your custom values (e.g., b and c)
+      if (s.b) {
+        html += '<i data-k="b"><img src="' + R + 'ship-parts/sf/gun-ports-0.png" alt=""><b>' + s.b + '</b></i>';
+      }
+      html += '</div></span>';
+      return html;
+    },
+    function (r, s) {
+      r.querySelector('.sp-nm').textContent = s.n;
+    });
+
+  // 4. Armaments list renderer (builds only the stats present on each item; keys: r sail, a armour, b cannon, c crew, d load, e durability, f turn, g mast, h oar, j wave) (dynamically builds only the stats present on each item)
+  fillList(document.getElementById('sp-armaments-list'), ARMAMENTS,
+    function (s) {
+      var html = (s.i ? '<img class="sp-ic" src="' + R + 'ship-parts/sf/armaments/' + s.i + '.png" alt="">' : '<span class="sp-ic"></span>') + '<span class="sp-nm"></span><span class="sp-ds"><div class="hl"><i class="sz"><img src="' + R + 'ship-parts/sf/armaments/hull-st-size.png" alt=""><b>' + s.z + '</b></i>';
+      
+      // Stats are always shown in this order (ship first), side by side with no empty slots.
+      var STAT_IMG = {r: 'main-sail-st.png', a: 'hull-st-2.png', b: 'gun-ports-0.png', c: 'ico-crew.png', d: 'ico-load.png', e: 'hull-st-0.png', f: 'hull-st-1.png', g: 'hull-st-h.png', h: 'ico-oar.png', j: 'hull-st-wave.png'};
+      ['e', 'r', 'g', 'a', 'f', 'b', 'h', 'j', 'c', 'd'].forEach(function (k) {
+        if (s[k]) html += '<i data-k="' + k + '"><img src="' + R + 'ship-parts/sf/armaments/' + STAT_IMG[k] + '" alt=""><b>' + s[k] + '</b></i>';
+      });
+
+      html += '</div></span>';
+      return html;
+    },
+    function (r, s) {
+      r.querySelector('.sp-nm').textContent = s.n;
+    });
+
+  // 5. Panels list renderer (d durability, v speed; a = optional "All" range). A missing icon file falls back to an empty slot.
+  fillList(document.getElementById('sp-armaments-paneling-list'), PANELS,
+    function (s) {
+      var html = (s.i ? '<img class="sp-ic" src="' + R + 'ship-parts/sf/armaments-paneling/' + s.i + '.png" alt="" onerror="this.outerHTML=\'<span class=&quot;sp-ic&quot;></span>\'">' : '<span class="sp-ic"></span>') + '<span class="sp-nm"></span><span class="sp-ds"><div class="hl">';
+      if (s.d) html += '<i data-k="d"><img src="' + R + 'ship-parts/sf/hull-st-0.png" alt=""><b>' + s.d + '</b></i>';
+      if (s.v) html += '<i data-k="v"><img src="' + R + 'ship-parts/sf/main-sail-st.png" alt=""><b>' + s.v + '</b></i>';
+      if (s.a) html += '<i data-k="a"><b>All ' + s.a + '</b></i>';
+      return html + '</div></span>';
+    },
+    function (r, s) {
+      r.querySelector('.sp-nm').textContent = s.n;
+      r._s = s; if (s === pdSel) r.classList.add('sp-sel');
+    });
+
+  // Panels search box (same rules as the Ships pages): nothing filters under 3 characters; every typed word must match the START of a word in the name; Esc clears.
+  (function () {
+    var pnl = document.getElementById('sp-armaments-paneling'), inp = document.createElement('input');
+    inp.type = 'text'; inp.className = 'sh-search sp-search'; inp.setAttribute('aria-label', 'Search panel'); inp.autocomplete = 'off'; inp.spellcheck = false;
+    var L = document.getElementById('sp-armaments-paneling-list'), sc = L.parentNode;     // .sp-scroll (built by menu.js)
+    sc.parentNode.insertBefore(inp, sc);
+    if (window.attachCaret) window.attachCaret(inp);
+    function startsWord(name, tok) {
+      for (var i = 0; i < name.length; i++) { if ((i === 0 || name[i - 1] === ' ' || name[i - 1] === '-') && name.substr(i, tok.length) === tok) return true; }
+      return false;
+    }
+    function apply() {
+      var q = inp.value.trim().toLowerCase().replace(/\s+/g, ' '), toks = q.length >= 3 ? q.split(' ') : [];
+      L._flt = toks.length ? function (s) { var nm = s.n.toLowerCase(); return toks.every(function (t) { return startsWord(nm, t); }); } : null;
+      L._render(); window.dispatchEvent(new Event('resize'));
+    }
+    inp.addEventListener('input', apply);
+    inp.addEventListener('keydown', function (e) { if (e.key === 'Escape') { inp.value = ''; apply(); } });
+  })();
+
+  // Panels detail box: click a row = open the box at the right with that panel; click it again = close; another row = swap.
+  var pdSel = null, pdBox = document.getElementById('pd-box'), pdIn = pdBox.querySelector('.pd-in');
+  var pdList = document.getElementById('sp-armaments-paneling-list');
+  function pdFill(s) {
+    pdIn.innerHTML = s.p ? '<img class="pd-img" src="' + R + 'ship-parts/sf/armaments-paneling/detail/' + s.p + '.png" alt="">' : '';
+  }
+  function pdMark() {
+    Array.prototype.forEach.call(pdList.querySelectorAll('.sp-row'), function (r) { r.classList.toggle('sp-sel', r._s === pdSel); });
+  }
+  pdList.addEventListener('click', function (e) {
+    if (e.target.closest('.hl i')) return;                    // stat icons keep sorting
+    var r = e.target.closest('.sp-row'); if (!r || !r._s) return;
+    if (pdSel === r._s) { pdSel = null; pdBox.classList.remove('open'); }
+    else if (r._s.p) { pdSel = r._s; pdFill(pdSel); pdBox.classList.add('open'); }
+    else { pdSel = null; pdBox.classList.remove('open'); }   // no image yet for this row
+    pdMark();
+  });
+  // the box closes when the Panels panel closes
+  new MutationObserver(function () {
+    if (!document.getElementById('sp-armaments-paneling').classList.contains('open') && pdSel) { pdSel = null; pdBox.classList.remove('open'); pdMark(); }
+  }).observe(document.getElementById('sp-armaments-paneling'), { attributes: true, attributeFilter: ['class'] });
+})();
+</script>
+</body>
+</html>

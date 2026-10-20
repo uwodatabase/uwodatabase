@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foodstuffs - My Database</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="loading" data-root="../../">
+
+<!-- TOP BAR -->
+<div class="topbar"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR (built by ../../menu.js) -->
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <div class="col-headers">
+      <img class="col-header" src="../../images/name.png" alt="Name">
+      <img class="col-header" src="../../images/specialty.png" alt="Specialty">
+    </div>
+    <div class="info-box">
+      <table class="item-table">
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/alpaca-meat.png')"></span></td>
+          <td class="name-text"><a href="#">Alpaca Meat</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/azuki-beans.png')"></span></td>
+          <td class="name-text"><a href="#">Azuki Beans</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/bacon.png')"></span></td>
+          <td class="name-text"><a href="#">Bacon</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/barley.png')"></span></td>
+          <td class="name-text"><a href="#">Barley</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/beef.png')"></span></td>
+          <td class="name-text"><a href="#">Beef</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/beehives.png')"></span></td>
+          <td class="name-text"><a href="#">Beehives</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/berries.png')"></span></td>
+          <td class="name-text"><a href="#">berries</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/cactuses.png')"></span></td>
+          <td class="name-text"><a href="#">Cactuses</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/regions/east-coast-latin-america.png')"></span></td>
+          <td class="specialty-text"><a href="#">E Coast of Latin America</a></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/carrots.png')"></span></td>
+          <td class="name-text"><a href="#">Carrots</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/cassava.png')"></span></td>
+          <td class="name-text"><a href="#">Cassava</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/cheese.png')"></span></td>
+          <td class="name-text"><a href="#">Cheese</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/chinese-noodles.png')"></span></td>
+          <td class="name-text"><a href="#">Chinese Noodles</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/regions/south-china.png')"></span></td>
+          <td class="specialty-text"><a href="#">South China</a></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/corn.png')"></span></td>
+          <td class="name-text"><a href="#">Corn</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/crocodile-meat.png')"></span></td>
+          <td class="name-text"><a href="#">Crocodile Meat</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/dashima.png')"></span></td>
+          <td class="name-text"><a href="#">Dashima</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/regions/korea.png')"></span></td>
+          <td class="specialty-text"><a href="#">Korea</a></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/dried-mullet-roe.png')"></span></td>
+          <td class="name-text"><a href="#">Dried Mullet Roe</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/regions/taiwan.png')"></span></td>
+          <td class="specialty-text"><a href="#">Taiwan</a></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/duck-meat.png')"></span></td>
+          <td class="name-text"><a href="#">Duck Meat</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/eggs.png')"></span></td>
+          <td class="name-text"><a href="#">Eggs</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/fish.png')"></span></td>
+          <td class="name-text"><a href="#">Fish</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/flour.png')"></span></td>
+          <td class="name-text"><a href="#">Flour</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/ham.png')"></span></td>
+          <td class="name-text"><a href="#">Ham</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/hornworms.png')"></span></td>
+          <td class="name-text"><a href="#">Hornworms</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/jambu.png')"></span></td>
+          <td class="name-text"><a href="#">Jambu</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/kangaroo-meat.png')"></span></td>
+          <td class="name-text"><a href="#">Kangaroo Meat</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/regions/oceania.png')"></span></td>
+          <td class="specialty-text"><a href="#">Oceania</a></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/lamb.png')"></span></td>
+          <td class="name-text"><a href="#">Lamb</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/milk.png')"></span></td>
+          <td class="name-text"><a href="#">Milk </a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/mushrooms.png')"></span></td>
+          <td class="name-text"><a href="#">Mushrooms</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/olives.png')"></span></td>
+          <td class="name-text"><a href="#">Olives</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/pasta.png')"></span></td>
+          <td class="name-text"><a href="#">Pasta</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/pastry.png')"></span></td>
+          <td class="name-text"><a href="#">Pastry</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/pearl-shells.png')"></span></td>
+          <td class="name-text"><a href="#">Pearl Shells</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/pork.png')"></span></td>
+          <td class="name-text"><a href="#">Pork</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/poultry.png')"></span></td>
+          <td class="name-text"><a href="#">Poultry</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/pumpkins.png')"></span></td>
+          <td class="name-text"><a href="#">Pumpkins</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/quinoa.png')"></span></td>
+          <td class="name-text"><a href="#">Quinoa</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/red-beans.png')"></span></td>
+          <td class="name-text"><a href="#">Red Beans</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/rye.png')"></span></td>
+          <td class="name-text"><a href="#">Rye</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/satoimo.png')"></span></td>
+          <td class="name-text"><a href="#">Satoimo</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/soba.png')"></span></td>
+          <td class="name-text"><a href="#">Soba</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/regions/japan.png')"></span></td>
+          <td class="specialty-text"><a href="#">Japan</a></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/soya-beans.png')"></span></td>
+          <td class="name-text"><a href="#">Soya Beans</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/sticky-rice.png')"></span></td>
+          <td class="name-text"><a href="#">Sticky Rice</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/sugar-beet.png')"></span></td>
+          <td class="name-text"><a href="#">Sugar Beet</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/sweet-bean-paste.png')"></span></td>
+          <td class="name-text"><a href="#">Sweet Bean Paste</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/sweet-potatoes.png')"></span></td>
+          <td class="name-text"><a href="#">Sweet Potatoes</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/sugar-cane.png')"></span></td>
+          <td class="name-text"><a href="#">Sweet Potatoes</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/potatoes.png')"></span></td>
+          <td class="name-text"><a href="#">Sweet Potatoes</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/wetland-rice.png')"></span></td>
+          <td class="name-text"><a href="#">Sweet Potatoes</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/sausages.png')"></span></td>
+          <td class="name-text"><a href="#">Sweet Potatoes</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/broad-beans.png')"></span></td>
+          <td class="name-text"><a href="#">Sweet Potatoes</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/onions.png')"></span></td>
+          <td class="name-text"><a href="#">Sweet Potatoes</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/taro.png')"></span></td>
+          <td class="name-text"><a href="#">Taro</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/regions/southeast-asia.png')"></span></td>
+          <td class="specialty-text"><a href="#">Southeast Asia</a></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/tomatoes.png')"></span></td>
+          <td class="name-text"><a href="#">Tomatoes</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/turnips.png')"></span></td>
+          <td class="name-text"><a href="#">Turnips</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/upland-rice.png')"></span></td>
+          <td class="name-text"><a href="#">Upland Rice</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/water-caltrop.png')"></span></td>
+          <td class="name-text"><a href="#">Water Caltrop</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/regions/taiwan.png')"></span></td>
+          <td class="specialty-text"><a href="#">Taiwan</a></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/wheat.png')"></span></td>
+          <td class="name-text"><a href="#">Wheat</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/wild-oats.png')"></span></td>
+          <td class="name-text"><a href="#">Wild Oats</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+		  <td class="icon"></td>
+		  <td class="specialty-text"></td>
+        </tr>
+
+        <tr>
+          <!-- Columna Name -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/foodstuffs/yangzhou-chestnut.png')"></span></td>
+          <td class="name-text"><a href="#">Yangzhou Chestnut</a></td>
+
+          <!-- Specialty Column: Left blank because there is no specialty -->
+          <td class="icon"><span class="item-icon" style="background-image:url('../../images/regions/korea.png')"></span></td>
+          <td class="specialty-text"><a href="#">Korea</a></td>
+        </tr>		
+      </table>
+    </div>
+  </main>
+
+</div>
+
+<script src="../../menu.js"></script>
+</body>
+</html>
